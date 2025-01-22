@@ -51,13 +51,13 @@
   environment.systemPackages = with pkgs; [
   git-credential-manager
   vscode  
-  neovim
   git
   github-desktop
   xdg-utils
   xdg-desktop-portal
   xdg-desktop-portal-gtk
   xdg-desktop-portal-kde
+  godot_4
   ];
   # Services
   services.openssh.enable = true;
