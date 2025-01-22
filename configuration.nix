@@ -49,6 +49,8 @@
   programs.firefox.enable = true;
   #Main Packages
   environment.systemPackages = with pkgs; [
+  git-credential-manager
+  vscode  
   neovim
   git
   github-desktop
@@ -72,4 +74,6 @@
   };
   #Version
   system.stateVersion = "24.11";
+  #Unfree :(
+  nixpkgs.config.allowUnfree = true;
 }
