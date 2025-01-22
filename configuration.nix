@@ -2,6 +2,7 @@
 {
   imports =
     [
+      ./sddm-config.nix
       ./hardware-configuration.nix
     ];
   # Bootloader.
@@ -58,7 +59,9 @@
   xdg-desktop-portal-gtk
   xdg-desktop-portal-kde
   godot_4
-  (callPackage ./sddm.nix {})
+  sddm
+  qt5.qtbase
+  qt5.qtquickcontrols2
   ];
   # Services
   services.openssh.enable = true;

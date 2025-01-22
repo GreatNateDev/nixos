@@ -1,16 +1,16 @@
 { stdenv, fetchurl }:
 
 stdenv.mkDerivation rec {
-  pname = "sddmer";
+  pname = "CBMAnimPetGlobe";
   version = "1.0";
   
   src = fetchurl {
-    url = "";
-    sha256 = "";
+    url = "https://github.com/GreatNateDev/nixos/raw/refs/heads/main/data/CBMAnimPetGlobe.tar.gz";
+    sha256 = "sha256-uQ3VgHbkYI6L52M+BGurWNZIBC2CoJHrGEYKDSM6Sao=";
   };
 
   installPhase = ''
-    mkdir -p $out/share/sddm/themes
-    cp -r . $out/share/sddm/themes/${pname}
+    mkdir -p $out/
+    cp -r . $out/
   '';
 }
