@@ -58,6 +58,7 @@
   xdg-desktop-portal-gtk
   xdg-desktop-portal-kde
   godot_4
+  (callPackage ./sddm.nix {})
   ];
   # Services
   services.openssh.enable = true;
