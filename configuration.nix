@@ -2,7 +2,6 @@
 {
   imports =
     [
-      ./sddm-config.nix
       ./hardware-configuration.nix
     ];
   # Bootloader.
@@ -26,8 +25,8 @@
     LC_TIME = "en_US.UTF-8";
   };
   # Desktop ENV
-  services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.enable = true;
   # Printing
   services.printing.enable = true;
   # Audio
