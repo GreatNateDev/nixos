@@ -26,7 +26,7 @@
   };
   # Desktop ENV
   services.desktopManager.plasma6.enable = true;
-  services.desktopManager.sddm.enable = true;
+  services.displayManager.sddm.enable = true;
   # Printing
   services.printing.enable = true;
   # Audio
