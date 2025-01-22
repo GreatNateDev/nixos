@@ -26,7 +26,7 @@
   };
   # Desktop ENV
   services.desktopManager.plasma6.enable = true;
-  services.displayManager.sddm.enable = true;
+  services.desktopManager.sddm.enable = true;
   # Printing
   services.printing.enable = true;
   # Audio
@@ -58,9 +58,7 @@
   xdg-desktop-portal-gtk
   xdg-desktop-portal-kde
   godot_4
-  sddm
-  qt5.qtbase
-  qt5.qtquickcontrols2
+  prismlauncher
   ];
   # Services
   services.openssh.enable = true;
