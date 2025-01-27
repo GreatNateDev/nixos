@@ -3,6 +3,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./jellyfin.nix
     ];
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -49,6 +50,7 @@
   programs.firefox.enable = true;
   #Main Packages
   environment.systemPackages = with pkgs; [
+  jdk
   git-credential-manager
   vscode  
   git
@@ -59,6 +61,8 @@
   xdg-desktop-portal-kde
   godot_4
   prismlauncher
+  fastfetch
+  direnv
   ];
   # Services
   services.openssh.enable = true;
