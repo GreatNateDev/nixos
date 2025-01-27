@@ -50,6 +50,7 @@
   programs.firefox.enable = true;
   #Main Packages
   environment.systemPackages = with pkgs; [
+  caligula
   jdk
   git-credential-manager
   vscode  
