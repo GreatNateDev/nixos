@@ -8,7 +8,7 @@
     docker
     docker-compose
     direnv
-    nixfmt
+    nixfmt-rfc-style
     nixd
     jetbrains-mono
     fira-code
@@ -17,5 +17,6 @@
     nerd-fonts.jetbrains-mono
     nerd-fonts.iosevka
     tree
+    nmap
   ];
 }
