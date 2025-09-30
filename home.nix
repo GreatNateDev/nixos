@@ -37,6 +37,7 @@
     enable = true;
     shellAliases = {
       ns = "sudo nixos-rebuild switch --flake $HOME/.config/nixos";
+      nd = "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +5";
     };
     initContent = ''
       fastfetch
