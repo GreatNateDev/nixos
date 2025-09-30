@@ -39,6 +39,7 @@
     zsh-fzf-tab
     fzf
     openjdk21
+    yt-dlp
   ];
   programs.zsh = {
     enable = true;
