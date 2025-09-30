@@ -40,6 +40,7 @@
     fzf
     openjdk21
     yt-dlp
+    exiftool
   ];
   programs.zsh = {
     enable = true;
