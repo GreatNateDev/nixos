@@ -38,6 +38,7 @@
     zsh-history-substring-search
     zsh-fzf-tab
     fzf
+    openjdk21
   ];
   programs.zsh = {
     enable = true;
