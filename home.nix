@@ -41,6 +41,7 @@
     openjdk21
     yt-dlp
     exiftool
+    id3v2
   ];
   programs.zsh = {
     enable = true;
