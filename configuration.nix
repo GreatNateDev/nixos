@@ -3,7 +3,7 @@
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   imports = [
-    ./hardware-configuration.nix
+    (import /home/nate/.config/nixos/hardware-configuration.nix)
     ./system-packages.nix
     ./bootloader.nix
     ./display.nix

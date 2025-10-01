@@ -47,7 +47,7 @@
   programs.zsh = {
     enable = true;
     shellAliases = {
-      ns = "sudo nixos-rebuild switch --flake $HOME/.config/nixos";
+      ns = "sudo nixos-rebuild switch --flake $HOME/.config/nixos --impure";
       nd = "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +5";
     };
     initContent = ''
@@ -126,14 +126,12 @@
       };
     };
   };
-  programs.wpaperd = {
+  services.wpaperd = {
     enable = true;
     settings = {
-      default = {
-        path = "/home/nate/.config/nixos/data/bg";  # Path to your wallpaper folder
-        mode = "fill";                   # Options: stretch, center, tile, fill, fit
-        duration = 20;                  # Seconds between wallpapers (5 min here)
-        random = true;                   # Shuffle wallpapers randomly
+      eDP-1 = {
+        path = "/home/nate/.config/nixos/data/bg/";  
+        duration = "20s";                            
       };
     };
   };
