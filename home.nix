@@ -43,6 +43,7 @@
     exiftool
     id3v2
     steam
+    neovim
   ];
   programs.zsh = {
     enable = true;
