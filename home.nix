@@ -1,19 +1,12 @@
 { pkgs, ... }:
 
 {
-  # Your username and home directory
   home.username = "nate";
   home.homeDirectory = "/home/nate";
-
-  # Track Home Manager version (use unstable or match your nixpkgs version)
   home.stateVersion = "25.11";
 
-  # Enable basic programs
-  #programs.zsh.enable = true;
-  #programs.git.enable = true;
-
-  # Packages to install in the user environment
   home.packages = with pkgs; [
+    sweet-folders
     nerd-fonts.jetbrains-mono
     brave
     alacritty
@@ -44,6 +37,7 @@
     id3v2
     steam
   ];
+
   programs.zsh = {
     enable = true;
     shellAliases = {
@@ -51,20 +45,17 @@
       nd = "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +5";
     };
     initContent = ''
-      # fastfetch
       fastfetch
-      # Plugins
       source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
       source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
       source ${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-      # fzf + fzf-tab
       source ${pkgs.fzf}/share/fzf/key-bindings.zsh
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
       source /home/nate/.config/nixos/data/zsh/p10k.zsh
     '';
     oh-my-zsh = {
       enable = true;
-      theme = "powerlevel10k"; # just the theme name
+      theme = "powerlevel10k";
       custom = "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k";
       plugins = [
         "git"
@@ -73,6 +64,7 @@
       ];
     };
   };
+
   programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
@@ -84,16 +76,16 @@
       ms-python.python
     ];
   };
+
   programs.chromium = {
     enable = true;
     package = pkgs.brave;
     extensions = [
-      { id = "ddkjiahejlhfcafbddmgiahcphecmpfh"; } # ublock origin lite i dont think this works
+      { id = "ddkjiahejlhfcafbddmgiahcphecmpfh"; }
     ];
-    commandLineArgs = [
-      ""
-    ];
+    commandLineArgs = [ "" ];
   };
+
   programs.fuzzel = {
     enable = true;
     settings = {
@@ -110,9 +102,9 @@
         counter = "7f849cff";
         border = "94e2d5ff";
       };
-
     };
   };
+
   programs.alacritty = {
     enable = true;
     settings = {
@@ -126,53 +118,63 @@
       };
     };
   };
+
   services.wpaperd = {
     enable = true;
     settings = {
       eDP-1 = {
-        path = "/home/nate/.config/nixos/data/bg/";  
-        duration = "20s";                            
+        path = "/home/nate/.config/nixos/data/bg/";
+        duration = "20s";
       };
       HDMI-A-1 = {
-      path = "/home/nate/.config/nixos/data/bg/";  
-        duration = "20s";                            
+        path = "/home/nate/.config/nixos/data/bg/";
+        duration = "20s";
       };
     };
   };
-home.pointerCursor = {
-  package = pkgs.catppuccin-cursors.mochaRed;
-  name = "catppuccin-mocha-red-cursors";
-  size = 24;
-  gtk.enable = true;
-  x11.enable = true;
-};
 
-gtk = {
+  home.pointerCursor = {
+    package = pkgs.catppuccin-cursors.mochaRed;
+    name = "catppuccin-mocha-red-cursors";
+    size = 24;
+    gtk.enable = true;
+    x11.enable = true;
+  };
+
+ gtk = {
   enable = true;
-  
   theme = {
-    name = "catppuccin-mocha-red-standard+default";
+    name = "catppuccin-mocha-red-standard";
     package = pkgs.catppuccin-gtk.override {
       accents = [ "red" ];
       variant = "mocha";
     };
   };
-  
   iconTheme = {
-    name = "Sweet-Dark";
-    package = pkgs.sweet;
+    name = "candy-icons";
+    package = pkgs.candy-icons;
   };
-  
   gtk3.extraConfig = {
     gtk-application-prefer-dark-theme = 1;
   };
-
   gtk4.extraConfig = {
     gtk-application-prefer-dark-theme = 1;
   };
 };
+
+home.sessionVariables.GTK_THEME = "catppuccin-mocha-red-standard";
+
+dconf.settings = {
+  "org/gnome/desktop/interface" = {
+    color-scheme = "prefer-dark";
+    gtk-theme = "catppuccin-mocha-red-standard";
+    icon-theme = "candy-icons";
+    cursor-theme = "catppuccin-mocha-red-cursors";
+  };
+};
+
   home.file.".config/niri/config.kdl" = {
-    source = ./data/niri/config.kdl; # relative to your home.nix
+    source = ./data/niri/config.kdl;
   };
   home.file.".config/waybar" = {
     source = ./data/waybar;
