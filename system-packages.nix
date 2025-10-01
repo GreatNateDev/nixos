@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     catppuccin-cursors.mochaRed
@@ -19,10 +20,20 @@
     tree
     nmap
     gnome-keyring
+    neovim
+    gcc
+    ripgrep
+    fd
+    lazygit
+    lua-language-server
+    tree-sitter
+    unzip
+    wget
+    nodejs_20
   ];
   services.gnome.gnome-keyring = {
-  enable = true;
-};
+    enable = true;
+  };
   programs.steam = {
     enable = true;
   };

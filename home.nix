@@ -14,6 +14,7 @@
 
   # Packages to install in the user environment
   home.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
     brave
     alacritty
     xwayland-satellite
@@ -43,7 +44,6 @@
     exiftool
     id3v2
     steam
-    neovim
   ];
   programs.zsh = {
     enable = true;
@@ -114,16 +114,19 @@
 
     };
   };
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      window = {
-        opacity = 0.5;
-        decorations_theme_variant = "Dark";
-      };
+programs.alacritty = {
+  enable = true;
+  settings = {
+    window = {
+      opacity = 0.5;
+      decorations_theme_variant = "Dark";
+    };
+    font = {
+      normal.family = "JetBrainsMono Nerd Font Mono";
+      size = 11.0;
     };
   };
-
+};
   systemd.user.services.niri-wallpaper = {
     Unit = {
       Description = "Background changer";
@@ -144,7 +147,7 @@
   home.file.".config/waybar" = {
     source = ./data/waybar;
   };
-  home.file.".config/nvim" = {
+    home.file.".config/nvim" = {
     source = ./data/nvim;
   };
 }
