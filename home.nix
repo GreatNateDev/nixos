@@ -6,7 +6,6 @@
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
-    sweet-folders
     nerd-fonts.jetbrains-mono
     brave
     alacritty
