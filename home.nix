@@ -144,4 +144,7 @@
   home.file.".config/waybar" = {
     source = ./data/waybar;
   };
+  home.file.".config/nvim" = {
+    source = ./data/nvim;
+  };
 }
