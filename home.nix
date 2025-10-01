@@ -42,6 +42,7 @@
     yt-dlp
     exiftool
     id3v2
+    steam
   ];
   programs.zsh = {
     enable = true;

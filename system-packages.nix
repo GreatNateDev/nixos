@@ -23,4 +23,7 @@
   services.gnome.gnome-keyring = {
   enable = true;
 };
+  programs.steam = {
+    enable = true;
+  };
 }
