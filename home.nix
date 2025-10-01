@@ -34,7 +34,7 @@
     prismlauncher
     zsh-powerlevel10k
     zsh-autosuggestions
-    
+
     zsh-syntax-highlighting
     zsh-completions
     zsh-history-substring-search
@@ -115,19 +115,19 @@
 
     };
   };
-programs.alacritty = {
-  enable = true;
-  settings = {
-    window = {
-      opacity = 0.5;
-      decorations_theme_variant = "Dark";
-    };
-    font = {
-      normal.family = "JetBrainsMono Nerd Font Mono";
-      size = 11.0;
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      window = {
+        opacity = 0.5;
+        decorations_theme_variant = "Dark";
+      };
+      font = {
+        normal.family = "JetBrainsMono Nerd Font Mono";
+        size = 11.0;
+      };
     };
   };
-};
   systemd.user.services.niri-wallpaper = {
     Unit = {
       Description = "Background changer";
@@ -149,7 +149,7 @@ programs.alacritty = {
     source = ./data/waybar;
     recursive = true;
   };
-    home.file.".config/nvim" = {
+  home.file.".config/nvim" = {
     source = ./data/nvim;
     recursive = true;
   };
