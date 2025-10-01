@@ -139,7 +139,7 @@
       Restart = "always";
     };
     Install = {
-      WantedBy = [ "multiuser.target" ];
+      WantedBy = [ "default.target" ];
     };
   };
   home.file.".config/niri/config.kdl" = {
