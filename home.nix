@@ -139,6 +139,38 @@
       };
     };
   };
+home.pointerCursor = {
+  package = pkgs.catppuccin-cursors.mochaRed;
+  name = "catppuccin-mocha-red-cursors";
+  size = 24;
+  gtk.enable = true;
+  x11.enable = true;
+};
+
+gtk = {
+  enable = true;
+  
+  theme = {
+    name = "catppuccin-mocha-red-standard+default";
+    package = pkgs.catppuccin-gtk.override {
+      accents = [ "red" ];
+      variant = "mocha";
+    };
+  };
+  
+  iconTheme = {
+    name = "Sweet-Dark";
+    package = pkgs.sweet;
+  };
+  
+  gtk3.extraConfig = {
+    gtk-application-prefer-dark-theme = 1;
+  };
+
+  gtk4.extraConfig = {
+    gtk-application-prefer-dark-theme = 1;
+  };
+};
   home.file.".config/niri/config.kdl" = {
     source = ./data/niri/config.kdl; # relative to your home.nix
   };

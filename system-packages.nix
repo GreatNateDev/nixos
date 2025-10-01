@@ -2,7 +2,6 @@
 {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    catppuccin-cursors.mochaRed
     killall
     zsh
     git

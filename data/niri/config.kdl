@@ -1,7 +1,3 @@
-cursor {
-    xcursor-theme "catppuccin-mocha-red-cursors"
-    xcursor-size 48
-}
 input {
     keyboard {
         xkb {
@@ -66,10 +62,7 @@ spawn-at-startup "xwayland-satellite"
 spawn-at-startup "~/.config/niri/setbg.sh"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & "
 environment {
-    "WAYLAND_DISPLAY" "wayland-1"
-    "GTK_THEME" "catppuccin-mocha-teal-standard+default"
-    "XCURSOR_THEME" "catppuccin-mocha-red-cursors"         
-    "XCURSOR_SIZE" "24"              
+    "WAYLAND_DISPLAY" "wayland-1"        
 }
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 animations {
