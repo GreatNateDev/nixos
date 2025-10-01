@@ -34,6 +34,7 @@
     prismlauncher
     zsh-powerlevel10k
     zsh-autosuggestions
+    
     zsh-syntax-highlighting
     zsh-completions
     zsh-history-substring-search
@@ -146,8 +147,10 @@ programs.alacritty = {
   };
   home.file.".config/waybar" = {
     source = ./data/waybar;
+    recursive = true;
   };
     home.file.".config/nvim" = {
     source = ./data/nvim;
+    recursive = true;
   };
 }
