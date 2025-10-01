@@ -88,6 +88,9 @@
   programs.fuzzel = {
     enable = true;
     settings = {
+      main = {
+        icon-theme = "candy-icons";
+      };
       colors = {
         background = "1e1e2edd";
         text = "cdd6f4ff";
