@@ -22,7 +22,6 @@
     vscodium
     gh
     swaylock
-    swaybg
     python3
     nautilus
     fastfetch
@@ -34,7 +33,6 @@
     prismlauncher
     zsh-powerlevel10k
     zsh-autosuggestions
-
     zsh-syntax-highlighting
     zsh-completions
     zsh-history-substring-search
@@ -128,18 +126,15 @@
       };
     };
   };
-  systemd.user.services.niri-wallpaper = {
-    Unit = {
-      Description = "Background changer";
-      After = "network.target";
-    };
-    Service = {
-      Type = "simple";
-      ExecStart = "/run/current-system/sw/bin/zsh /home/nate/.config/nixos/data/niri/run.sh";
-      Restart = "always";
-    };
-    Install = {
-      WantedBy = [ "default.target" ];
+  programs.wpaperd = {
+    enable = true;
+    settings = {
+      default = {
+        path = "/home/nate/.config/nixos/data/bg";  # Path to your wallpaper folder
+        mode = "fill";                   # Options: stretch, center, tile, fill, fit
+        duration = 20;                  # Seconds between wallpapers (5 min here)
+        random = true;                   # Shuffle wallpapers randomly
+      };
     };
   };
   home.file.".config/niri/config.kdl" = {
