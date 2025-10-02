@@ -2,6 +2,7 @@
 {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
+    sddm-sugar-dark
     killall
     zsh
     git

@@ -2,7 +2,10 @@
 
 {
   services.displayManager = {
-    sddm.enable = true;
+    sddm = {
+      enable = true;
+      theme = "Sugar-Dark";
+    };
     defaultSession = "niri";
     gdm.enable = false;
   };
@@ -14,6 +17,10 @@
     # Dynamically use driver from hardware-configuration.nix
     videoDrivers = config.boot.initrd.kernelModules;
   };
+  environment.etc."AccountsService/users/yourusername".text = ''
+    [User]
+    Icon=/path/to/your/icon.png
+  '';
 
   programs.niri.enable = true;
 }

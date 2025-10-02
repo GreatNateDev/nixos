@@ -41,7 +41,7 @@
     macchanger
     tldr
     caligula
-    termusic
+    ostui
     dwarf-fortress
     pokete
     netscanner
