@@ -14,7 +14,7 @@
     desktopManager.lxqt.enable = true;
     # Set video drivers explicitly to avoid blank screen
     # Change "intel" to "nvidia" or "amdgpu" depending on your GPU
-    #videoDrivers = [ "amdgpu" ];
+    videoDrivers = [ "amdgpu" ];
   };
   programs.niri = {
     enable = true;
