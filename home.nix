@@ -40,6 +40,16 @@
     file
     macchanger
     tldr
+    caligula
+    termusic
+    dwarf-fortress
+    pokete
+    netscanner
+    yazi
+    duf
+    dust
+    eza
+    gitui
   ];
 
   programs.zsh = {
@@ -49,6 +59,12 @@
       nd = "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +5";
       cat = "bat";
       lcm = "sudo ip link set wlp0s20f3 down && sudo macchanger -r wlp0s20f3 && sudo ip link set wlp0s20f3 up";
+      ba = "cat /sys/class/power_supply/BAT0/status && cat /sys/class/power_supply/BAT0/capacity";
+      df = "duf";
+      du = "dust";
+      ls = "eza";
+      ll = "eza -la";
+
     };
     initContent = ''
       fastfetch
@@ -91,7 +107,11 @@
     ];
     commandLineArgs = [ "" ];
   };
-
+  xdg.desktopEntries.yazi = {
+    name = "yazi";
+    noDisplay = true; # or false
+    # other desktop entry fields...
+  };
   programs.fuzzel = {
     enable = true;
     settings = {
