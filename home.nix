@@ -112,6 +112,30 @@
     noDisplay = true; # or false
     # other desktop entry fields...
   };
+  xdg.desktopEntries.neovim = {
+    name = "neovim";
+    noDisplay = true;
+  };
+  xdg.desktopEntries.xterm = {
+    name = "xterm";
+    noDisplay = true;
+  };
+  xdg.desktopEntries.nixos-manual = {
+    name = "Nixos Manual";
+    noDisplay = true;
+  };
+  xdg.desktopEntries.nvim = {
+    name = "nvim Wrapper";
+    noDisplay = true;
+  };
+  xdg.desktopEntries.htop = {
+    name = "htop";
+    noDisplay = true;
+  };
+  xdg.desktopEntries.Alacritty = {
+    name = "alacritty";
+    noDisplay = true;
+  };
   programs.fuzzel = {
     enable = true;
     settings = {

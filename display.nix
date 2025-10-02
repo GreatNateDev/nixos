@@ -14,7 +14,7 @@
   services.xserver = {
     enable = true;
     xkb.layout = "us";
-    desktopManager.lxqt.enable = true;
+    # desktopManager.lxqt.enable = true;
     # Dynamically use driver from hardware-configuration.nix
     videoDrivers = config.boot.initrd.kernelModules;
   };
