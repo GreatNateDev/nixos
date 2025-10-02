@@ -186,4 +186,5 @@ dconf.settings = {
     source = ./data/nvim;
     recursive = true;
   };
+  home.file.".face".source = ./data/nate.png;
 }
