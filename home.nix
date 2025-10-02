@@ -48,6 +48,7 @@
       ns = "sudo nixos-rebuild switch --flake $HOME/.config/nixos --impure";
       nd = "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +5";
       cat = "bat";
+      lcm = "sudo ip link set wlp0s20f3 down && sudo macchanger -r wlp0s20f3 && sudo ip link set wlp0s20f3 up";
     };
     initContent = ''
       fastfetch
@@ -149,37 +150,37 @@
     x11.enable = true;
   };
 
- gtk = {
-  enable = true;
-  theme = {
-    name = "catppuccin-mocha-red-standard";
-    package = pkgs.catppuccin-gtk.override {
-      accents = [ "red" ];
-      variant = "mocha";
+  gtk = {
+    enable = true;
+    theme = {
+      name = "catppuccin-mocha-red-standard";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "red" ];
+        variant = "mocha";
+      };
+    };
+    iconTheme = {
+      name = "candy-icons";
+      package = pkgs.candy-icons;
+    };
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
     };
   };
-  iconTheme = {
-    name = "candy-icons";
-    package = pkgs.candy-icons;
-  };
-  gtk3.extraConfig = {
-    gtk-application-prefer-dark-theme = 1;
-  };
-  gtk4.extraConfig = {
-    gtk-application-prefer-dark-theme = 1;
-  };
-};
 
-home.sessionVariables.GTK_THEME = "catppuccin-mocha-red-standard";
+  home.sessionVariables.GTK_THEME = "catppuccin-mocha-red-standard";
 
-dconf.settings = {
-  "org/gnome/desktop/interface" = {
-    color-scheme = "prefer-dark";
-    gtk-theme = "catppuccin-mocha-red-standard";
-    icon-theme = "candy-icons";
-    cursor-theme = "catppuccin-mocha-red-cursors";
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+      gtk-theme = "catppuccin-mocha-red-standard";
+      icon-theme = "candy-icons";
+      cursor-theme = "catppuccin-mocha-red-cursors";
+    };
   };
-};
 
   home.file.".config/niri/config.kdl" = {
     source = ./data/niri/config.kdl;
