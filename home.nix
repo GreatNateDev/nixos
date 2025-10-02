@@ -39,6 +39,7 @@
     viu
     file
     macchanger
+    tldr
   ];
 
   programs.zsh = {
