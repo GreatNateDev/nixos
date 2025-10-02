@@ -38,6 +38,7 @@
     httpie
     viu
     file
+    macchanger
   ];
 
   programs.zsh = {
