@@ -2,7 +2,6 @@
 {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    sddm-sugar-dark
     killall
     zsh
     git
@@ -29,8 +28,18 @@
     tree-sitter
     unzip
     wget
+    catppuccin-sddm
     nodejs_20
+    (catppuccin-sddm.override {
+      flavor = "mocha";
+      accent = "red";
+      font = "Noto Sans";
+      fontSize = "9";
+      #background = ./data/bg/Magna-Mountain-Wallpaper-Without-Plasma-Logo.png;
+      loginBackground = false;
+    })
   ];
+
   services.gnome.gnome-keyring = {
     enable = true;
   };

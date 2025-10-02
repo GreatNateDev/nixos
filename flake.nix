@@ -7,18 +7,31 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, home-manager, ... }: {
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./configuration.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.nate = import ./home.nix;
-        }
-      ];
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
+    {
+      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+
+        modules = [
+          ./configuration.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.nate = import ./home.nix;
+
+            # Disable "Git tree is dirty" warning
+            nix.extraOptions = ''
+              warn-dirty = false
+            '';
+          }
+        ];
+      };
     };
-  };
 }
