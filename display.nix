@@ -4,7 +4,7 @@
   services.displayManager = {
     sddm = {
       enable = true;
-      theme = "Sugar-Dark";
+      theme = "sugar-dark";
     };
     defaultSession = "niri";
     gdm.enable = false;
