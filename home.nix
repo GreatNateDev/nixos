@@ -21,7 +21,6 @@
     osu-lazer-bin
     waybar
     supersonic
-    quakespasm
     prismlauncher
     zsh-powerlevel10k
     zsh-autosuggestions
@@ -35,6 +34,10 @@
     exiftool
     id3v2
     steam
+    bat
+    httpie
+    viu
+    file
   ];
 
   programs.zsh = {
@@ -42,6 +45,7 @@
     shellAliases = {
       ns = "sudo nixos-rebuild switch --flake $HOME/.config/nixos --impure";
       nd = "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +5";
+      cat = "bat";
     };
     initContent = ''
       fastfetch
