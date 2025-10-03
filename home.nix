@@ -191,7 +191,7 @@
   home.pointerCursor = {
     package = pkgs.catppuccin-cursors.mochaRed;
     name = "catppuccin-mocha-red-cursors";
-    size = 24;
+    size = 40;
     gtk.enable = true;
     x11.enable = true;
   };
