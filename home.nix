@@ -6,6 +6,7 @@
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
+    watchexec
     nerd-fonts.jetbrains-mono
     brave
     alacritty

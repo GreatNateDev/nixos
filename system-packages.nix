@@ -28,7 +28,7 @@
     tree-sitter
     unzip
     wget
-    catppuccin-sddm
+    adwsteamgtk
     nodejs_20
     (catppuccin-sddm.override {
       flavor = "mocha";
