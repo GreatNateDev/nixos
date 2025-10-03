@@ -6,7 +6,8 @@
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
-    watchexec
+    adwsteamgtk
+    fswatch
     nerd-fonts.jetbrains-mono
     brave
     alacritty
@@ -219,13 +220,31 @@
   home.sessionVariables.GTK_THEME = "catppuccin-mocha-red-standard";
 
   dconf.settings = {
+    # Existing GNOME interface settings
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       gtk-theme = "catppuccin-mocha-red-standard";
       icon-theme = "candy-icons";
       cursor-theme = "catppuccin-mocha-red-cursors";
     };
+
+    # AdwSteamGtk settings
+    "io/github/Foldex/AdwSteamGtk" = {
+      "color-theme-options" = "Catppuccin-Mocha";
+      "hide-whats-new-switch" = "false";
+      "library-sidebar-options" = "Show";
+      "login-qr-options" = "Show";
+      "no-rounded-corners-switch" = "false";
+      "prefs-beta-support" = "false";
+      "window-controls-layout-options" = "Auto";
+      "window-controls-options" = "Adwaita";
+    };
   };
+
+  home.activation.applyAdwSteamGtk = ''
+    echo "Applying AdwSteamGtk theme..."
+    ${pkgs.adwsteamgtk}/bin/adwaita-steam-gtk --install 
+  '';
 
   home.file.".config/niri/config.kdl" = {
     source = ./data/niri/config.kdl;

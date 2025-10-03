@@ -28,8 +28,8 @@
     tree-sitter
     unzip
     wget
-    adwsteamgtk
     nodejs_20
+    glib
     (catppuccin-sddm.override {
       flavor = "mocha";
       accent = "red";
