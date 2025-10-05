@@ -6,4 +6,6 @@ sudo mv * /home/nate/.local/share/osu/
 cd /home/nate/.local/share/osu/
 sudo mkdir -p Skins
 sudo cp -r s/* Skins/
-cd ~
+cd ~/.config/nixos/scripts
+rm -rf osu
+nautilus ~/.local/share/osu/Skins/
