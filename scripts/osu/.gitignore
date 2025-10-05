@@ -1,0 +1,10 @@
+files/
+cache/
+logs/
+AuthNative.so
+.auth_startup
+client.realm
+client.realm.lock
+client.realm.note
+client.realm.management
+IMPORTANT READ ME.txt
