@@ -257,5 +257,8 @@
     source = ./data/nvim;
     recursive = true;
   };
+  home.file.".config/user-dirs.dirs" = {
+    source = ./data/user-dirs.dirs;
+  };
   home.file.".face".source = ./data/nate.png;
 }
