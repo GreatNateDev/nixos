@@ -30,6 +30,8 @@
     wget
     nodejs_20
     glib
+    go
+    lutris
     (catppuccin-sddm.override {
       flavor = "mocha";
       accent = "red";
