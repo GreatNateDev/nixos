@@ -59,6 +59,7 @@
     shellAliases = {
       ns = "sudo nixos-rebuild switch --flake $HOME/.config/nixos --impure";
       nd = "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +5";
+      nup = "nix flake update $HOME/.config/nixos";
       cat = "bat";
       lcm = "sudo ip link set wlp0s20f3 down && sudo macchanger -r wlp0s20f3 && sudo ip link set wlp0s20f3 up";
       ba = "cat /sys/class/power_supply/BAT0/status && cat /sys/class/power_supply/BAT0/capacity";

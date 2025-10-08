@@ -30,6 +30,8 @@ echo "Moving files..."
 mv ~/nixos/.git ~/.config/nixos/
 mv ~/nixos/.gitignore ~/.config/nixos/
 mv ~/nixos/* ~/.config/nixos/
+echo "Fixing Issues"
+rm ~/.config/user-dirs.dirs
 echo "Getting hardware config..."
 sudo mv /etc/nixos/hardware-configuration.nix ~/.config/nixos/hardware-configuration.nix
 echo "Removing old config..."
