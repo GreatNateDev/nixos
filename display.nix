@@ -16,6 +16,8 @@
     xkb.layout = "us";
     # desktopManager.lxqt.enable = true;
     # Dynamically use driver from hardware-configuration.nix
+    windowManager.i3.enable = true;
+    windowManager.i3.configFile = "/home/nate/.config/nixos/data/i3/config";
     videoDrivers = config.boot.initrd.kernelModules;
   };
   programs.niri.enable = true;
