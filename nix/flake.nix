@@ -19,12 +19,12 @@
         system = "x86_64-linux";
 
         modules = [
-          ./system.nix
+          ./System.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.nate = import ./home.nix;
+            home-manager.users.nate = import ./Home.nix;
 
             # Disable "Git tree is dirty" warning
             nix.extraOptions = ''

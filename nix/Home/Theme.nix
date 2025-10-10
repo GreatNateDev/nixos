@@ -1,0 +1,54 @@
+{...}: {
+  home.pointerCursor = {
+    package = pkgs.catppuccin-cursors.mochaRed;
+    name = "catppuccin-mocha-red-cursors";
+    size = 40;
+    gtk.enable = true;
+    x11.enable = true;
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "catppuccin-mocha-red-standard";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "red" ];
+        variant = "mocha";
+      };
+    };
+    iconTheme = {
+      name = "candy-icons";
+      package = pkgs.candy-icons;
+    };
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
+  };
+
+  home.sessionVariables.GTK_THEME = "catppuccin-mocha-red-standard";
+
+  dconf.settings = {
+    # Existing GNOME interface settings
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+      gtk-theme = "catppuccin-mocha-red-standard";
+      icon-theme = "candy-icons";
+      cursor-theme = "catppuccin-mocha-red-cursors";
+    };
+
+    # AdwSteamGtk settings
+    "io/github/Foldex/AdwSteamGtk" = {
+      "color-theme-options" = "Catppuccin-Mocha";
+      "hide-whats-new-switch" = "false";
+      "library-sidebar-options" = "Show";
+      "login-qr-options" = "Show";
+      "no-rounded-corners-switch" = "false";
+      "prefs-beta-support" = "false";
+      "window-controls-layout-options" = "Auto";
+      "window-controls-options" = "Adwaita";
+    };
+  };
+  }

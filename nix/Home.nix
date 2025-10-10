@@ -5,54 +5,7 @@
   home.homeDirectory = "/home/nate";
   home.stateVersion = "25.11";
 
-  home.packages = with pkgs; [
-    adwsteamgtk
-    fswatch
-    nerd-fonts.jetbrains-mono
-    brave
-    alacritty
-    xwayland-satellite
-    fuzzel
-    vscodium
-    gh
-    swaylock
-    python3
-    nautilus
-    fastfetch
-    htop
-    osu-lazer-bin
-    waybar
-    supersonic
-    prismlauncher
-    zsh-powerlevel10k
-    zsh-autosuggestions
-    zsh-syntax-highlighting
-    zsh-completions
-    zsh-history-substring-search
-    zsh-fzf-tab
-    fzf
-    openjdk21
-    yt-dlp
-    exiftool
-    id3v2
-    steam
-    bat
-    httpie
-    viu
-    file
-    macchanger
-    tldr
-    caligula
-    ostui
-    dwarf-fortress
-    pokete
-    netscanner
-    yazi
-    duf
-    dust
-    eza
-    gitui
-  ];
+  imports = [./Home/Packages.nix];
 
   programs.zsh = {
     enable = true;
@@ -250,18 +203,18 @@
   '';
 
   home.file.".config/niri/config.kdl" = {
-    source = ./data/niri/config.kdl;
+    source = ../data/niri/config.kdl;
   };
   home.file.".config/waybar" = {
-    source = ./data/waybar;
+    source = ../data/waybar;
     recursive = true;
   };
   home.file.".config/nvim" = {
-    source = ./data/nvim;
+    source = ../data/nvim;
     recursive = true;
   };
   home.file.".config/user-dirs.dirs" = {
-    source = ./data/user-dirs.dirs;
+    source = ../data/user-dirs.dirs;
   };
-  home.file.".face".source = ./data/nate.png;
+  home.file.".face".source = ../data/nate.png;
 }
