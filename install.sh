@@ -33,10 +33,10 @@ mv ~/nixos/* ~/.config/nixos/
 echo "Fixing Issues"
 rm ~/.config/user-dirs.dirs
 echo "Getting hardware config..."
-sudo mv /etc/nixos/hardware-configuration.nix ~/.config/nixos/hardware-configuration.nix
+sudo mv /etc/nixos/hardware-configuration.nix ~/.config/nixos/nix/hardware.nix
 echo "Removing old config..."
 sudo rm -rf /etc/nixos/
 echo "Building..."
-sudo nixos-rebuild switch --flake /home/nate/.config/nixos --impure
+echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet && echo Done!
 echo "Script complete rebooting..."
 sudo reboot
