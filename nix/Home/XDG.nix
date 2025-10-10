@@ -1,7 +1,8 @@
-{...}: {
-    xdg.desktopEntries.yazi = {
+{ ... }:
+{
+  xdg.desktopEntries.yazi = {
     name = "yazi";
-    noDisplay = true; 
+    noDisplay = true;
   };
   xdg.desktopEntries.neovim = {
     name = "neovim";

@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.zsh = {
     enable = true;
     shellAliases = {
@@ -36,7 +37,7 @@
       ];
     };
   };
-    programs.vscode = {
+  programs.vscode = {
     enable = true;
     package = pkgs.vscodium;
     profiles.default.extensions = with pkgs.vscode-extensions; [
@@ -47,7 +48,6 @@
       ms-python.python
     ];
   };
-
   programs.chromium = {
     enable = true;
     package = pkgs.brave;
@@ -77,7 +77,6 @@
       };
     };
   };
-
   programs.alacritty = {
     enable = true;
     settings = {

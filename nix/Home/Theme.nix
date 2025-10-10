@@ -1,4 +1,5 @@
-{...}: {
+{ pkgs, ... }:
+{
   home.pointerCursor = {
     package = pkgs.catppuccin-cursors.mochaRed;
     name = "catppuccin-mocha-red-cursors";
@@ -6,7 +7,6 @@
     gtk.enable = true;
     x11.enable = true;
   };
-
   gtk = {
     enable = true;
     theme = {
@@ -27,19 +27,14 @@
       gtk-application-prefer-dark-theme = 1;
     };
   };
-
   home.sessionVariables.GTK_THEME = "catppuccin-mocha-red-standard";
-
   dconf.settings = {
-    # Existing GNOME interface settings
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       gtk-theme = "catppuccin-mocha-red-standard";
       icon-theme = "candy-icons";
       cursor-theme = "catppuccin-mocha-red-cursors";
     };
-
-    # AdwSteamGtk settings
     "io/github/Foldex/AdwSteamGtk" = {
       "color-theme-options" = "Catppuccin-Mocha";
       "hide-whats-new-switch" = "false";
@@ -51,4 +46,4 @@
       "window-controls-options" = "Adwaita";
     };
   };
-  }
+}
