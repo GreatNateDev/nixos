@@ -47,5 +47,6 @@
     dust
     eza
     gitui
+    mindustry-wayland
   ];
 }

@@ -16,6 +16,7 @@
       nu = "cd /home/nate/.config/nixos && nix flake update && ns";
       ngc = "nix-collect-garbage";
       nce = "nix-env -q | fzf --multi | xargs -r nix-env -e";
+      cfg = "nvim ~/.config/nixos/nix/";
     };
     initContent = ''
       fastfetch

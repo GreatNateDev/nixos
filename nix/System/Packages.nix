@@ -36,6 +36,7 @@
     mako
     gnome-clocks
     calcurse
+    jaq
     (catppuccin-sddm.override {
       flavor = "mocha";
       accent = "red";
