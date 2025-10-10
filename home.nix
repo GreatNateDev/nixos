@@ -57,7 +57,7 @@
   programs.zsh = {
     enable = true;
     shellAliases = {
-      ns = "sudo nixos-rebuild switch --flake $HOME/.config/nixos --impure";
+      ns = "echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos --impure --quiet && echo Done!";
       nd = "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +5";
       nup = "nix flake update $HOME/.config/nixos";
       cat = "bat";
@@ -67,7 +67,9 @@
       du = "dust";
       ls = "eza";
       ll = "eza -la";
-
+      nu = "cd /home/nate/.config/nixos && nix flake update && ns";
+      ngc = "nix-collect-garbage";
+      nce = "nix-env -q | fzf --multi | xargs -r nix-env -e";
     };
     initContent = ''
       fastfetch
