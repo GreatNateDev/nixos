@@ -87,6 +87,10 @@ window-rule {
 binds {
     XF86MonBrightnessUp allow-when-locked=true { spawn "light" "-A" "10"; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "light" "-U" "10"; }
+    Shift+XF86MonBrightnessUp allow-when-locked=true { spawn "light" "-A" "5"; }
+    Shift+XF86MonBrightnessDown allow-when-locked=true { spawn "light" "-U" "5"; }
+    Ctrl+XF86MonBrightnessUp allow-when-locked=true { spawn "light" "-A" "1"; }
+    Ctrl+XF86MonBrightnessDown allow-when-locked=true { spawn "light" "-U" "1"; }
     Mod+Shift+Slash { show-hotkey-overlay; }
     Mod+T hotkey-overlay-title="Open a Terminal: Alacritty" { spawn "alacritty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
@@ -94,10 +98,14 @@ binds {
     Mod+G {spawn "codium";}
     Mod+B {spawn "brave";}
     Mod+S {spawn "supersonic"; }
-    Mod+Alt+Shift+G hotkey-overlay-title="panic" {spawn "bash" "~/reset.sh";}
-    Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock" "-i" "/home/nate/.config/nixos/data/bg/wall.jpg"; }
+    Mod+Alt+Shift+G hotkey-overlay-title="panic" {spawn "zsh" "~/reset.sh";}
+    Mod+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock" "-i" "/home/nate/.config/nixos/data/bg/wall.jpg"; }
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    Shift+XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }
+    Shift+XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05-"; }
+    Ctrl+XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.01+"; }
+    Ctrl+XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.01-"; }
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
     Mod+O repeat=false { toggle-overview; }
