@@ -10,9 +10,10 @@
       "wheel"
       "networkmanager"
       "docker"
+      "video"
     ];
   };
-
+  programs.light.enable = true;
   # Enable zsh
   programs.zsh.enable = true;
 

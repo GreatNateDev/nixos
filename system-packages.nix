@@ -2,7 +2,6 @@
 {
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
-    light
     killall
     zsh
     git
@@ -16,7 +15,6 @@
     font-awesome
     material-design-icons
     nerd-fonts.jetbrains-mono
-    nerd-fonts.iosevka
     tree
     nmap
     gnome-keyring
