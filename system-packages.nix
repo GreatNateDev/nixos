@@ -31,6 +31,8 @@
     nodejs_20
     glib
     go
+    polkit_gnome
+    util-linux
     lutris
     (catppuccin-sddm.override {
       flavor = "mocha";
