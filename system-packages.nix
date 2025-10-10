@@ -34,6 +34,10 @@
     polkit_gnome
     util-linux
     lutris
+    libnotify
+    mako
+    gnome-clocks
+    calcurse
     (catppuccin-sddm.override {
       flavor = "mocha";
       accent = "red";
