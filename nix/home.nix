@@ -57,7 +57,7 @@
   programs.zsh = {
     enable = true;
     shellAliases = {
-      ns = "echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos --impure --quiet && echo Done!";
+      ns = "echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet && echo Done!";
       nd = "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +5";
       nup = "nix flake update $HOME/.config/nixos";
       cat = "bat";
