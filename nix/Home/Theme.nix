@@ -27,7 +27,10 @@
       gtk-application-prefer-dark-theme = 1;
     };
   };
-  home.sessionVariables.GTK_THEME = "catppuccin-mocha-red-standard";
+  home.sessionVariables = {
+    XCURSOR_SIZE = "40";
+    GTK_THEME = "catppuccin-mocha-red-standard";
+  };
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";

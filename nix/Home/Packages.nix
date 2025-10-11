@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-stable, ... }:
 {
   home.packages = with pkgs; [
     adwsteamgtk
@@ -48,5 +48,11 @@
     eza
     gitui
     mindustry-wayland
+    azahar
+    melonDS
+    ryubing
+    pkgs-stable.cemu
+    pkgs-stable.mgba
   ];
+
 }

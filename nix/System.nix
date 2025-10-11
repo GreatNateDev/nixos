@@ -2,11 +2,14 @@
 
 {
   # Flake Support
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   # Modules
   imports = [
     # Hardware configuration and drivers e.g. Graphics card, Wifi chip etc.
-    (import ./hardware.nix)
+    (import /home/nate/.config/nixos/nix/hardware.nix)
     # Date Time and Keyboard type.
     ./System/Locale.nix
     # System Level Packages
@@ -15,7 +18,7 @@
     ./System/Programs.nix
     # Booting Settings
     ./System/Boot.nix
-    # External Files 
+    # External Files
     ./System/External.nix
     # Networking Settings
     ./System/Network.nix
@@ -28,7 +31,7 @@
     # User setup and Groups
     ./System/User.nix
     # Basicly docker
-    ./System/Virtualisation.nix 
+    ./System/Virtualisation.nix
   ];
   # Don't change this number
   system.stateVersion = "25.05";
