@@ -9,6 +9,7 @@
       "networkmanager"
       "docker"
       "video"
+      "bluetooth"
     ];
   };
 }

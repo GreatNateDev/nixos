@@ -1,5 +1,6 @@
 { config, ... }:
 {
+  hardware.bluetooth.enable = true;
   services = {
     pulseaudio.enable = false;
     gnome.gnome-keyring.enable = true;
