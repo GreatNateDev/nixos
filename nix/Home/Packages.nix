@@ -48,6 +48,7 @@
     eza
     gitui
     mindustry-wayland
+    godot
     azahar
     melonDS
     ryubing
