@@ -24,6 +24,8 @@ if [ "$USER" != "nate" ]; then
   exit 1
 fi
 echo "Starting config installer..."
+echo "What is your gpu type... Accepted Values amdgpu, nvidia, intel, vmware, virtualbox, qxl, virtio"
+read GPU
 echo "Making Directory..."
 mkdir -p ~/.config/nixos
 echo "Moving files..."
@@ -34,6 +36,10 @@ echo "Fixing Issues"
 rm ~/.config/user-dirs.dirs
 echo "Getting hardware config..."
 sudo mv /etc/nixos/hardware-configuration.nix ~/.config/nixos/nix/hardware.nix
+echo "Adding your gpu..."
+sed -i '/boot\.initrd\.kernelModules/d' "/home/$USER/.config/nixos/nix/hardware.nix"
+gpucode="boot.initrd.kernelModules = [\"$GPU\"];"
+sed -i "/^}$/i $gpucode" "/home/$USER/.config/nixos/nix/hardware.nix"
 echo "Removing old config..."
 sudo rm -rf /etc/nixos/
 echo "Building..."
