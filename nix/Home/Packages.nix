@@ -1,6 +1,7 @@
 { pkgs, pkgs-stable, ... }:
 {
   home.packages = with pkgs; [
+    obs-studio
     adwsteamgtk
     fswatch
     nerd-fonts.jetbrains-mono

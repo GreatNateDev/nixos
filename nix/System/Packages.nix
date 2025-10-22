@@ -1,6 +1,10 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    cargo
+    ltrace
+    gdb
+    rustfmt
     cyme
     emulsion
     killall
