@@ -39,14 +39,6 @@
       ];
     };
   };
-  programs.chromium = {
-    enable = true;
-    package = pkgs.brave;
-    extensions = [
-      { id = "ddkjiahejlhfcafbddmgiahcphecmpfh"; }
-    ];
-    commandLineArgs = [ "" ];
-  };
   programs.fuzzel = {
     enable = true;
     settings = {
@@ -113,6 +105,166 @@
             "!nil"
           ];
         };
+      };
+    };
+  };
+  programs.chromium = {
+    enable = true;
+    package = pkgs.brave;
+
+    # Extensions - use Chrome Web Store IDs
+    extensions = [
+      { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # uBlock Origin
+      { id = "nngceckbapebfimnlniiiahkandclblb"; } # Bitwarden
+      { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # Dark Reader
+      # Add more extension IDs here
+    ];
+  };
+
+  # Bookmarks configuration
+  home.file.".config/BraveSoftware/Brave-Browser/Default/Bookmarks".text = builtins.toJSON {
+    checksum = "0000000000000000000000000000000000000000";
+    roots = {
+      bookmark_bar = {
+        children = [
+          {
+            name = "Download Directory";
+            type = "url";
+            url = "https://download-directory.github.io/";
+          }
+          {
+            name = "MyNixOS";
+            type = "url";
+            url = "https://mynixos.com/";
+          }
+          {
+            name = "GreatNateDev";
+            type = "url";
+            url = "https://github.com/GreatNateDev";
+          }
+        ];
+        name = "Bookmarks bar";
+        type = "folder";
+      };
+      other = {
+        children = [ ];
+        name = "Other bookmarks";
+        type = "folder";
+      };
+      synced = {
+        children = [ ];
+        name = "Mobile bookmarks";
+        type = "folder";
+      };
+    };
+    version = 1;
+  };
+
+  # Main Preferences file with all settings
+ 
+
+    # Privacy & Clear browsing data on exit
+    browser = {
+      clear_lso_data_enabled = true;
+      clear_data = {
+        browsing_history = true;
+        cookies = true;
+        cache = true;
+        download_history = true;
+        form_data = true;
+        hosted_apps_data = true;
+        passwords = true;
+        time_period = 4; # Everything
+      };
+      show_home_button = true;
+      check_default_browser = false;
+    };
+
+    # Profile settings
+    profile = {
+      cookie_controls_mode = 1; # Block third-party cookies
+      password_manager_enabled = false;
+
+      # Content settings exceptions for github.com
+      content_settings = {
+        exceptions = {
+          cookies = {
+            "https://github.com:443,*" = {
+              last_modified = "13334071393000000";
+              setting = 1; # Allow
+            };
+            "[*.]github.com:443,*" = {
+              last_modified = "13334071393000000";
+              setting = 1; # Allow
+            };
+          };
+        };
+      };
+    };
+
+    safebrowsing = {
+      enabled = true;
+      scout_reporting_enabled = false;
+    };
+
+    # Brave-specific settings
+    brave = {
+      brave_ads = {
+        enabled = false;
+      };
+      rewards = {
+        enabled = false;
+      };
+      shields = {
+        enabled = true;
+      };
+      stats = {
+        reporting_enabled = false;
+      };
+    };
+
+    # Search engine - Startpage
+    default_search_provider = {
+      enabled = true;
+      search_url = "https://www.startpage.com/sp/search?query={searchTerms}";
+      name = "Startpage";
+      keyword = "startpage.com";
+    };
+
+    # Appearance
+    extensions = {
+      ui = {
+        developer_mode = true;
+      };
+    };
+
+    # Downloads
+    download = {
+      default_directory = "/home/nate";
+      prompt_for_download = false;
+    };
+
+    # Additional privacy settings
+    enable_do_not_track = true;
+    alternate_error_pages = {
+      enabled = false;
+    };
+    search = {
+      suggest_enabled = false;
+    };
+    translate = {
+      enabled = false;
+    };
+    signin = {
+      allowed = false;
+    };
+  };
+
+  # Local State file (for additional settings)
+  home.file.".config/BraveSoftware/Brave-Browser/Local State".text = builtins.toJSON {
+    brave = {
+      stats = {
+        reporting_enabled = false;
       };
     };
   };

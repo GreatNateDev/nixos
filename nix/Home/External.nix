@@ -15,4 +15,15 @@
     source = ../../data/user-dirs.dirs;
   };
   home.file.".face".source = ../../data/nate.png;
+  home.file.".config/BraveSoftware/Brave-Browser/Default/Preferences".text = builtins.toJSON {
+    # Home page settings - Startpage
+    homepage = "https://www.startpage.com";
+    homepage_is_newtabpage = false;
+    session = {
+      restore_on_startup = 4; # Open specific pages
+      startup_urls = [
+        "https://www.startpage.com"
+      ];
+    };
+  };
 }
