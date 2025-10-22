@@ -1,0 +1,2 @@
+./github.sh
+./osu.sh
