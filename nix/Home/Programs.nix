@@ -87,8 +87,8 @@
       "nix"
       "toml"
       "HTML"
-      "Catppuccin"
-      "Catppuccin Icons"
+      "catppuccin"
+      "catppuccin-icons"
     ];
     userSettings = {
       theme = {
