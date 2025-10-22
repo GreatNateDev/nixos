@@ -41,7 +41,7 @@ layout {
         active-color "#ffc87f"
         inactive-color "#505050"
         urgent-color "#9b0000"
-        active-gradient from="#f00f" to="#0f05" angle=100 in="oklch longer hue" 
+        active-gradient from="#f00f" to="#0f05" angle=100 in="oklch longer hue"
         inactive-gradient from="#f00f" to="#0f05" angle=45 in="oklch longer hue"
     }
     shadow {
@@ -62,7 +62,7 @@ spawn-at-startup "xwayland-satellite"
 spawn-at-startup "~/.config/niri/setbg.sh"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & "
 environment {
-    "WAYLAND_DISPLAY" "wayland-1"        
+    "WAYLAND_DISPLAY" "wayland-1"
 }
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 animations {
@@ -95,7 +95,7 @@ binds {
     Mod+T hotkey-overlay-title="Open a Terminal: Alacritty" { spawn "alacritty"; }
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+E {spawn "nautilus";}
-    Mod+G {spawn "codium";}
+    Mod+Z {spawn "zeditor";}
     Mod+B {spawn "brave";}
     Mod+S {spawn "supersonic"; }
     Mod+Alt+Shift+G hotkey-overlay-title="panic" {spawn "zsh" "~/reset.sh";}
