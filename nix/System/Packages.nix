@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     cyme
+    emulsion
     killall
     zsh
     git
