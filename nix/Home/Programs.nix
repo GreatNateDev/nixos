@@ -81,4 +81,39 @@
       };
     };
   };
+  programs.zed-editor = {
+    enable = true;
+    extensions = [
+      "nix"
+      "toml"
+      "HTML"
+      "Catppuccin"
+      "Catppuccin Icons"
+    ];
+    userSettings = {
+      theme = {
+        mode = "dark";
+        dark = "Catppuccin Mocha";
+        light = "Catppuccin Mocha";
+      };
+      icon_theme = "Catppuccin Mocha";
+      lsp = {
+        nixd = {
+          initialization_options = {
+            formatting = {
+              command = [ "nixfmt" ];
+            };
+          };
+        };
+      };
+      languages = {
+        Nix = {
+          language_servers = [
+            "nixd"
+            "!nil"
+          ];
+        };
+      };
+    };
+  };
 }
