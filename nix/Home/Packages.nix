@@ -8,7 +8,7 @@
     alacritty
     xwayland-satellite
     fuzzel
-    vscodium
+    zed-editor-fhs
     gh
     swaylock
     python3

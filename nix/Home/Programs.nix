@@ -39,17 +39,6 @@
       ];
     };
   };
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscodium;
-    profiles.default.extensions = with pkgs.vscode-extensions; [
-      catppuccin.catppuccin-vsc
-      arrterian.nix-env-selector
-      jnoortheen.nix-ide
-      rust-lang.rust-analyzer
-      ms-python.python
-    ];
-  };
   programs.chromium = {
     enable = true;
     package = pkgs.brave;
