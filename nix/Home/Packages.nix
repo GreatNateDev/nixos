@@ -48,7 +48,7 @@
     eza
     gitui
     mindustry-wayland
-    godot
+    pkgs-stable.godot
     pkgs-stable.azahar
     pkgs-stable.melonDS
     pkgs-stable.ryubing
