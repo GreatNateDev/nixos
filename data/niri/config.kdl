@@ -57,6 +57,7 @@ window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
 }
+spawn-at-startup "waybar"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & "
 environment {
