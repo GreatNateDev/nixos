@@ -1,0 +1,65 @@
+# NixOS Windows-style boot animation
+
+# Screen dimensions
+screen_width = Window.GetWidth();
+screen_height = Window.GetHeight();
+
+# NixOS logo (you'll need to place this image in the theme directory)
+logo.image = Image("logo.svg");
+logo.sprite = Sprite(logo.image);
+logo.width = logo.image.GetWidth();
+logo.height = logo.image.GetHeight();
+logo.x = screen_width / 2 - logo.width / 2;
+logo.y = screen_height / 2 - logo.height / 2 - 50;
+logo.sprite.SetPosition(logo.x, logo.y, 10);
+
+# Spinner dots (5 dots like Windows)
+spinner_radius = 30;
+spinner_dot_radius = 6;
+num_dots = 5;
+spinner_center_x = screen_width / 2;
+spinner_center_y = screen_height / 2 + 60;
+
+# Create dots
+for (i = 0; i < num_dots; i++) {
+    dot_sprite[i] = Sprite();
+    dot_image[i] = Image.Text("●", 1, 1, 1, 1, "Sans 16");
+    dot_sprite[i].SetImage(dot_image[i]);
+}
+
+# Animation progress
+progress = 0;
+
+fun refresh_callback() {
+    progress += 0.05;
+
+    # Update spinner dots position
+    for (i = 0; i < num_dots; i++) {
+        angle = (progress + i * 2 * 3.14159 / num_dots) % (2 * 3.14159);
+        x = spinner_center_x + Math.Cos(angle) * spinner_radius;
+        y = spinner_center_y + Math.Sin(angle) * spinner_radius;
+
+        # Fade effect based on position (leading dots brighter)
+        fade = 0.3 + 0.7 * (i / num_dots);
+        dot_sprite[i].SetOpacity(fade);
+        dot_sprite[i].SetPosition(x, y, 100);
+    }
+}
+
+Plymouth.SetRefreshFunction(refresh_callback);
+
+# Progress bar (optional, hidden by default)
+progress_box.image = Image("progress_box.png");
+progress_box.sprite = Sprite(progress_box.image);
+progress_box.sprite.SetOpacity(0);
+
+# Message display
+message_sprite = Sprite();
+message_sprite.SetPosition(screen_width / 2, screen_height - 50, 10000);
+
+fun message_callback(text) {
+    image = Image.Text(text, 1, 1, 1, 1, "Sans 12");
+    message_sprite.SetImage(image);
+}
+
+Plymouth.SetMessageFunction(message_callback);
