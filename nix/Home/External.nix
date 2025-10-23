@@ -15,4 +15,7 @@
     source = ../../data/user-dirs.dirs;
   };
   home.file.".face".source = ../../data/nate.png;
+  home.file."/home/nate/.librewolf/librewolf.overrides.cfg" = {
+    source = ../../data/librewolf/librewolf.overrides.cfg;
+  };
 }
