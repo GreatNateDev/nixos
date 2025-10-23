@@ -113,4 +113,7 @@
   programs.librewolf = {
     enable = true;
   };
+  programs.waybar = {
+    enable = true;
+  };
 }

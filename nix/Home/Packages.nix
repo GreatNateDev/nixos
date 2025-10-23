@@ -16,7 +16,6 @@
     fastfetch
     htop
     osu-lazer-bin
-    waybar
     supersonic
     prismlauncher
     zsh-powerlevel10k
