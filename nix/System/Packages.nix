@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    protonvpn-cli
     cargo
     ltrace
     gdb
