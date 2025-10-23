@@ -1,5 +1,10 @@
 { ... }:
 {
+  xdg.desktopEntries.github = {
+    name = "GitHub";
+    exec = "chromium --app=https://github.com/";
+    icon = "/home/nate/.config/nixos/data/XDG/GitHub.png";
+  };
   xdg.desktopEntries.yazi = {
     name = "yazi";
     noDisplay = true;
@@ -10,6 +15,10 @@
   };
   xdg.desktopEntries.xterm = {
     name = "xterm";
+    noDisplay = true;
+  };
+  xdg.desktopEntries.chromium-browser = {
+    name = "Chromium";
     noDisplay = true;
   };
   xdg.desktopEntries.nixos-manual = {

@@ -1,6 +1,7 @@
 { pkgs, pkgs-stable, ... }:
 {
   home.packages = with pkgs; [
+    ungoogled-chromium
     obs-studio
     adwsteamgtk
     fswatch
