@@ -96,7 +96,7 @@ binds {
     Mod+D hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Mod+E {spawn "nautilus";}
     Mod+Z {spawn "zeditor";}
-    Mod+B {spawn "brave";}
+    Mod+B {spawn "librewolf";}
     Mod+S {spawn "supersonic"; }
     Mod+Alt+Shift+G hotkey-overlay-title="panic" {spawn "zsh" "~/reset.sh";}
     Mod+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock" "-i" "/home/nate/.config/nixos/data/bg/wall.jpg"; }
