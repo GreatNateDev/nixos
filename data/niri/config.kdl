@@ -66,6 +66,24 @@ environment {
 }
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 animations {
+window-open {
+    spring damping-ratio=0.7 stiffness=500 epsilon=0.0001
+}
+window-close {
+    spring damping-ratio=0.7 stiffness=500 epsilon=0.0001
+}
+horizontal-view-movement {
+    spring damping-ratio=0.7 stiffness=500 epsilon=0.0001
+}
+window-movement {
+    spring damping-ratio=0.7 stiffness=500 epsilon=0.0001
+}
+window-resize {
+    spring damping-ratio=0.7 stiffness=500 epsilon=0.0001
+}
+workspace-switch {
+    spring damping-ratio=0.7 stiffness=500 epsilon=0.0001
+}
 }
 window-rule {
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
