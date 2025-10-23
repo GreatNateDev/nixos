@@ -5,7 +5,6 @@
     adwsteamgtk
     fswatch
     nerd-fonts.jetbrains-mono
-    brave
     alacritty
     xwayland-satellite
     fuzzel
@@ -49,9 +48,9 @@
     gitui
     mindustry-wayland
     godot
-    azahar
-    melonDS
-    ryubing
+    pkgs-stable.azahar
+    pkgs-stable.melonDS
+    pkgs-stable.ryubing
     pkgs-stable.cemu
     pkgs-stable.mgba
   ];
