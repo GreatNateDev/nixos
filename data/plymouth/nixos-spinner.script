@@ -5,7 +5,7 @@ screen_width = Window.GetWidth();
 screen_height = Window.GetHeight();
 
 # NixOS logo (you'll need to place this image in the theme directory)
-logo.image = Image("logo.svg");
+logo.image = Image("logo.png");
 logo.sprite = Sprite(logo.image);
 logo.width = logo.image.GetWidth();
 logo.height = logo.image.GetHeight();
