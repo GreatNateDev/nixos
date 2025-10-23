@@ -81,6 +81,7 @@
       "HTML"
       "catppuccin"
       "catppuccin-icons"
+      "gdscript"
     ];
     userSettings = {
       theme = {
