@@ -1,5 +1,11 @@
 rm -rf *
-EXCLUDE="" # In format Owner/Repo
+EXCLUDE="" # e.g., "GreatNateDev/Repo1|GreatNateDev/Repo2"
 gh repo list GreatNateDev --limit 1000 --json nameWithOwner,isFork -q '.[] | select(.isFork == false) | .nameWithOwner' | \
-grep -Ev "$EXCLUDE" | \
-xargs -L1 gh repo clone
+{
+  if [ -n "$EXCLUDE" ]; then
+    grep -Ev "$EXCLUDE"
+  else
+    cat
+  fi
+} | \
+xargs -P4 -L1 gh repo clone
