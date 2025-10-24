@@ -4,9 +4,8 @@
     enable = true;
     shellAliases = {
       ns = "echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet && echo Done!";
-      nd = "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +5";
-      nup = "nix flake update $HOME/.config/nixos/nix/";
-      cat = "bat";
+      nd = "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +2";
+      cat = "lolcat";
       lcm = "sudo ip link set wlp0s20f3 down && sudo macchanger -r wlp0s20f3 && sudo ip link set wlp0s20f3 up";
       lcmp = "sudo ip link set wlp0s20f3 down && sudo macchanger -m 3e:30:12:6f:31:ec wlp0s20f3 && sudo ip link set wlp0s20f3 up";
       ba = "cat /sys/class/power_supply/BAT0/status && cat /sys/class/power_supply/BAT0/capacity";
@@ -14,10 +13,10 @@
       du = "dust";
       ls = "eza";
       ll = "eza -la";
-      nus = "cd /home/nate/.config/nixos/nix/ && nix flake update && ns";
+      nup = "cd /home/nate/.config/nixos/nix/ && nix flake update && ns";
       ngc = "nix-collect-garbage";
       nce = "nix-env -q | fzf --multi | xargs -r nix-env -e";
-      cfg = "nvim ~/.config/nixos/nix/";
+      cfg = "zeditor ~/.config/nixos/";
     };
     initContent = ''
       fastfetch

@@ -4,6 +4,7 @@
     protonvpn-gui
     cargo
     ltrace
+    lolcat
     gdb
     rustfmt
     cyme
