@@ -10,6 +10,8 @@
   imports = [
     # Hardware configuration and drivers e.g. Graphics card, Wifi chip etc.
     (import /home/nate/.config/nixos/nix/hardware.nix)
+    # Custom Options not Added to GitHub
+    (import /home/nate/.config/nixos/nix/custom.nix)
     # Date Time and Keyboard type.
     ./System/Locale.nix
     # System Level Packages

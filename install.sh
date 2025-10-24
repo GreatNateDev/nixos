@@ -37,6 +37,7 @@ echo "Moving files..."
 mv ~/nixos/.git ~/.config/nixos/
 mv ~/nixos/.gitignore ~/.config/nixos/
 mv ~/nixos/* ~/.config/nixos/
+echo "{ ... }: {}" > ~/.config/nixos/nix/custom.nix
 rmdir ~/nixos
 rmdir ~/Desktop
 rmdir ~/Documents
