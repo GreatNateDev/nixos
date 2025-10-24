@@ -1,4 +1,7 @@
 clear
+echo "Starting Installer..."
+nix-env -iA nixos.lolcat
+clear
 
 cat <<"EOF"
 ███    ██  █████  ████████ ███████ ███████     ███    ██ ██ ██   ██  ██████  ███████     ██ ███    ██ ███████ ████████  █████  ██      ██      ███████ ██████
@@ -24,8 +27,9 @@ if [ "$USER" != "nate" ]; then
   exit 1
 fi
 sudo nixos-generate-config
-echo "Removing git"
+echo "Removing git and lolcat"
 nix-env -e git
+nix-env -e lolcat
 echo "Starting config installer..."
 echo "Making Directory..."
 mkdir -p ~/.config/nixos
@@ -50,12 +54,11 @@ echo "Removing old config..."
 sudo rm -rf /etc/nixos/
 echo "Building..."
 echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet && echo Done!
-echo "Script complete Reboot? (Y/n)"
+echo "Script complete. Reboot? (y/N)"
 read rebootcon
-if $rebootcon == n
-    exit
-fi
-if $rebootcon == y
+if [ "$rebootcon" = "y" ]; then
     reboot
+else
+    echo "Skipping reboot."
+    exit 0
 fi
-reboot
