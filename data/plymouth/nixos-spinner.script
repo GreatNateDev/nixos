@@ -7,8 +7,8 @@ screen_height = Window.GetHeight();
 # NixOS logo - scale it down to reasonable size
 logo_image = Image("logo.png");
 # Scale to max 128px while maintaining aspect ratio
-target_width = 512;
-target_height = 512;
+target_width = 256;
+target_height = 256;
 logo.image = logo_image.Scale(target_width, target_height);
 logo.sprite = Sprite(logo.image);
 logo.width = logo.image.GetWidth();
@@ -21,7 +21,7 @@ logo.sprite.SetPosition(logo.x, logo.y, 10);
 spinner_radius = 30;
 num_dots = 5;
 spinner_center_x = screen_width / 2;
-spinner_center_y = screen_height / 2 + 40;
+spinner_center_y = screen_height / 2 + 120;
 
 # Create dots with simple circle images instead of text
 for (i = 0; i < num_dots; i++) {
