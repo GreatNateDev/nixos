@@ -110,8 +110,53 @@
     };
   };
 
-  programs.librewolf = {
+  programs.firefox = {
+    package = pkgs.librewolf;
     enable = true;
+    profiles.default = {
+      id = 0;
+
+      # Set preferences (equivalent to about:config or LibreWolf's autoConfig)
+      settings = {
+        "privacy.resistFingerprinting" = false;
+        "browser.policies.runOncePerModification.setDefaultSearchEngine" = "StartPage";
+        "browser.search.separatePrivateDefault" = false;
+
+        "privacy.clearHistory.formdata" = true;
+        "privacy.clearHistory.siteSettings" = true;
+
+        "privacy.clearOnShutdown.downloads" = true;
+        "privacy.clearOnShutdown.history" = true;
+        "privacy.clearOnShutdown.offlineApps" = true;
+        "privacy.clearOnShutdown.openWindows" = true;
+        "privacy.clearOnShutdown.siteSettings" = true;
+
+        "privacy.clearOnShutdown_v2.browsingHistoryAndDownloads" = true;
+        "privacy.clearOnShutdown_v2.formdata" = true;
+        "privacy.clearOnShutdown_v2.historyFormDataAndDownloads" = true;
+        "privacy.clearOnShutdown_v2.siteSettings" = true;
+
+        "privacy.clearSiteData.browsingHistoryAndDownloads" = true;
+        "privacy.clearSiteData.formdata" = true;
+        "privacy.clearSiteData.historyFormDataAndDownloads" = true;
+        "privacy.clearSiteData.siteSettings" = true;
+
+        "browser.search.defaultenginename" = "StartPage";
+        "browser.search.order.1" = "StartPage";
+        "browser.search.selectedEngine" = "StartPage";
+        "browser.urlbar.placeholderName" = "StartPage";
+      };
+    };
+    # You can also manage search engines via policies:
+    policies = {
+      SearchEngines = {
+        Default = "StartPage";
+        Remove = [
+          "Google"
+          "Bing"
+        ];
+      };
+    };
   };
   programs.waybar = {
     enable = true;
