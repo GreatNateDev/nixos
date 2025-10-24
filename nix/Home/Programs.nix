@@ -110,44 +110,91 @@
     };
   };
 
-  programs.firefox = {
-    package = pkgs.librewolf;
+  programs.librewolf = {
     enable = true;
     profiles.default = {
       id = 0;
-
-      # Set preferences (equivalent to about:config or LibreWolf's autoConfig)
+      bookmarks = {
+        force = true;
+        settings = [
+          {
+            name = "Nate's Pages";
+            toolbar = true;
+            bookmarks = [
+              {
+                name = "Github Profile";
+                url = "https://github.com/GreatNateDev";
+              }
+              {
+                name = "Nix Packages";
+                url = "https://mynixos.com/";
+              }
+              {
+                name = "Ip Address";
+                url = "https://whatismyipaddress.com/";
+              }
+              {
+                name = "Download GitHub Folders";
+                url = "https://download-directory.github.io/";
+              }
+              {
+                name = "AI-Weak";
+                url = "https://chatgpt.com/";
+              }
+              {
+                name = "Ai-Strong";
+                url = "https://claude.ai/";
+              }
+              {
+                name = "YouTube";
+                url = "https://www.youtube.com/";
+              }
+              {
+                name = "Kick";
+                url = "https://kick.com/";
+              }
+              {
+                name = "Twitch";
+                url = "https://www.twitch.tv/";
+              }
+              {
+                name = "OSU!";
+                url = "https://osu.ppy.sh/";
+              }
+              {
+                name = "Home-Manager Options";
+                url = "https://nix-community.github.io/home-manager/options.xhtml";
+              }
+            ];
+          }
+        ];
+      };
       settings = {
         "privacy.resistFingerprinting" = false;
         "browser.policies.runOncePerModification.setDefaultSearchEngine" = "StartPage";
         "browser.search.separatePrivateDefault" = false;
-
         "privacy.clearHistory.formdata" = true;
         "privacy.clearHistory.siteSettings" = true;
-
         "privacy.clearOnShutdown.downloads" = true;
         "privacy.clearOnShutdown.history" = true;
         "privacy.clearOnShutdown.offlineApps" = true;
         "privacy.clearOnShutdown.openWindows" = true;
         "privacy.clearOnShutdown.siteSettings" = true;
-
         "privacy.clearOnShutdown_v2.browsingHistoryAndDownloads" = true;
         "privacy.clearOnShutdown_v2.formdata" = true;
         "privacy.clearOnShutdown_v2.historyFormDataAndDownloads" = true;
         "privacy.clearOnShutdown_v2.siteSettings" = true;
-
         "privacy.clearSiteData.browsingHistoryAndDownloads" = true;
         "privacy.clearSiteData.formdata" = true;
         "privacy.clearSiteData.historyFormDataAndDownloads" = true;
         "privacy.clearSiteData.siteSettings" = true;
-
         "browser.search.defaultenginename" = "StartPage";
         "browser.search.order.1" = "StartPage";
         "browser.search.selectedEngine" = "StartPage";
         "browser.urlbar.placeholderName" = "StartPage";
+        "browser.toolbars.bookmarks.visibility" = "always";
       };
     };
-    # You can also manage search engines via policies:
     policies = {
       SearchEngines = {
         Default = "StartPage";
