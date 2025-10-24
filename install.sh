@@ -24,6 +24,8 @@ if [ "$USER" != "nate" ]; then
   exit 1
 fi
 nixos-generate-config
+echo "Removing git"
+nix-env -e git
 echo "Starting config installer..."
 echo "Making Directory..."
 mkdir -p ~/.config/nixos
