@@ -46,6 +46,7 @@
     dust
     eza
     gitui
+    tor-browser
     mindustry-wayland
     pkgs-stable.godot
     pkgs-stable.azahar
