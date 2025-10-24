@@ -17,6 +17,7 @@
       ngc = "nix-collect-garbage";
       nce = "nix-env -q | fzf --multi | xargs -r nix-env -e";
       cfg = "zeditor ~/.config/nixos/";
+      gitbk = "zsh /home/nate/.config/nixos/scripts/gitbk.sh";
     };
     initContent = ''
       fastfetch
