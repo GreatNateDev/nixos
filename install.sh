@@ -23,7 +23,7 @@ if [ "$USER" != "nate" ]; then
   echo "    Current user: $USER"
   exit 1
 fi
-nixos-generate-config
+sudo nixos-generate-config
 echo "Removing git"
 nix-env -e git
 echo "Starting config installer..."
