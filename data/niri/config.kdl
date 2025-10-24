@@ -57,6 +57,8 @@ window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
 }
+spawn-at-startup "supersonic -start-minimized"
+spawn-at-startup "protonvpn-app --start-minimized"
 spawn-at-startup "waybar"
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 & "
