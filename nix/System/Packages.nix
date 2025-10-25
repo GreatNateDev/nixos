@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    cruise
     protonvpn-gui
     cargo
     ltrace
