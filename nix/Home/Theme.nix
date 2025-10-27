@@ -3,7 +3,7 @@
   home.pointerCursor = {
     package = pkgs.catppuccin-cursors.mochaRed;
     name = "catppuccin-mocha-red-cursors";
-    size = 40;
+    size = 24;
     gtk.enable = true;
     x11.enable = true;
   };
@@ -28,7 +28,7 @@
     };
   };
   home.sessionVariables = {
-    XCURSOR_SIZE = "40";
+    XCURSOR_SIZE = "24";
     GTK_THEME = "catppuccin-mocha-red-standard";
   };
   dconf.settings = {
