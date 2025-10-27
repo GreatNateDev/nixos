@@ -10,6 +10,7 @@ in
     shellAliases = {
       ns = "echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet && echo Done!";
       nd = "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +2";
+      ndd = "sudo nix-env --delete-generations old";
       cat = "lolcat";
       lcm = "sudo ip link set wlp0s20f3 down && sudo macchanger -r wlp0s20f3 && sudo ip link set wlp0s20f3 up";
       lcmp = "sudo ip link set wlp0s20f3 down && sudo macchanger -m 3e:30:12:6f:31:ec wlp0s20f3 && sudo ip link set wlp0s20f3 up";
