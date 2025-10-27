@@ -28,13 +28,6 @@ lolcat <<"EOF"
 
 
 EOF
-cat > ~/.config/nixos/nix/env.nix <<EOF
-{
-  username = "$TARGET_USER";
-  hostname = "$TARGET_HOSTNAME";
-  fullname = "$TARGET_FULLNAME";
-}
-EOF
 
 sudo nixos-generate-config
 echo "Removing git and lolcat"
@@ -47,6 +40,13 @@ echo "Moving files..."
 mv ~/nixos/.git ~/.config/nixos/
 mv ~/nixos/.gitignore ~/.config/nixos/
 mv ~/nixos/* ~/.config/nixos/
+cat > ~/.config/nixos/nix/env.nix <<EOF
+{
+  username = "$TARGET_USER";
+  hostname = "$TARGET_HOSTNAME";
+  fullname = "$TARGET_FULLNAME";
+}
+EOF
 echo "{ ... }: {}" > ~/.config/nixos/nix/custom.nix
 rmdir ~/nixos
 rmdir ~/Desktop
