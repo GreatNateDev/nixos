@@ -1,4 +1,7 @@
 { config, ... }:
+let
+  env = import ./env.nix;
+in
 {
   hardware.bluetooth.enable = true;
   services = {
@@ -15,7 +18,7 @@
     xserver = {
       enable = true;
       windowManager.i3.enable = true;
-      windowManager.i3.configFile = "/home/nate/.config/nixos/data/i3/config";
+      windowManager.i3.configFile = "/home/${env.username}/.config/nixos/data/i3/config";
       videoDrivers = config.boot.initrd.kernelModules;
     };
     pipewire = {

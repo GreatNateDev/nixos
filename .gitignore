@@ -1,3 +1,4 @@
 hardware-configuration.nix
 hardware.nix
 custom.nix
+env.nix

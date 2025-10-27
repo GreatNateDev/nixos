@@ -1,7 +1,10 @@
 { ... }:
+let
+  env = import ./env.nix;
+in
 {
-  home.username = "nate"; # output of whoami
-  home.homeDirectory = "/home/nate"; # Same as $HOME
+  home.username = "${env.username}"; # output of whoami
+  home.homeDirectory = "/home/${env.username}"; # Same as $HOME
   home.stateVersion = "25.11"; # Dont Touch
   imports = [
     #User level packages
@@ -18,5 +21,5 @@
     ./Home/Theme.nix
     # XDG files for fuzzel
     ./Home/XDG.nix
-    ];
+  ];
 }

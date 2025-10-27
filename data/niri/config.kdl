@@ -118,7 +118,7 @@ binds {
     Mod+B {spawn "librewolf";}
     Mod+S {spawn "supersonic"; }
     Mod+Alt+Shift+G hotkey-overlay-title="panic" {spawn "zsh" "~/reset.sh";}
-    Mod+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock" "-i" "/home/nate/.config/nixos/data/bg/wall.jpg"; }
+    Mod+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock" "-i" "~/.config/nixos/data/bg/wall.jpg"; }
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
     Shift+XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.05+"; }

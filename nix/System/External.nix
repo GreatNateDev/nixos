@@ -1,8 +1,12 @@
 { ... }:
+
+let
+  env = import ./env.nix;
+in
 {
   # Set profile icon
-  environment.etc."AccountsService/users/nate".text = ''
+  environment.etc."AccountsService/users/${env.username}".text = ''
     [User]
-    Icon=/home/nate/.face
+    Icon=/home/${env.username}/.face
   '';
 }

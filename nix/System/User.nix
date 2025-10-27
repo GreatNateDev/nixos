@@ -1,8 +1,11 @@
 { pkgs, ... }:
+let
+  env = import ./env.nix;
+in
 {
-  users.users.nate = {
+  users.users.${env.username} = {
     isNormalUser = true;
-    description = "Nate Landis";
+    description = "${env.fullname}";
     shell = pkgs.zsh;
     extraGroups = [
       "wheel"

@@ -14,5 +14,5 @@
   home.file.".config/user-dirs.dirs" = {
     source = ../../data/user-dirs.dirs;
   };
-  home.file.".face".source = ../../data/nate.png;
+  home.file.".face".source = ../../data/pfp.png;
 }

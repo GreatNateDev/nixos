@@ -1,9 +1,24 @@
 clear
 echo "Starting Installer..."
+TARGET_USER="$USER"
+TARGET_HOSTNAME="$(hostname)"
+TARGET_FULLNAME=$(getent passwd "$TARGET_USER" | cut -d: -f5 | cut -d, -f1)
+if [ -z "$TARGET_FULLNAME" ]; then
+    TARGET_FULLNAME="$TARGET_USER"
+fi
+echo "Detected configuration:"
+echo "  Username: $TARGET_USER"
+echo "  Fullname: $TARGET_FULLNAME"
+echo "  Hostname: $TARGET_HOSTNAME"
+read -p "Continue with this configuration? (y/N): " confirm
+if [ "$confirm" != "y" ]; then
+    echo "Installation cancelled."
+    exit 1
+fi
 nix-env -iA nixos.lolcat
 clear
 
-cat <<"EOF"
+lolcat <<"EOF"
 ███    ██  █████  ████████ ███████ ███████     ███    ██ ██ ██   ██  ██████  ███████     ██ ███    ██ ███████ ████████  █████  ██      ██      ███████ ██████
 ████   ██ ██   ██    ██    ██      ██          ████   ██ ██  ██ ██  ██    ██ ██          ██ ████   ██ ██         ██    ██   ██ ██      ██      ██      ██   ██
 ██ ██  ██ ███████    ██    █████   ███████     ██ ██  ██ ██   ███   ██    ██ ███████     ██ ██ ██  ██ ███████    ██    ███████ ██      ██      █████   ██████
@@ -13,19 +28,15 @@ cat <<"EOF"
 
 
 EOF
-# Ensure hostname is 'nixos'
-if [ "$(hostname)" != "nixos" ]; then
-  echo "❌ This script must be run on a machine with hostname 'nixos'."
-  echo "    Current hostname: $(hostname)"
-  exit 1
-fi
+cat > ~/.config/nixos/nix/env.nix <<EOF
+{ ... }:
+{
+  username = "$TARGET_USER";
+  hostname = "$TARGET_HOSTNAME";
+  fullname = "$TARGET_FULLNAME";
+}
+EOF
 
-# Ensure username is 'nate'
-if [ "$USER" != "nate" ]; then
-  echo "❌ This script must be run as user 'nate'."
-  echo "    Current user: $USER"
-  exit 1
-fi
 sudo nixos-generate-config
 echo "Removing git and lolcat"
 nix-env -e git

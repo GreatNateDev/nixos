@@ -1,9 +1,12 @@
 { ... }:
+let
+  env = import ./env.nix;
+in
 {
   xdg.desktopEntries.github = {
     name = "GitHub";
     exec = "chromium --app=https://github.com/";
-    icon = "/home/nate/.config/nixos/data/XDG/GitHub.png";
+    icon = "/home/${env.username}/.config/nixos/data/XDG/GitHub.png";
   };
   xdg.desktopEntries.yazi = {
     name = "yazi";
@@ -40,6 +43,6 @@
   xdg.desktopEntries.Ryujinx = {
     name = "Ryubing";
     noDisplay = false;
-    icon = "/home/nate/.config/nixos/data/XDG/Ryubing.png";
+    icon = "/home/${env.username}/.config/nixos/data/XDG/Ryubing.png";
   };
 }

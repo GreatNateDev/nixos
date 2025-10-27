@@ -1,6 +1,9 @@
 { ... }:
+let
+  env = import ./env.nix;
+in
 {
-  networking.hostName = "nixos";
+  networking.hostName = "${env.hostname}";
   networking.networkmanager.enable = true;
   networking.firewall.enable = false;
   networking.nameservers = [

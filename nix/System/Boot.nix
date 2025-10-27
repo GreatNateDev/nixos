@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}:
+{ pkgs, ... }:
 let
   nixosSpinnerTheme = pkgs.stdenv.mkDerivation {
     name = "plymouth-nixos-spinner";

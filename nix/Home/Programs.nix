@@ -1,4 +1,7 @@
 { pkgs, ... }:
+let
+  env = import ./env.nix;
+in
 {
   programs.zsh = {
     enable = true;
@@ -13,11 +16,11 @@
       du = "dust";
       ls = "eza";
       ll = "eza -la";
-      nup = "cd /home/nate/.config/nixos/nix/ && nix flake update && ns";
+      nup = "cd /home/$HOME/.config/nixos/nix/ && nix flake update && ns";
       ngc = "nix-collect-garbage";
       nce = "nix-env -q | fzf --multi | xargs -r nix-env -e";
       cfg = "zeditor ~/.config/nixos/";
-      gitbk = "zsh /home/nate/.config/nixos/scripts/gitbk.sh";
+      gitbk = "zsh /home/$HOME/.config/nixos/scripts/gitbk.sh";
     };
     initContent = ''
       fastfetch
@@ -27,7 +30,7 @@
       source ${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
       source ${pkgs.fzf}/share/fzf/key-bindings.zsh
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
-      source /home/nate/.config/nixos/data/zsh/p10k.zsh
+      source /home/$HOME/.config/nixos/data/zsh/p10k.zsh
     '';
     oh-my-zsh = {
       enable = true;
@@ -204,9 +207,9 @@
           "Bing"
         ];
       };
-      DownloadDirectory = "/home/nate";
+      DownloadDirectory = "/home/${env.username}";
       PromptForDownloadLocation = false;
-      DefaultDownloadDirectory = "/home/nate";
+      DefaultDownloadDirectory = "/home/${env.username}";
     };
   };
   programs.waybar = {

@@ -1,12 +1,16 @@
 {
   description = "My NixOS system with Home Manager (unstable)";
+
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     catppuccin.url = "github:catppuccin/nix";
   };
+
   outputs =
     {
       self,
@@ -14,16 +18,23 @@
       nixpkgs-stable,
       home-manager,
       ...
-    }@inputs: # Add @inputs here
+    }@inputs:
+    let
+      system = "x86_64-linux";
+
+      # Import user configuration
+      userConfig = import ./env.nix;
+
+      pkgs-stable = import nixpkgs-stable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+    in
     {
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+      nixosConfigurations.${userConfig.hostname} = nixpkgs.lib.nixosSystem {
+        inherit system;
         specialArgs = {
-          inherit inputs; # Add this line
-          pkgs-stable = import nixpkgs-stable {
-            system = "x86_64-linux";
-            config.allowUnfree = true;
-          };
+          inherit inputs pkgs-stable;
         };
         modules = [
           ./System.nix
@@ -31,15 +42,12 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.nate = import ./Home.nix;
+            home-manager.users.${userConfig.username} = import ./Home.nix;
             home-manager.extraSpecialArgs = {
-              inherit inputs; # Add this line
-              pkgs-stable = import nixpkgs-stable {
-                system = "x86_64-linux";
-                config.allowUnfree = true;
-              };
+              inherit inputs pkgs-stable;
             };
-            # Disable "Git tree is dirty" warning
+          }
+          {
             nix.extraOptions = ''
               warn-dirty = false
             '';
