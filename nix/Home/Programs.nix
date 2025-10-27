@@ -9,8 +9,6 @@ in
     enable = true;
     shellAliases = {
       ns = "echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet && echo Done!";
-      nd = "sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +2";
-      ndd = "sudo nix-env --delete-generations old";
       cat = "lolcat";
       lcm = "sudo ip link set wlp0s20f3 down && sudo macchanger -r wlp0s20f3 && sudo ip link set wlp0s20f3 up";
       lcmp = "sudo ip link set wlp0s20f3 down && sudo macchanger -m 3e:30:12:6f:31:ec wlp0s20f3 && sudo ip link set wlp0s20f3 up";
@@ -20,7 +18,7 @@ in
       ls = "eza";
       ll = "eza -la";
       nup = "cd $HOME/.config/nixos/nix/ && nix flake update && ns";
-      ngc = "nix-collect-garbage";
+      ngc = "sudo nix-collect-garbage -d && nix-collect-garbage -d && sudo nix-store --gc && nix-store --gc";
       nce = "nix-env -q | fzf --multi | xargs -r nix-env -e";
       cfg = "zeditor ~/.config/nixos/";
       gitbk = "zsh $HOME/.config/nixos/scripts/gitbk.sh";
