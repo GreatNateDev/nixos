@@ -37,4 +37,9 @@
     name = "alacritty";
     noDisplay = true;
   };
+  xdg.desktopEntries.Ryujinx = {
+    name = "Ryubing";
+    noDisplay = false;
+    icon = "/home/nate/.config/nixos/data/XDG/Ryubing.png";
+  };
 }
