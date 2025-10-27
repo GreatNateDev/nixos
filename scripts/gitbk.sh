@@ -1,6 +1,7 @@
+gitname="GreatNateDev" # Change to your user
 rm -rf *
-EXCLUDE="" # e.g., "GreatNateDev/Repo1|GreatNateDev/Repo2"
-gh repo list GreatNateDev --limit 1000 --json nameWithOwner,isFork -q '.[] | select(.isFork == false) | .nameWithOwner' | \
+EXCLUDE="" # e.g., "gitname/Repo1|gitname/Repo2"
+gh repo list $gitname --limit 1000 --json nameWithOwner,isFork -q '.[] | select(.isFork == false) | .nameWithOwner' | \
 {
   if [ -n "$EXCLUDE" ]; then
     grep -Ev "$EXCLUDE"

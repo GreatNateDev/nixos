@@ -1,11 +1,14 @@
-# This only works for me ofc
-git clone https://github.com/GreatNateDev/osu.git
+# basicly setup a private repo with all your entire osu path commited
+gituser="GreatNateDev"
+repo="osu.git"
+path="$HOME/.local/share/osu"
+git clone https://github.com/$gituser/$repo
 cd osu
 sudo rm -rf .git
-sudo mv * $HOME/.local/share/osu/
-cd $HOME/.local/share/osu/
+sudo mv * $path
+cd $path
 sudo mkdir -p Skins
 sudo cp -r s/* Skins/
 cd ~/.config/nixos/scripts
 rm -rf osu
-nautilus ~/.local/share/osu/Skins/
+nautilus $path/Skins/
