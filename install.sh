@@ -29,7 +29,6 @@ lolcat <<"EOF"
 
 EOF
 cat > ~/.config/nixos/nix/env.nix <<EOF
-{ ... }:
 {
   username = "$TARGET_USER";
   hostname = "$TARGET_HOSTNAME";

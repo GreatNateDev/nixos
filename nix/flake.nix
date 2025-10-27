@@ -21,17 +21,16 @@
     }@inputs:
     let
       system = "x86_64-linux";
-
-      # Import user configuration
-      userConfig = import ./env.nix;
-
+      actualUser = builtins.getEnv "SUDO_USER";
+      user = if actualUser != "" then actualUser else builtins.getEnv "USER";
+      env = import /home/${user}/.config/nixos/nix/env.nix;
       pkgs-stable = import nixpkgs-stable {
         inherit system;
         config.allowUnfree = true;
       };
     in
     {
-      nixosConfigurations.${userConfig.hostname} = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.${env.hostname} = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit inputs pkgs-stable;
@@ -42,7 +41,15 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.${userConfig.username} = import ./Home.nix;
+            home-manager.users =
+              let
+                actualUser = builtins.getEnv "SUDO_USER";
+                user = if actualUser != "" then actualUser else builtins.getEnv "USER";
+                env = import /home/${user}/.config/nixos/nix/env.nix;
+              in
+              {
+                ${env.username} = import ./Home.nix;
+              };
             home-manager.extraSpecialArgs = {
               inherit inputs pkgs-stable;
             };

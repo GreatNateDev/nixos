@@ -1,6 +1,8 @@
 { pkgs, ... }:
 let
-  env = import ./env.nix;
+  actualUser = builtins.getEnv "SUDO_USER";
+  user = if actualUser != "" then actualUser else builtins.getEnv "USER";
+  env = import /home/${user}/.config/nixos/nix/env.nix;
 in
 {
   programs.zsh = {
@@ -16,11 +18,11 @@ in
       du = "dust";
       ls = "eza";
       ll = "eza -la";
-      nup = "cd /home/$HOME/.config/nixos/nix/ && nix flake update && ns";
+      nup = "cd $HOME/.config/nixos/nix/ && nix flake update && ns";
       ngc = "nix-collect-garbage";
       nce = "nix-env -q | fzf --multi | xargs -r nix-env -e";
       cfg = "zeditor ~/.config/nixos/";
-      gitbk = "zsh /home/$HOME/.config/nixos/scripts/gitbk.sh";
+      gitbk = "zsh $HOME/.config/nixos/scripts/gitbk.sh";
     };
     initContent = ''
       fastfetch
@@ -30,7 +32,7 @@ in
       source ${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
       source ${pkgs.fzf}/share/fzf/key-bindings.zsh
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
-      source /home/$HOME/.config/nixos/data/zsh/p10k.zsh
+      source $HOME/.config/nixos/data/zsh/p10k.zsh
     '';
     oh-my-zsh = {
       enable = true;
