@@ -1,6 +1,8 @@
 { pkgs, pkgs-stable, ... }:
 {
   home.packages = with pkgs; [
+    mpv
+    pavucontrol
     ungoogled-chromium
     obs-studio
     adwsteamgtk

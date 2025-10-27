@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    ffmpeg
+    bash
     cruise
     protonvpn-gui
     cargo
