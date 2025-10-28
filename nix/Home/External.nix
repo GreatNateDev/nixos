@@ -15,4 +15,5 @@
     source = ../../data/user-dirs.dirs;
   };
   home.file.".face".source = ../../data/pfp.png;
+  home.file.".config/fastfetch/config.jsonc".source = ../../data/fastfetch/config.jsonc;
 }
