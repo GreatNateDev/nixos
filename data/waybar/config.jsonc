@@ -5,11 +5,11 @@
   "position": "top",
   "height": 40,
 
-  "modules-left": ["custom/launcher", "niri/workspaces"],
+  "modules-left": ["niri/workspaces", "memory", "cpu", "temperature"],
 
-  "modules-center": ["memory", "cpu", "temperature"],
+  "modules-center": [],
 
-  "modules-right": ["tray", "pulseaudio", "network", "clock"],
+  "modules-right": ["tray", "pulseaudio", "network", "battery", "clock"],
 
   "include": "~/.config/waybar/modules.jsonc",
 }

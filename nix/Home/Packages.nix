@@ -36,6 +36,8 @@
     zsh-completions
     zsh-history-substring-search
     zsh-fzf-tab
+    #Fonts
+    nerd-fonts.jetbrains-mono
     #Other
     gnome-clocks
     protonvpn-gui

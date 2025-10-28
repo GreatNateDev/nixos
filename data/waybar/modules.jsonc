@@ -3,7 +3,7 @@
   "custom/launcher": {
     "format": "",
     "on-click": "fuzzel",
-    "tooltip": false
+    "tooltip": false,
   },
 
   // Workspaces (Hyprland)
@@ -17,11 +17,11 @@
     "format-icons": {
       "urgent": "",
       "active": "",
-      "default": ""
+      "default": "",
     },
     "persistent-workspaces": {
-      "*": 5
-    }
+      "*": 5,
+    },
   },
 
   // Weather
@@ -29,7 +29,7 @@
     "exec": "~/.config/waybar/scripts/openweathermap.sh",
     "interval": 1800,
     "format": "{}",
-    "tooltip": false
+    "tooltip": false,
   },
 
   // Check updates pacman or aur
@@ -42,7 +42,7 @@
     "interval": 1800,
     "signal": 1,
     "hide-empty-text": true,
-    "on-click": "~/.config/waybar/scripts/update_system.sh"
+    "on-click": "~/.config/waybar/scripts/update_system.sh",
   },
 
   // CAVA Audio Visualizer
@@ -51,23 +51,23 @@
     "format": "♪ {}",
     "on-click-middle": "playerctl play-pause",
     "on-click-right": "playerctl next",
-    "on-click-left": "playerctl previous"
+    "on-click-left": "playerctl previous",
   },
 
   // Memory / CPU / Temp
   "memory": {
     "format": " {: >3}%",
-    "on-click": "neohtop"
+    "on-click": "htop",
   },
   "cpu": {
     "format": "󰘚 {usage: >3}%",
-    "on-click": "neohtop"
+    "on-click": "htop",
   },
   "temperature": {
     "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
     "critical-threshold": 80,
     "format": "  {temperatureC}°C",
-    "on-click": "neohtop"
+    "on-click": "htop",
   },
 
   // Idle inhibitor
@@ -75,26 +75,26 @@
     "format": "{icon}",
     "format-icons": {
       "activated": "󰌾",
-      "deactivated": "󰌵"
+      "deactivated": "󰌵",
     },
     "tooltip-format-activated": "Idle inhibitor: ON",
-    "tooltip-format-deactivated": "Idle inhibitor: OFF"
+    "tooltip-format-deactivated": "Idle inhibitor: OFF",
   },
 
   // Battery
   "battery": {
     "states": {
       "warning": 30,
-      "critical": 15
+      "critical": 15,
     },
     "format": "{icon} {capacity: >3}%",
-    "format-icons": ["", "", "", "", ""]
+    "format-icons": ["", "", "", "", ""],
   },
 
   // Language (Hyprland)
   "hyprland/language": {
     "format": "󰌌 {short}",
-    "tooltip-format": "Language: {long}"
+    "tooltip-format": "Language: {long}",
   },
 
   // Keyboard state
@@ -104,8 +104,8 @@
     "format": "{name} {icon} ",
     "format-icons": {
       "locked": " ",
-      "unlocked": ""
-    }
+      "unlocked": "",
+    },
   },
 
   // Backlight
@@ -113,7 +113,7 @@
     "format": "{icon} {percent: >3}%",
     "format-icons": ["", ""],
     "on-scroll-down": "brightnessctl set 5%-",
-    "on-scroll-up": "brightnessctl set +5%"
+    "on-scroll-up": "brightnessctl set +5%",
   },
 
   // Audio
@@ -129,11 +129,11 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", ""]
+      "default": ["", ""],
     },
     "on-click": "pavucontrol",
     "on-scroll-up": "pamixer -ui 2 && pamixer --get-volume > $SWAYSOCK.wob",
-    "on-scroll-down": "pamixer -ud 2 && pamixer --get-volume > $SWAYSOCK.wob"
+    "on-scroll-down": "pamixer -ud 2 && pamixer --get-volume > $SWAYSOCK.wob",
   },
 
   // Network
@@ -148,7 +148,7 @@
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50,
     "on-click": "nm-connection-editor",
-    "on-click-right": "nm-connection-editor"
+    "on-click-right": "nm-connection-editor",
   },
 
   // VPN (nmcli, JSON)
@@ -158,7 +158,7 @@
     "on-click": "~/.config/waybar/scripts/vpn_status.sh --toggle",
     "interval": 5,
     "return-type": "text",
-    "tooltip": true
+    "tooltip": true,
   },
 
   // Clock
@@ -177,10 +177,10 @@
         "days": "<span color='#ecc6d9'><b>{}</b></span>",
         "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
         "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
-      }
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+      },
     },
-    "interval": 1
+    "interval": 1,
   },
 
   // Notifications (SwayNC)
@@ -195,14 +195,14 @@
       "inhibited-notification": "<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
       "inhibited-none": "",
       "dnd-inhibited-notification": "<span rise='8pt'><span foreground='red'><sup></sup></span></span>",
-      "dnd-inhibited-none": ""
+      "dnd-inhibited-none": "",
     },
     "return-type": "json",
     "exec-if": "which swaync-client",
     "exec": "swaync-client -swb",
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
-    "escape": true
+    "escape": true,
   },
 
   // Tray
@@ -211,6 +211,6 @@
     "spacing": 10,
     "show-passive-items": true,
     "reverse-direction": false,
-    "smooth-scrolling-threshold": 1.0
-  }
+    "smooth-scrolling-threshold": 1.0,
+  },
 }
