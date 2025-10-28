@@ -16,6 +16,8 @@ in
     (import /home/${env.username}/.config/nixos/nix/hardware.nix)
     # Custom Options not Added to GitHub
     (import /home/${env.username}/.config/nixos/nix/custom.nix)
+    # Options Added in options.nix
+    (import /home/${env.username}/.config/nixos/nix/options.nix)
     # Date Time and Keyboard type.
     ./System/Locale.nix
     # System Level Packages

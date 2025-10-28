@@ -63,6 +63,25 @@ echo "Getting hardware config..."
 sudo mv /etc/nixos/hardware-configuration.nix ~/.config/nixos/nix/hardware.nix
 echo "Removing old config..."
 sudo rm -rf /etc/nixos/
+echo "Options time!"
+read -p "Set Extra Options? (y/N): " confirmop
+if [[ "$confirmop" == "y" ]]; then
+    read -p "Backup Firefox browser (in case Librewolf breaks) (y/N): " yesfirefox
+    if [[ "$yesfirefox" == "y" ]]; then
+        ENABLE_FIREFOX="firefox"
+    else
+        ENABLE_FIREFOX=""
+    fi
+fi
+cat > ~/.config/nixos/nix/options.nix <<EOF
+{ pkgs, ... }:
+{
+    environment.systemPackages = with pkgs; [
+    ${ENABLE_FIREFOX:+$ENABLE_FIREFOX}
+    ];
+}
+EOF
+
 echo "Building..."
 echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet && echo Done!
 echo "Script complete. Reboot? (y/N)"
