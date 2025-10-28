@@ -40,6 +40,7 @@
     nerd-fonts.jetbrains-mono
     #Other
     gnome-clocks
+    networkmanagerapplet
     protonvpn-gui
     virt-manager
     nautilus
