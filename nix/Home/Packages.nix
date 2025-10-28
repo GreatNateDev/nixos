@@ -2,7 +2,6 @@
 {
   home.packages = with pkgs; [
     localsend
-    gnome-boxes
     mpv
     pavucontrol
     ungoogled-chromium

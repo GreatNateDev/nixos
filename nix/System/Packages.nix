@@ -56,5 +56,6 @@
       #background = ./data/bg/Magna-Mountain-Wallpaper-Without-Plasma-Logo.png;
       loginBackground = false;
     })
+    virt-manager
   ];
 }
