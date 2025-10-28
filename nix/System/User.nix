@@ -15,6 +15,7 @@ in
       "docker"
       "video"
       "bluetooth"
+      "libvirtd"
     ];
   };
 }
