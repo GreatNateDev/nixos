@@ -1,62 +1,45 @@
 { pkgs, pkgs-stable, ... }:
 {
   home.packages = with pkgs; [
-    localsend
-    mpv
+    #Audio & Video
     pavucontrol
-    ungoogled-chromium
+    mpv
     obs-studio
+    supersonic
+    yt-dlp
+    id3v2
+    #Emulators and Games
+    lutris
+    osu-lazer-bin
+    prismlauncher
+    steam
     adwsteamgtk
-    fswatch
-    nerd-fonts.jetbrains-mono
+    mindustry-wayland
+    pkgs-stable.azahar
+    pkgs-stable.melonDS
+    pkgs-stable.ryubing
+    pkgs-stable.cemu
+    pkgs-stable.mgba
+    pkgs-stable.godot
+    #Network
+    localsend
+    ungoogled-chromium
+    tor-browser
+    #CLI
     alacritty
-    xwayland-satellite
-    fuzzel
     gh
-    swaylock
-    python3
-    nautilus
     fastfetch
     htop
-    osu-lazer-bin
-    supersonic
-    prismlauncher
     zsh-powerlevel10k
     zsh-autosuggestions
     zsh-syntax-highlighting
     zsh-completions
     zsh-history-substring-search
     zsh-fzf-tab
-    fzf
-    openjdk21
-    yt-dlp
-    exiftool
-    id3v2
-    steam
-    bat
-    httpie
-    viu
-    file
-    macchanger
-    tldr
-    caligula
-    ostui
-    dwarf-fortress
-    pokete
-    netscanner
-    yazi
-    duf
-    dust
-    eza
-    gitui
-    tor-browser
-    mindustry-wayland
-    pkgs-stable.godot
-    pkgs-stable.azahar
-    pkgs-stable.melonDS
-    pkgs-stable.ryubing
-    pkgs-stable.cemu
-    pkgs-stable.mgba
+    #Other
+    gnome-clocks
+    protonvpn-gui
+    virt-manager
+    nautilus
   ];
-
 }

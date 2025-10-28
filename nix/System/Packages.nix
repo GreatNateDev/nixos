@@ -1,53 +1,47 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    #Commands
     ffmpeg
-    bash
+    exiftool
+    fzf
+    httpie
+    file
+    macchanger
+    tldr
+    caligula
+    duf
+    dust
+    eza
+    gitui
     cruise
-    protonvpn-gui
-    cargo
     ltrace
     lolcat
     gdb
-    rustfmt
     cyme
-    emulsion
     killall
-    zsh
-    git
     docker
     docker-compose
-    direnv
+    git
+    tree
+    nmap
+    unzip
+    wget
+    jq
+    util-linux
+    #Programming
+    neovim
+    rustfmt
+    zsh
     nixfmt-rfc-style
     nixd
+    #Fonts & Themes
     jetbrains-mono
     fira-code
     font-awesome
     material-design-icons
-    nerd-fonts.jetbrains-mono
-    tree
-    nmap
-    gnome-keyring
-    neovim
-    gcc
-    ripgrep
-    fd
-    lazygit
-    lua-language-server
-    tree-sitter
-    unzip
-    wget
-    nodejs_20
-    glib
-    go
-    polkit_gnome
-    util-linux
-    lutris
     libnotify
     mako
-    gnome-clocks
-    calcurse
-    jaq
     (catppuccin-sddm.override {
       flavor = "mocha";
       accent = "red";
@@ -56,6 +50,11 @@
       #background = ./data/bg/Magna-Mountain-Wallpaper-Without-Plasma-Logo.png;
       loginBackground = false;
     })
-    virt-manager
+    #Systems
+    xwayland-satellite
+    swaylock
+    fuzzel
+    gnome-keyring
+    polkit_gnome
   ];
 }
