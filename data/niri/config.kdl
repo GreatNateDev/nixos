@@ -89,7 +89,7 @@ workspace-switch {
 prefer-no-csd
 window-rule {
     match is-active=false
-    opacity 0.60
+    opacity 0.40
 }
 window-rule {
     match is-active=true
@@ -106,7 +106,7 @@ window-rule {
 window-rule {
     match app-id="librewolf"
     open-maximized true
-    opacity 0.65
+    opacity 0.75
 }
 
 binds {
