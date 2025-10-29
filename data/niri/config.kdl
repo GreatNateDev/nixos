@@ -86,10 +86,21 @@ workspace-switch {
     spring damping-ratio=0.7 stiffness=500 epsilon=0.0001
 }
 }
+prefer-no-csd
+window-rule {
+    match is-active=false
+    opacity 0.60
+}
+window-rule {
+    match is-active=true
+    exclude app-id="Alacritty"
+    opacity 0.90
+}
 
 window-rule {
     match app-id="Alacritty"
     open-maximized true
+    opacity 0.95
 }
 
 binds {

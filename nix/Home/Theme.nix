@@ -30,6 +30,8 @@
   home.sessionVariables = {
     XCURSOR_SIZE = "24";
     GTK_THEME = "catppuccin-mocha-red-standard";
+    _JAVA_AWT_WM_NONREPARENTING = "1";
+    QT_STYLE_OVERRIDE = "Adwaita-Dark";
   };
   dconf.settings = {
     "org/gnome/desktop/interface" = {

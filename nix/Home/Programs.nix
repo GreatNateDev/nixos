@@ -69,7 +69,7 @@ in
     enable = true;
     settings = {
       window = {
-        opacity = 0.5;
+        opacity = 0.85;
         decorations_theme_variant = "Dark";
       };
       font = {

@@ -36,13 +36,20 @@
     zsh-completions
     zsh-history-substring-search
     zsh-fzf-tab
-    #Fonts
+    #Themeing
     nerd-fonts.jetbrains-mono
     #Other
+    (cutter.withPlugins (
+      ps: with ps; [
+        jsdec
+        rz-ghidra
+      ]
+    ))
     gnome-clocks
     networkmanagerapplet
     protonvpn-gui
     virt-manager
     nautilus
+    wireshark
   ];
 }

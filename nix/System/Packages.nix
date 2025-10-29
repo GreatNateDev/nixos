@@ -2,6 +2,9 @@
 {
   environment.systemPackages = with pkgs; [
     #Commands
+    radare2
+    binutils
+    p7zip
     unrar
     ffmpeg
     exiftool
@@ -37,6 +40,8 @@
     nixfmt-rfc-style
     nixd
     #Fonts & Themes
+    adwaita-qt
+    adwaita-qt6
     jetbrains-mono
     fira-code
     font-awesome
