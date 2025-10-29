@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     #Commands
+    yazi
     radare2
     binutils
     p7zip
