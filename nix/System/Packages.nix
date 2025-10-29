@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     #Commands
+    unrar
     ffmpeg
     exiftool
     fzf
