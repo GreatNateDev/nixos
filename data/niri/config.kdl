@@ -89,7 +89,7 @@ workspace-switch {
 prefer-no-csd
 window-rule {
     match is-active=false
-    opacity 0.40
+    opacity 0.75
 }
 window-rule {
     match is-active=true
