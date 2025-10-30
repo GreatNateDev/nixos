@@ -154,12 +154,8 @@ in
           ];
           format_on_save = "on";
           formatter = [
-            {
-              code_actions = {
-                "source.fixAll.ruff" = true;
-                "source.organizeImports.ruff" = true;
-              };
-            }
+            { code_action = "source.fixAll.ruff"; }
+            { code_action = "source.organizeImports.ruff"; }
             {
               language_server = {
                 name = "ruff";
