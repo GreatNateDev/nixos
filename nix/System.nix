@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 let
   actualUser = builtins.getEnv "SUDO_USER";
   user = if actualUser != "" then actualUser else builtins.getEnv "USER";
@@ -41,6 +41,15 @@ in
     # Basicly docker
     ./System/Virtualisation.nix
   ];
+  # Unfrees
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "steam" # Closed Source
+      "steam-unwrapped" # Closed Source
+      "osu-lazer-bin" # Open Code Bad license
+    ];
+
   # Don't change this number
   system.stateVersion = "25.05";
 }

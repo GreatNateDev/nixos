@@ -12,7 +12,6 @@
     lutris
     osu-lazer-bin
     prismlauncher
-    steam
     adwsteamgtk
     mindustry-wayland
     pkgs-stable.azahar

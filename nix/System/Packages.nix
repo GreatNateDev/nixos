@@ -6,7 +6,6 @@
     radare2
     binutils
     p7zip
-    unrar
     ffmpeg
     exiftool
     fzf
