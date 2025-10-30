@@ -5,7 +5,7 @@
   "position": "top",
   "height": 40,
 
-  "modules-left": ["niri/workspaces", "memory", "cpu", "temperature"],
+  "modules-left": ["niri/workspaces","hyprland/workspaces", "memory", "cpu", "temperature"],
 
   "modules-center": [],
 
