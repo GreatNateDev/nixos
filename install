@@ -78,6 +78,7 @@ EOF
 echo "Building..."
 echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet && echo Done!
 chmod -R +x $HOME/.config/nixos/scripts/
+cd $HOME/.config/nixos/scripts/
 zsh $HOME/.config/nixos/scripts/post-install.zsh
 echo "Script complete. Reboot? (y/N)"
 read rebootcon
