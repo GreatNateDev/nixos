@@ -26,7 +26,6 @@
     killall
     docker
     docker-compose
-    git
     tree
     nmap
     unzip

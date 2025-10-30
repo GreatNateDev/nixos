@@ -5,6 +5,17 @@ let
   env = import /home/${user}/.config/nixos/nix/env.nix;
 in
 {
+  programs.git = {
+    enable = true;
+    settings = {
+      user = {
+        name = "${env.gituser}";
+        email = "${env.gitemail}";
+      };
+      core.editor = "zeditor";
+      pull.rebase = true;
+    };
+  };
   programs.zsh = {
     enable = true;
     shellAliases = {
@@ -21,7 +32,7 @@ in
       ngc = "sudo nix-collect-garbage -d && nix-collect-garbage -d && sudo nix-store --gc && nix-store --gc";
       nce = "nix-env -q | fzf --multi | xargs -r nix-env -e";
       cfg = "zeditor ~/.config/nixos/";
-      gitbk = "zsh $HOME/.config/nixos/scripts/gitbk.sh";
+      gitbk = "zsh $HOME/.config/nixos/scripts/gitbk.zsh";
     };
     initContent = ''
       fastfetch
@@ -96,6 +107,7 @@ in
       "catppuccin"
       "catppuccin-icons"
       "gdscript"
+      "basher"
     ];
     userSettings = {
       disable_ai = true;

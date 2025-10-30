@@ -28,7 +28,8 @@ lolcat <<"EOF"
 
 
 EOF
-
+read -p "Git User: " TARGET_GITEMAIL
+read -p "Git Email: " TARGET_GITUSER
 sudo nixos-generate-config
 echo "Removing git and lolcat"
 nix-env -e git
@@ -45,9 +46,12 @@ cat >~/.config/nixos/nix/env.nix <<EOF
   username = "$TARGET_USER";
   hostname = "$TARGET_HOSTNAME";
   fullname = "$TARGET_FULLNAME";
+  gituser = "$TARGET_GITUSER";
+  gitemail = "$TARGET_GITEMAIL";
 }
 EOF
 echo "{ ... }: {}" >~/.config/nixos/nix/custom.nix
+
 rmdir ~/nixos
 rmdir ~/Desktop
 rmdir ~/Documents
@@ -84,6 +88,8 @@ EOF
 
 echo "Building..."
 echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet && echo Done!
+chmod +x $HOME/.config/nixos/scripts/post-install.zsh
+zsh $HOME/.config/nixos/scripts/post-install.zsh
 echo "Script complete. Reboot? (y/N)"
 read rebootcon
 if [ "$rebootcon" = "y" ]; then
