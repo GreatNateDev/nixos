@@ -80,6 +80,11 @@ in
   };
   programs.zed-editor = {
     enable = true;
+    extraPackages = [
+      pkgs.nixd
+      pkgs.ruff
+      pkgs.ty
+    ];
     extensions = [
       "nix"
       "toml"
@@ -106,12 +111,60 @@ in
             };
           };
         };
+        ty = {
+          initialization_options = {
+            settings = {
+              ty = {
+                diagnosticMode = "workspace";
+                inlayHints = {
+                  variableTypes = true;
+                  callArgumentNames = true;
+                };
+                experimental = {
+                  rename = true;
+                  autoImport = false;
+                };
+              };
+            };
+          };
+        };
+
+        ruff = {
+          initialization_options = {
+            settings = {
+              lineLength = 88;
+              lint = {
+                extendSelect = [ "I" ];
+              };
+            };
+          };
+        };
       };
       languages = {
         Nix = {
           language_servers = [
             "nixd"
             "!nil"
+          ];
+        };
+        Python = {
+          language_servers = [
+            "ty"
+            "ruff"
+          ];
+          format_on_save = "on";
+          formatter = [
+            {
+              code_actions = {
+                "source.fixAll.ruff" = true;
+                "source.organizeImports.ruff" = true;
+              };
+            }
+            {
+              language_server = {
+                name = "ruff";
+              };
+            }
           ];
         };
       };
