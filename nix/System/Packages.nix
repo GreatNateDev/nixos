@@ -35,8 +35,6 @@
     jq
     util-linux
     #Programming
-    neovim
-    rustfmt
     zsh
     #Fonts & Themes
     adwaita-qt

@@ -7,10 +7,10 @@
     source = ../../data/waybar;
     recursive = true;
   };
-  home.file.".config/nvim" = {
-    source = ../../data/nvim;
-    recursive = true;
-  };
+  #  home.file.".config/nvim" = {
+  #    source = ../../data/nvim;
+  #    recursive = true;
+  # };
   home.file.".config/user-dirs.dirs" = {
     source = ../../data/user-dirs.dirs;
   };
