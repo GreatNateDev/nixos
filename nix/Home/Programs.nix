@@ -8,7 +8,7 @@ in
   programs.zsh = {
     enable = true;
     shellAliases = {
-      ns = "echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet && echo Done!";
+      ns = "echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet --cores=$(nproc) --max-jobs=$(nproc) && echo Done!";
       cat = "lolcat";
       lcm = "sudo ip link set wlp0s20f3 down && sudo macchanger -r wlp0s20f3 && sudo ip link set wlp0s20f3 up";
       lcmp = "sudo ip link set wlp0s20f3 down && sudo macchanger -m 3e:30:12:6f:31:ec wlp0s20f3 && sudo ip link set wlp0s20f3 up";
@@ -99,12 +99,13 @@ in
         nixd = {
           initialization_options = {
             nixd = {
-              nixpkgs = {
-                expr = "import (builtins.getFlake (builtins.toString ./.)).inputs.nixpkgs { }";
+              nixpkgs.expr = "import <nixpkgs> { }";
+              formatting.command = [ "nixfmt" ];
+              options = {
+                nixos.expr = "(builtins.getFlake (builtins.toString /home/${env.username}/.config/nixos/nix)).nixosConfigurations.${env.hostname}.options";
+                home_manager.expr = "(builtins.getFlake (builtins.toString /home/${env.username}/.config/nixos/nix)).nixosConfigurations.${env.hostname}.options.home-manager.users.type.getSubOptions []";
               };
-            };
-            formatting = {
-              command = [ "nixfmt" ];
+              diagnostic.suppress = [ "sema-extra-with" ];
             };
           };
         };
