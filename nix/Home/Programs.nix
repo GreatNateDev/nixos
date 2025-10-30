@@ -84,6 +84,7 @@ in
       pkgs.nixd
       pkgs.ruff
       pkgs.ty
+      pkgs.nixfmt-rfc-style
     ];
     extensions = [
       "nix"
@@ -104,7 +105,7 @@ in
         nixd = {
           settings = {
             nixpkgs.expr = "import <nixpkgs> { }";
-            formatting.command = [ "nixfmt" ];
+            formatting.command = [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];
             options = {
               nixos.expr = "(builtins.getFlake (builtins.toString /home/${env.username}/.config/nixos/nix)).nixosConfigurations.${env.hostname}.options";
               home_manager.expr = "(builtins.getFlake (builtins.toString /home/${env.username}/.config/nixos/nix)).nixosConfigurations.${env.hostname}.options.home-manager.users.type.getSubOptions []";

@@ -25,5 +25,7 @@ in
     ./Home/XDG.nix
     # Hyprland Configuration
     ./Home/Hyprland.nix
+    # Userland Systemd services
+    ./Home/Systemd.nix
   ];
 }
