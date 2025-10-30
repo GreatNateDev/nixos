@@ -1,5 +1,5 @@
 # basicly setup a private repo with all your entire osu path commited
-source "$HOME/.config/nixos/scripts/getenv.zsh"
+gituser=$(nix eval --raw -f $HOME/.config/nixos/nix/env.nix gituser)
 repo="osu.git"
 path="$HOME/.local/share/osu"
 git clone https://github.com/$gituser/$repo

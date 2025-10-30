@@ -29,8 +29,8 @@ lolcat <<"EOF"
 
 
 EOF
-read -p "Git User: " TARGET_GITEMAIL
-read -p "Git Email: " TARGET_GITUSER
+read -p "Git User: " TARGET_GITUSER
+read -p "Git Email: " TARGET_GITEMAIL
 sudo nixos-generate-config
 nix-env -e git
 nix-env -e lolcat
