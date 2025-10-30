@@ -1,42 +1,50 @@
-{ inputs, pkgs, ... }:
+{ ... }:
 {
   wayland.windowManager.hyprland = {
     enable = true;
 
-    plugins = [
-      inputs.hyprland-plugins.packages.${pkgs.system}.hyprscrolling
-    ];
+    #plugins = [
+    #  inputs.hyprland-plugins.packages.${pkgs.system}.hyprscrolling
+    #];
     settings = {
       monitor = ", preferred, auto, 1";
-      plugin = [
-        {
-          hyprscrolling = [
-            {
-              bind = [
-                "$mod, period, layoutmsg, move +col"
-                "$mod, comma, layoutmsg, move -col"
-              ];
-            }
-          ];
-        }
+      # plugin = [
+      #   {
+      #     hyprscrolling = [
+      #     ];
+      #   }
+      #];
+      general = [
+        { layout = "scrolling"; }
       ];
       exec-once = [
-        "hyprctl plugin load $HYPR_PLUGIN_DIR/lib/libhyprexpo.so"
         "waybar"
+      ];
+      input = [
+        {natural_scroll = "true";}
       ];
       "$mod" = "SUPER";
       bind = [
+        "$mod, period, layoutmsg, move +col"
+        "$mod, comma, layoutmsg, move -col"
+        "$mod SHIFT, period, layoutmsg, movewindowto r"
+        "$mod SHIFT, comma, layoutmsg, movewindowto l"
+        "$mod SHIFT, up, layoutmsg, movewindowto u"
+        "$mod SHIFT, down, layoutmsg, movewindowto d"
         "$mod, T, exec, alacritty"
         "$mod, D, exec, fuzzel"
         "$mod, E, exec, nautilus"
         "$mod, Z, exec, zeditor"
         "$mod, B, exec, librewolf"
         "$mod, S, exec, supersonic"
-        "$mod ALT, L, exec, swaylock, -i ~/.config/nixos/data/bg/wall.jpg"
+        "$mod ALT, L, exec, swaylock -i ~/.config/nixos/data/bg/wall.jpg"
+        "$mod ALT, E, exit"
         "$mod, Q, killactive"
         "$mod CTRL, Q, forcekillactive"
         "$mod, F, fullscreenstate, 1"
         "$mod SHIFT, F, fullscreenstate, 2"
+        "$mod, up, workspace, -1"
+        "$mod, down, workspace, +1"
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"
         "$mod, 3, workspace, 3"
@@ -74,7 +82,9 @@
         ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
 
       ];
-
+      animation = [
+        "workspaces, 1, 10, default, slidevert"
+      ];
     };
   };
 }

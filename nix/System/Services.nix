@@ -12,9 +12,9 @@ in
     displayManager = {
       sddm = {
         enable = true;
-        theme = "catppuccin-mocha-red";
+        theme = "catppuccin-moha-red";
       };
-      defaultSession = "niri";
+      defaultSession = "hyprland";
       gdm.enable = false;
     };
     xserver = {
