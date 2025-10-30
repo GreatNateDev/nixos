@@ -113,19 +113,6 @@ in
         };
         ty = {
           initialization_options = {
-            settings = {
-              ty = {
-                diagnosticMode = "workspace";
-                inlayHints = {
-                  variableTypes = true;
-                  callArgumentNames = true;
-                };
-                experimental = {
-                  rename = true;
-                  autoImport = false;
-                };
-              };
-            };
           };
         };
 
