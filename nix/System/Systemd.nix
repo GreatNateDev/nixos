@@ -19,4 +19,25 @@
       serviceConfig.Restart = "on-failure";
     };
   };
+  systemd.user.services = {
+    supersonic = {
+      description = "Supersonic";
+      wantedBy = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      serviceConfig = {
+        ExecStart = "${pkgs.supersonic}/bin/supersonic -start-minimized";
+        Restart = "on-failure";
+      };
+    };
+
+    protonvpn = {
+      description = "ProtonVPN Application";
+      wantedBy = [ "graphical-session.target" ];
+      after = [ "graphical-session.target" ];
+      serviceConfig = {
+        ExecStart = "${pkgs.protonvpn-gui}/bin/protonvpn-app --start-minimized";
+        Restart = "on-failure";
+      };
+    };
+  };
 }
