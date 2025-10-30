@@ -23,5 +23,7 @@ in
     ./Home/Theme.nix
     # XDG files for fuzzel
     ./Home/XDG.nix
+    # Hyprland Configuration
+    ./Home/Hyprland.nix
   ];
 }

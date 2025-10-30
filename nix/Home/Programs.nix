@@ -98,6 +98,11 @@ in
       lsp = {
         nixd = {
           initialization_options = {
+            nixd = {
+              nixpkgs = {
+                expr = "import (builtins.getFlake (builtins.toString ./.)).inputs.nixpkgs { }";
+              };
+            };
             formatting = {
               command = [ "nixfmt" ];
             };
