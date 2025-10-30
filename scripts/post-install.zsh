@@ -4,8 +4,3 @@ read githubconfirm
 if [ "$githubconfirm" != "n" ]; then
   zsh $HOME/.config/nixos/scripts/github.zsh
 fi
-echo -n "Setup OSU? (y/N) "
-read osuconfirm
-if [ "$osuconfirm" = "y" ]; then
-  zsh $HOME/.config/nixos/scripts/osu.zsh
-fi
