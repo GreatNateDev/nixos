@@ -216,6 +216,15 @@ in
     };
     policies = {
       SearchEngines = {
+        Add = [
+          {
+            Name = "nix";
+            URLTemplate = "https://search.nixos.org/packages?channel=unstable&query={searchTerms}";
+            Alias = "nix";
+            Icon = "https://search.nixos.org/favicon-96x96.png";
+          }
+        ];
+
         Default = "StartPage";
         Remove = [
           "Google"
