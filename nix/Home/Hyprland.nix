@@ -64,7 +64,7 @@ in
       ];
 
       input = {
-        natural_scroll = true;
+        natural_scroll = false;
       };
 
       "$mod" = "SUPER";
