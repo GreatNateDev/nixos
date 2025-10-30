@@ -85,8 +85,9 @@ in
       pkgs.ruff
       pkgs.ty
       pkgs.nixfmt-rfc-style
-      pkgs.bash-language-server # Works for zsh too
-      pkgs.shfmt # Shell formatter
+      #pkgs.bash-language-server
+      pkgs.shellcheck
+      pkgs.shfmt
     ];
     extensions = [
       "nix"
@@ -97,6 +98,40 @@ in
       "gdscript"
     ];
     userSettings = {
+      disable_ai = true;
+      title_bar = {
+        show_user_picture = true;
+        show_onboarding_banner = true;
+        show_project_items = true;
+        show_branch_name = false;
+        show_branch_icon = false;
+        show_sign_in = false;
+      };
+      status_bar = {
+        cursor_position_button = false;
+        active_language_button = false;
+      };
+      notification_panel = {
+        button = false;
+      };
+      collaboration_panel = {
+        button = false;
+      };
+      outline_panel = {
+        button = false;
+      };
+      debugger = {
+        button = false;
+      };
+      search = {
+        button = true;
+      };
+      terminal = {
+        button = false;
+      };
+      diagnostics = {
+        button = false;
+      };
       theme = {
         mode = "dark";
         dark = "Catppuccin Mocha";
@@ -120,8 +155,7 @@ in
           };
         };
         ty = {
-          initialization_options = {
-          };
+          initialization_options = { };
         };
         ruff = {
           initialization_options = {
@@ -141,7 +175,7 @@ in
             "!nil"
           ];
         };
-        Zsh = {
+        "Shell Script" = {
           language_servers = [ "bash-language-server" ];
           format_on_save = "on";
           formatter = {

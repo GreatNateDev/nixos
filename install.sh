@@ -4,7 +4,7 @@ TARGET_USER="$USER"
 TARGET_HOSTNAME="$(hostname)"
 TARGET_FULLNAME=$(getent passwd "$TARGET_USER" | cut -d: -f5 | cut -d, -f1)
 if [ -z "$TARGET_FULLNAME" ]; then
-    TARGET_FULLNAME="$TARGET_USER"
+  TARGET_FULLNAME="$TARGET_USER"
 fi
 echo "Detected configuration:"
 echo "  Username: $TARGET_USER"
@@ -12,8 +12,8 @@ echo "  Fullname: $TARGET_FULLNAME"
 echo "  Hostname: $TARGET_HOSTNAME"
 read -p "Continue with this configuration? (y/N): " confirm
 if [ "$confirm" != "y" ]; then
-    echo "Installation cancelled."
-    exit 1
+  echo "Installation cancelled."
+  exit 1
 fi
 nix-env -iA nixos.lolcat
 clear
@@ -40,14 +40,14 @@ echo "Moving files..."
 mv ~/nixos/.git ~/.config/nixos/
 mv ~/nixos/.gitignore ~/.config/nixos/
 mv ~/nixos/* ~/.config/nixos/
-cat > ~/.config/nixos/nix/env.nix <<EOF
+cat >~/.config/nixos/nix/env.nix <<EOF
 {
   username = "$TARGET_USER";
   hostname = "$TARGET_HOSTNAME";
   fullname = "$TARGET_FULLNAME";
 }
 EOF
-echo "{ ... }: {}" > ~/.config/nixos/nix/custom.nix
+echo "{ ... }: {}" >~/.config/nixos/nix/custom.nix
 rmdir ~/nixos
 rmdir ~/Desktop
 rmdir ~/Documents
@@ -66,14 +66,14 @@ sudo rm -rf /etc/nixos/
 echo "Options time!"
 read -p "Set Extra Options? (y/N): " confirmop
 if [[ "$confirmop" == "y" ]]; then
-    read -p "Backup Firefox browser (in case Librewolf breaks) (y/N): " yesfirefox
-    if [[ "$yesfirefox" == "y" ]]; then
-        ENABLE_FIREFOX="firefox"
-    else
-        ENABLE_FIREFOX=""
-    fi
+  read -p "Backup Firefox browser (in case Librewolf breaks) (y/N): " yesfirefox
+  if [[ "$yesfirefox" == "y" ]]; then
+    ENABLE_FIREFOX="firefox"
+  else
+    ENABLE_FIREFOX=""
+  fi
 fi
-cat > ~/.config/nixos/nix/options.nix <<EOF
+cat >~/.config/nixos/nix/options.nix <<EOF
 { pkgs, ... }:
 {
     environment.systemPackages = with pkgs; [
@@ -87,8 +87,8 @@ echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/ni
 echo "Script complete. Reboot? (y/N)"
 read rebootcon
 if [ "$rebootcon" = "y" ]; then
-    reboot
+  reboot
 else
-    echo "Skipping reboot."
-    exit 0
+  echo "Skipping reboot."
+  exit 0
 fi

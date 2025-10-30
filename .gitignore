@@ -3,3 +3,4 @@ hardware.nix
 custom.nix
 env.nix
 options.nix
+.zed
