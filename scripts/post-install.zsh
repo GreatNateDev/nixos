@@ -2,10 +2,10 @@
 echo -n "Setup GitHub? (Y/n) "
 read githubconfirm
 if [ "$githubconfirm" != "n" ]; then
-  ./github.zsh
+  zsh $HOME/.config/nixos/scripts/github.zsh
 fi
 echo -n "Setup OSU? (y/N) "
 read osuconfirm
 if [ "$osuconfirm" = "y" ]; then
-  ./osu.zsh
+  zsh $HOME/.config/nixos/scripts/osu.zsh
 fi

@@ -1,4 +1,5 @@
 clear
+# START BLOCK
 echo "Starting Installer..."
 TARGET_USER="$USER"
 TARGET_HOSTNAME="$(hostname)"
@@ -17,7 +18,7 @@ if [ "$confirm" != "y" ]; then
 fi
 nix-env -iA nixos.lolcat
 clear
-
+# INTRO BLOCK
 lolcat <<"EOF"
 ███    ██  █████  ████████ ███████ ███████     ███    ██ ██ ██   ██  ██████  ███████     ██ ███    ██ ███████ ████████  █████  ██      ██      ███████ ██████
 ████   ██ ██   ██    ██    ██      ██          ████   ██ ██  ██ ██  ██    ██ ██          ██ ████   ██ ██         ██    ██   ██ ██      ██      ██      ██   ██
@@ -31,13 +32,11 @@ EOF
 read -p "Git User: " TARGET_GITEMAIL
 read -p "Git Email: " TARGET_GITUSER
 sudo nixos-generate-config
-echo "Removing git and lolcat"
 nix-env -e git
 nix-env -e lolcat
-echo "Starting config installer..."
-echo "Making Directory..."
+# INSTALLING BLOCK
+echo "Installing..."
 mkdir -p ~/.config/nixos
-echo "Moving files..."
 mv ~/nixos/.git ~/.config/nixos/
 mv ~/nixos/.gitignore ~/.config/nixos/
 mv ~/nixos/* ~/.config/nixos/
@@ -51,23 +50,13 @@ cat >~/.config/nixos/nix/env.nix <<EOF
 }
 EOF
 echo "{ ... }: {}" >~/.config/nixos/nix/custom.nix
-
-rmdir ~/nixos
-rmdir ~/Desktop
-rmdir ~/Documents
-rmdir ~/Downloads
-rmdir ~/Music
-rmdir ~/Pictures
-rmdir ~/Public
-rmdir ~/Templates
-rmdir ~/Videos
-echo "Fixing Issues"
+rmdir ~/nixos ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Public ~/Templates ~/Videos 2>/dev/null
 rm ~/.config/user-dirs.dirs
 echo "Getting hardware config..."
 sudo mv /etc/nixos/hardware-configuration.nix ~/.config/nixos/nix/hardware.nix
 echo "Removing old config..."
 sudo rm -rf /etc/nixos/
-echo "Options time!"
+echo "Options..."
 read -p "Set Extra Options? (y/N): " confirmop
 if [[ "$confirmop" == "y" ]]; then
   read -p "Backup Firefox browser (in case Librewolf breaks) (y/N): " yesfirefox
@@ -88,7 +77,7 @@ EOF
 
 echo "Building..."
 echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet && echo Done!
-chmod +x $HOME/.config/nixos/scripts/post-install.zsh
+chmod -R +x $HOME/.config/nixos/scripts/
 zsh $HOME/.config/nixos/scripts/post-install.zsh
 echo "Script complete. Reboot? (y/N)"
 read rebootcon
