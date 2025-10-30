@@ -29,7 +29,7 @@ in
         blur = {
           enabled = true;
           size = 3;
-          passes = 1;
+          passes = 3;
         };
 
         shadow = {
@@ -46,8 +46,8 @@ in
         "windowsMove, 1, 7, springy, slide"
         "workspaces, 1, 7, springy, slidevert"
         "fade, 1, 7, springy"
-        "border, 1, 10, default"
-        "borderangle, 1, 100, default, loop"
+        #"border, 1, 10, default"
+        #"borderangle, 1, 8, linear, loop"
       ];
       # Window rules - opacity
       windowrulev2 = [
@@ -57,10 +57,6 @@ in
         # Alacritty
         "opacity 0.95 0.95, class:^(Alacritty)$"
         "maximize, class:^(Alacritty)$"
-
-        # LibreWolf
-        "opacity 0.75 0.75, class:^(librewolf)$"
-        "maximize, class:^(librewolf)$"
       ];
 
       exec-once = [
