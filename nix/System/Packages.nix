@@ -38,8 +38,6 @@
     neovim
     rustfmt
     zsh
-    nixfmt-rfc-style
-    nixd
     #Fonts & Themes
     adwaita-qt
     adwaita-qt6

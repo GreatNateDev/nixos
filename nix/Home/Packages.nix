@@ -45,7 +45,6 @@
         rz-ghidra
       ]
     ))
-    servo
     gnome-clocks
     networkmanagerapplet
     protonvpn-gui
