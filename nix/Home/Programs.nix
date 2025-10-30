@@ -97,15 +97,12 @@ in
       icon_theme = "Catppuccin Mocha";
       lsp = {
         nixd = {
-          initialization_options = {
-            nixd = {
-              nixpkgs.expr = "import <nixpkgs> { }";
-              formatting.command = [ "nixfmt" ];
-              options = {
-                nixos.expr = "(builtins.getFlake (builtins.toString /home/${env.username}/.config/nixos/nix)).nixosConfigurations.${env.hostname}.options";
-                home_manager.expr = "(builtins.getFlake (builtins.toString /home/${env.username}/.config/nixos/nix)).nixosConfigurations.${env.hostname}.options.home-manager.users.type.getSubOptions []";
-              };
-              diagnostic.suppress = [ "sema-extra-with" ];
+          settings = {
+            nixpkgs.expr = "import <nixpkgs> { }";
+            formatting.command = [ "nixfmt" ];
+            options = {
+              nixos.expr = "(builtins.getFlake (builtins.toString /home/${env.username}/.config/nixos/nix)).nixosConfigurations.${env.hostname}.options";
+              home_manager.expr = "(builtins.getFlake (builtins.toString /home/${env.username}/.config/nixos/nix)).nixosConfigurations.${env.hostname}.options.home-manager.users.type.getSubOptions []";
             };
           };
         };
