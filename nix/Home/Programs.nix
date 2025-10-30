@@ -138,7 +138,7 @@ in
               }
               {
                 name = "Nix Packages";
-                url = "https://mynixos.com/";
+                url = "https://search.nixos.org/packages?channel=unstable";
               }
               {
                 name = "Ip Address";
@@ -175,6 +175,14 @@ in
               {
                 name = "Home-Manager Options";
                 url = "https://nix-community.github.io/home-manager/options.xhtml";
+              }
+              {
+                name = "HyprLand Docs";
+                url = "https://wiki.hypr.land/";
+              }
+              {
+                name = "Niri Docs";
+                url = "https://github.com/YaLTeR/niri/wiki";
               }
             ];
           }

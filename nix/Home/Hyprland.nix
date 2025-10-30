@@ -129,6 +129,10 @@ in
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
         ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
       ];
+      misc = [
+        { "disable_splash_rendering" = true; }
+        { "disable_hyprland_logo" = true; }
+      ];
     };
   };
 }

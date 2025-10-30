@@ -12,7 +12,8 @@ in
     displayManager = {
       sddm = {
         enable = true;
-        theme = "catppuccin-moha-red";
+        wayland.enable = true;
+        theme = "catppuccin-mocha-red";
       };
       defaultSession = "hyprland";
     };
