@@ -85,6 +85,8 @@ in
       pkgs.ruff
       pkgs.ty
       pkgs.nixfmt-rfc-style
+      pkgs.bash-language-server # Works for zsh too
+      pkgs.shfmt # Shell formatter
     ];
     extensions = [
       "nix"
@@ -112,11 +114,15 @@ in
             };
           };
         };
+        bash-language-server = {
+          initialization_options = {
+            shellcheckPath = "${pkgs.shellcheck}/bin/shellcheck";
+          };
+        };
         ty = {
           initialization_options = {
           };
         };
-
         ruff = {
           initialization_options = {
             settings = {
@@ -134,6 +140,19 @@ in
             "nixd"
             "!nil"
           ];
+        };
+        Zsh = {
+          language_servers = [ "bash-language-server" ];
+          format_on_save = "on";
+          formatter = {
+            external = {
+              command = "${pkgs.shfmt}/bin/shfmt";
+              arguments = [
+                "-i"
+                "2"
+              ];
+            };
+          };
         };
         Python = {
           language_servers = [
@@ -154,7 +173,6 @@ in
       };
     };
   };
-
   programs.librewolf = {
     enable = true;
     profiles.default = {
