@@ -27,5 +27,7 @@ in
     ./Home/Hyprland.nix
     # Userland Systemd services
     ./Home/Systemd.nix
+    # Bar configuration
+    ./Home/Astal.nix
   ];
 }

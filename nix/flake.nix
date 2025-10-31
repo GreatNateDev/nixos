@@ -1,6 +1,5 @@
 {
   description = "My NixOS system with Home Manager (unstable)";
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
@@ -14,14 +13,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin.url = "github:catppuccin/nix";
+    astal = {
+      url = "github:aylur/astal";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-
   outputs =
     {
       self,
       nixpkgs,
       nixpkgs-stable,
       home-manager,
+      astal,
       ...
     }@inputs:
     let
