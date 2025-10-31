@@ -9,7 +9,11 @@ in
   networking.networkmanager.enable = true;
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 22 ];
+    allowedTCPPorts = [
+      22
+      53317
+    ];
+    allowedUDPPorts = [ 53317 ];
   };
   networking.nameservers = [
     "1.1.1.1"
