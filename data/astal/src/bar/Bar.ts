@@ -100,9 +100,9 @@ export default class Bar extends Astal.Window {
         })
 
         // clock
-        this.clock = GLib.DateTime.new_now_local().format("%H:%M:%S")!
+        this.clock = GLib.DateTime.new_now_local().format("%I:%M:%S %p")!
         const interval = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 1000, () => {
-            this.clock = GLib.DateTime.new_now_local().format("%H:%M:%S")!
+            this.clock = GLib.DateTime.new_now_local().format("%I:%M:%S %p")!
             return GLib.SOURCE_CONTINUE
         })
         this.connect("destroy", () => GLib.Source.remove(interval))
@@ -167,16 +167,37 @@ export default class Bar extends Astal.Window {
         speaker.bind_property("volume-icon", this, "volume-icon", SYNC)
         speaker.bind_property("volume", this, "volume", SYNC)
 
-        // mpris
-        const player = AstalMpris.Player.new("spotify")
-        player.bind_property("available", this, "mpris-visible", SYNC)
-        player.bind_property("cover-art", this, "mpris-art", SYNC)
+        const mpris = AstalMpris.get_default()
 
-        this.mpris_label = `${player.artist} - ${player.title}`
-        const playerId = player.connect("notify::metadata", () => {
-            this.mpris_label = `${player.artist} - ${player.title}`
+        const updatePlayer = () => {
+            const players = mpris.get_players()
+            const player = players[0]
+
+            if (player) {
+                this.mpris_visible = true
+                this.mpris_label = `${player.artist} - ${player.title}`
+                this.mpris_art = player.cover_art
+
+                const playerId = player.connect("notify::metadata", () => {
+                    this.mpris_label = `${player.artist} - ${player.title}`
+                    this.mpris_art = player.cover_art
+                })
+                this.connect("destroy", () => player.disconnect(playerId))
+            } else {
+                this.mpris_visible = false
+            }
+        }
+
+        updatePlayer()
+
+        const mprisId1 = mpris.connect("player-added", updatePlayer)
+        const mprisId2 = mpris.connect("player-closed", updatePlayer)
+
+        this.connect("destroy", () => {
+            mpris.disconnect(mprisId1)
+            mpris.disconnect(mprisId2)
         })
-        this.connect("destroy", () => player.disconnect(playerId))
+        }
 
         // powerprofiles
         const powerprofile = AstalPowerProfiles.get_default()
@@ -222,7 +243,11 @@ export default class Bar extends Astal.Window {
 
         // bluetooth
         const bt = AstalBluetooth.get_default()
-        bt.bind_property("is-connected", this, "bluetooth-visible", SYNC)
+        this.bluetooth_visible = bt.adapter !== null && bt.is_connected
+        const btId = bt.connect("notify::is-connected", () => {
+            this.bluetooth_visible = bt.adapter !== null && bt.is_connected
+        })
+        this.connect("destroy", () => bt.disconnect(btId))
     }
 
     change_volume(_scale: Gtk.Scale, _type: Gtk.ScrollType, value: number) {
