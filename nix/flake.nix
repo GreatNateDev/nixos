@@ -14,7 +14,7 @@
     };
     catppuccin.url = "github:catppuccin/nix";
     astal = {
-      url = "github:aylur/astal";
+      url = "github:GreatNateDev/astal";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
