@@ -84,8 +84,8 @@ in
         decorations_theme_variant = "Dark";
       };
       font = {
-        normal.family = "JetBrainsMono Nerd Font Mono";
-        size = 11.0;
+        normal.family = "Monocraft"; # Proper monospace Minecraft font
+        size = 16.5;
       };
     };
   };
@@ -99,6 +99,7 @@ in
       #pkgs.bash-language-server
       pkgs.shellcheck
       pkgs.shfmt
+      pkgs.minecraftia
     ];
     extensions = [
       "nix"
@@ -110,7 +111,12 @@ in
       "basher"
     ];
     userSettings = {
+      buffer_font_family = "Minecraftia";
+      ui_font_family = "Minecraftia";
       disable_ai = true;
+      terminal = {
+        font_family = "Minecraftia";
+      };
       title_bar = {
         show_user_picture = true;
         show_onboarding_banner = true;
@@ -287,6 +293,7 @@ in
         ];
       };
       settings = {
+        "browser.display.use_document_fonts" = 0;
         "privacy.resistFingerprinting" = false;
         "browser.policies.runOncePerModification.setDefaultSearchEngine" = "StartPage";
         "browser.search.separatePrivateDefault" = false;

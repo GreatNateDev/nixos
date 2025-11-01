@@ -40,6 +40,8 @@ in
     ./System/User.nix
     # Basicly docker
     ./System/Virtualisation.nix
+    # Font Settings
+    ./System/Font.nix
   ];
   # Unfrees
   nixpkgs.config.allowUnfreePredicate =
