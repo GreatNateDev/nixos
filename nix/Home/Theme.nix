@@ -31,7 +31,7 @@
     XCURSOR_SIZE = "24";
     GTK_THEME = "catppuccin-mocha-red-standard";
     _JAVA_AWT_WM_NONREPARENTING = "1";
-    QT_STYLE_OVERRIDE = "Adwaita-Dark";
+    QT_STYLE_OVERRIDE = "adwaita-dark";
   };
   dconf.settings = {
     "org/gnome/desktop/interface" = {
@@ -50,5 +50,9 @@
       "window-controls-layout-options" = "Auto";
       "window-controls-options" = "Adwaita";
     };
+  };
+  qt = {
+    enable = true;
+    style.name = "adwaita-dark"; # Qt Adwaita Dark theme
   };
 }
