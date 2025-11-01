@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   home.activation.applyAdwSteamGtk = ''
     echo "Applying AdwSteamGtk theme..."
@@ -9,4 +9,8 @@
         cp -f ${../../data/cutter/cutter.ini} ~/.config/rizin/cutter.ini
         chmod u+w ~/.config/rizin/cutter.ini
   '';
+  home.activation.killstupidfile = lib.hm.dag.entryBefore [ "checkLinkTargets" ] ''
+    rm -f ~/.gtkrc-2.0
+  '';
+
 }

@@ -51,8 +51,8 @@
       "window-controls-options" = "Adwaita";
     };
   };
-  qt = {
-    enable = true;
-    style.name = "adwaita-dark"; # Qt Adwaita Dark theme
-  };
+  #qt = {
+  # enable = true;
+  #  style.name = "adwaita-dark"; # Qt Adwaita Dark theme
+  # };
 }
