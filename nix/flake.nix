@@ -17,6 +17,7 @@
       url = "github:GreatNateDev/astal";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri-flake.url = "github:sodiboo/niri-flake";
   };
   outputs =
     {
@@ -25,6 +26,7 @@
       nixpkgs-stable,
       home-manager,
       astal,
+      niri-flake,
       ...
     }@inputs:
     let

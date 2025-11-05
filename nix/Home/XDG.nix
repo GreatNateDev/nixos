@@ -5,6 +5,17 @@ let
   env = import /home/${user}/.config/nixos/nix/env.nix;
 in
 {
+  xdg.userDirs.createDirectories = false;
+  xdg.userDirs = {
+    desktop = /home/${env.username};
+    download = /home/${env.username};
+    templates = /home/${env.username};
+    publicShare = /home/${env.username};
+    documents = /home/${env.username};
+    music = /home/${env.username};
+    pictures = /home/${env.username};
+    videos = /home/${env.username};
+  };
   xdg.desktopEntries = {
     github = {
       name = "Storage";

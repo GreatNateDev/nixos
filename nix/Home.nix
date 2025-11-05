@@ -27,7 +27,7 @@ in
     ./Home/Hyprland.nix
     # Userland Systemd services
     ./Home/Systemd.nix
-    # Bar configuration will fix later
-    #./Home/Astal.nix
+    # Niri Config
+    ./Home/Niri.nix
   ];
 }
