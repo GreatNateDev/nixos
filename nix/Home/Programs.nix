@@ -28,7 +28,7 @@ in
       du = "dust";
       ls = "eza";
       ll = "eza -la";
-      nup = "cd $HOME/.config/nixos/nix/ && nix flake update && ns";
+      nup = "cd $HOME/.config/nixos/nix/ && sudo nix flake update && ns";
       ngc = "sudo nix-collect-garbage -d && nix-collect-garbage -d && sudo nix-store --gc && nix-store --gc";
       nce = "nix-env -q | fzf --multi | xargs -r nix-env -e";
       cfg = "zeditor ~/.config/nixos/";
@@ -83,10 +83,10 @@ in
         opacity = 0.85;
         decorations_theme_variant = "Dark";
       };
-      font = {
-        normal.family = "Monocraft"; # Proper monospace Minecraft font
-        size = 16.5;
-      };
+      #font = {
+      # normal.family = "Monocraft"; # Proper monospace Minecraft font
+      #size = 16.5;
+      #};
     };
   };
   programs.zed-editor = {
@@ -114,9 +114,9 @@ in
       buffer_font_family = "Minecraftia";
       ui_font_family = "Minecraftia";
       disable_ai = true;
-      terminal = {
-        font_family = "Minecraftia";
-      };
+      #terminal = {
+      #  font_family = "Minecraftia";
+      #};
       title_bar = {
         show_user_picture = true;
         show_onboarding_banner = true;

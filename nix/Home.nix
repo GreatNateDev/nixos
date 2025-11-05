@@ -27,7 +27,5 @@ in
     ./Home/Hyprland.nix
     # Userland Systemd services
     ./Home/Systemd.nix
-    # Niri Config
-    ./Home/Niri.nix
   ];
 }
