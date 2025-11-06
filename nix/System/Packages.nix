@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     #Commands
-    inputs.awww.packages.${pkgs.system}.awww
+    inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
     cava
     hollywood
     rustfmt
