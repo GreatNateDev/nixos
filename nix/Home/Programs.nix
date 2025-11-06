@@ -40,8 +40,7 @@ in
       spaper = "zsh $HOME/.config/nixos/scripts/switchwall.zsh";
     };
     initContent = ''
-      fastfetch
-      rm -df ~/Downloads
+      rm -dfr ~/Downloads
       source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
       source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
       source ${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -88,10 +87,10 @@ in
         opacity = 0.85;
         decorations_theme_variant = "Dark";
       };
-      #font = {
-      # normal.family = "Monocraft"; # Proper monospace Minecraft font
-      #size = 16.5;
-      #};
+      font = {
+        normal.family = "JetBrainsMono Nerd Font"; # Proper monospace Minecraft font
+        #size = 16.5;
+      };
     };
   };
   programs.zed-editor = {
