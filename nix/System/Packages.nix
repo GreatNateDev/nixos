@@ -2,6 +2,9 @@
 {
   environment.systemPackages = with pkgs; [
     #Commands
+    cava
+    hollywood
+    rustfmt
     yazi
     radare2
     binutils

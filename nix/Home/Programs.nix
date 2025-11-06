@@ -33,6 +33,10 @@ in
       nce = "nix-env -q | fzf --multi | xargs -r nix-env -e";
       cfg = "zeditor ~/.config/nixos/";
       gitbk = "zsh $HOME/.config/nixos/scripts/gitbk.zsh";
+      dcd = "docker-compose down";
+      dcu = "docker-compose up -d";
+      dcuf = "docker-compose up";
+      nca = "nix-env -e '.*'";
     };
     initContent = ''
       fastfetch
