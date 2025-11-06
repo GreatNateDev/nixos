@@ -81,7 +81,8 @@
     "status-icons": {
       "paused": "⏸",
     },
-    "max-length": 100,
+    "artist-len": 300,
+    "title-len": 500,
     "on-click": "playerctl play-pause",
     "on-click-right": "playerctl next",
     "on-click-middle": "playerctl previous",

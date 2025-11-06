@@ -110,10 +110,6 @@ tooltip label {
     border-left: 4px solid @subtext0;
 }
 
-#mpris.stopped {
-    display: none;
-}
-
 #mpris:hover {
     opacity: 0.8;
 }
