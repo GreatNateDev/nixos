@@ -1,6 +1,6 @@
 # Configuration
 WALLPAPER_DIR="$HOME/.config/nixos/data/vbg/"  # Change this to your wallpaper folder
-STATE_FILE="/tmp/swww_current_index"
+STATE_FILE="/tmp/awww_current_index"
 
 # Get all image and video files, sorted
 files=("${(@f)$(find "$WALLPAPER_DIR" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.gif" -o -iname "*.mp4" -o -iname "*.webm" -o -iname "*.mkv" \) | sort)}")
@@ -22,7 +22,7 @@ fi
 current_wallpaper="${files[$current_index+1]}"  # zsh arrays are 1-indexed
 
 # Set the wallpaper
-swww img "$current_wallpaper"
+awww img "$current_wallpaper"
 
 echo "Set wallpaper: $(basename "$current_wallpaper")"
 

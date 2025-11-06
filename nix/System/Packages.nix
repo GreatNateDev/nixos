@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   environment.systemPackages = with pkgs; [
     #Commands
-    swww
+    inputs.awww.packages.${pkgs.system}.awww
     cava
     hollywood
     rustfmt

@@ -61,7 +61,7 @@ in
 
       exec-once = [
         "waybar"
-        "swww init"
+        "awww-daemon"
         "spaper"
       ];
 

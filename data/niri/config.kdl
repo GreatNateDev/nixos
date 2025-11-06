@@ -59,6 +59,7 @@ window-rule {
 }
 spawn-at-startup "waybar"
 spawn-at-startup "xwayland-satellite"
+spawn-at-startup "awww-daemon"
 environment {
     "WAYLAND_DISPLAY" "wayland-1"
 }
