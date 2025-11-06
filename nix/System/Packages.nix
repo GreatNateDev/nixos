@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     #Commands
+    playerctl
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
     cava
     hollywood

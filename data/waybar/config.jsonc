@@ -5,11 +5,24 @@
   "position": "top",
   "height": 40,
 
-  "modules-left": ["niri/workspaces","hyprland/workspaces", "memory", "cpu", "temperature"],
+  "modules-left": [
+    "niri/workspaces",
+    "hyprland/workspaces",
+    "memory",
+    "cpu",
+    "temperature",
+  ],
 
   "modules-center": [],
 
-  "modules-right": ["tray", "pulseaudio", "network", "battery", "clock"],
+  "modules-right": [
+    "mpris",
+    "tray",
+    "pulseaudio",
+    "network",
+    "battery",
+    "clock",
+  ],
 
   "include": "~/.config/waybar/modules.jsonc",
 }
