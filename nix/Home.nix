@@ -18,7 +18,7 @@ in
     # Program Settings
     ./Home/Programs.nix
     # User level Services
-    ./Home/Services.nix
+    #./Home/Services.nix
     # Gtk and cursor themes
     ./Home/Theme.nix
     # XDG files for fuzzel

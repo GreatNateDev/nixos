@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     #Commands
+    swww
     cava
     hollywood
     rustfmt

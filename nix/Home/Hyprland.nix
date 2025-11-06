@@ -61,6 +61,8 @@ in
 
       exec-once = [
         "waybar"
+        "swww init"
+        "spaper"
       ];
 
       input = {
@@ -70,6 +72,7 @@ in
       "$mod" = "SUPER";
 
       bind = [
+        "$mod, W, exec, zsh ~/.config/nixos/scripts/switchwall.zsh"
         "$mod, period, layoutmsg, swapnext"
         "$mod, comma, layoutmsg, swapprev"
         "$mod SHIFT, period, movewindow, r"

@@ -37,6 +37,7 @@ in
       dcu = "docker-compose up -d";
       dcuf = "docker-compose up";
       nca = "nix-env -e '.*'";
+      spaper = "zsh $HOME/.config/nixos/scripts/switchwall.zsh";
     };
     initContent = ''
       fastfetch
