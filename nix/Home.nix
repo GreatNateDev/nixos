@@ -9,6 +9,8 @@ in
   home.homeDirectory = "/home/${env.username}"; # Same as $HOME
   home.stateVersion = "25.11"; # Dont Touch
   imports = [
+    # Custom Options not Added to GitHub
+    (import /home/${env.username}/.config/nixos/nix/custom-home.nix)
     #User level packages
     ./Home/Packages.nix
     # Home-Manager Activation Scripts

@@ -3,6 +3,5 @@ hardware.nix
 custom.nix
 env.nix
 options.nix
+custom-home.nix
 .zed
-nix/deck.nix
-nix/deck-home.nix

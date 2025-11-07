@@ -50,6 +50,7 @@ cat >~/.config/nixos/nix/env.nix <<EOF
 }
 EOF
 echo "{ ... }: {}" >~/.config/nixos/nix/custom.nix
+echo "{ ... }: {}" >~/.config/nixos/nix/custom-home.nix
 rmdir ~/nixos ~/Desktop ~/Documents ~/Downloads ~/Music ~/Pictures ~/Public ~/Templates ~/Videos 2>/dev/null
 rm ~/.config/user-dirs.dirs
 echo "Getting hardware config..."
