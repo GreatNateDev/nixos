@@ -88,8 +88,8 @@ in
         decorations_theme_variant = "Dark";
       };
       font = {
-        normal.family = "JetBrainsMono Nerd Font"; # Proper monospace Minecraft font
-        #size = 16.5;
+        normal.family = "JetBrainsMono Nerd Font";
+        size = 24.5;
       };
     };
   };
