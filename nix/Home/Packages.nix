@@ -49,6 +49,5 @@
     protonvpn-gui
     virt-manager
     nautilus
-    wireshark
   ];
 }
