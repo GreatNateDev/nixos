@@ -39,6 +39,7 @@
     util-linux
     #Programming
     zsh
+    wireshark
     #Fonts & Themes
     adwaita-qt
     adwaita-qt6
