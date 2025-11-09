@@ -1,4 +1,9 @@
-{ pkgs, inputs, ... }:
+{
+  pkgs,
+  inputs,
+  wine-gdk,
+  ...
+}:
 {
   environment.systemPackages = with pkgs; [
     #Commands
@@ -63,5 +68,7 @@
     fuzzel
     gnome-keyring
     polkit_gnome
+    winboat
+    wine-gdk
   ];
 }

@@ -19,6 +19,7 @@
     #};
     #niri-flake.url = "github:sodiboo/niri-flake";
     awww.url = "git+https://codeberg.org/LGFae/awww";
+    winegdk.url = "github:fmbearmf/winegdk-nix";
   };
   outputs =
     {
@@ -26,6 +27,7 @@
       nixpkgs,
       nixpkgs-stable,
       home-manager,
+      winegdk,
       #astal,
       #niri-flake,
       ...
@@ -45,6 +47,7 @@
         inherit system;
         specialArgs = {
           inherit inputs pkgs-stable;
+          wine-gdk = winegdk.packages.${system}.default;
         };
         modules = [
           ./System.nix
