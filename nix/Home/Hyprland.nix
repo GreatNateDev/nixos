@@ -117,6 +117,9 @@ in
       ];
 
       bindle = [
+        "Ctrl, XF86AudioPlay, exec, playerctl previous"
+        "Shift, XF86AudioPlay, exec, playerctl next"
+        ", XF86AudioPlay, exec, playerctl play-pause"
         ", XF86MonBrightnessUp, exec, light -A 10"
         ", XF86MonBrightnessDown, exec, light -U 10"
         "Shift, XF86MonBrightnessUp, exec, light -A 5"
