@@ -236,5 +236,11 @@ in
       exec = "lutris";
       categories = [ "Game" ];
     };
+    "winboat" = {
+      name = "WinBloat";
+      icon = "winboat";
+      exec = "winboat %U";
+      categories = [ "Utility" ];
+    };
   };
 }
