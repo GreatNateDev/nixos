@@ -288,10 +288,6 @@ in
                 name = "HyprLand Docs";
                 url = "https://wiki.hypr.land/";
               }
-              {
-                name = "Niri Docs";
-                url = "https://github.com/YaLTeR/niri/wiki";
-              }
             ];
           }
         ];

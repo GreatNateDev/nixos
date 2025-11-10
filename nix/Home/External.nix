@@ -1,8 +1,5 @@
 { ... }:
 {
-  home.file.".config/niri/config.kdl" = {
-    source = ../../data/niri/config.kdl;
-  };
   home.file.".config/waybar" = {
     source = ../../data/waybar;
     recursive = true;

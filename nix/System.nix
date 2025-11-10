@@ -26,8 +26,6 @@ in
     ./System/Programs.nix
     # Booting Settings
     ./System/Boot.nix
-    # External Files
-    ./System/External.nix
     # Networking Settings
     ./System/Network.nix
     # Security Settings
