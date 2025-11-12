@@ -37,6 +37,8 @@
     zsh-fzf-tab
     #Themeing
     nerd-fonts.jetbrains-mono
+    quickshell
+    kdePackages.qtdeclarative
     #Other
     (cutter.withPlugins (
       ps: with ps; [

@@ -32,6 +32,8 @@
     GTK_THEME = "catppuccin-mocha-red-standard";
     _JAVA_AWT_WM_NONREPARENTING = "1";
     QT_STYLE_OVERRIDE = "adwaita-dark";
+    QML_IMPORT_PATH = "${pkgs.quickshell}/lib/qml";
+    QML2_IMPORT_PATH = "${pkgs.quickshell}/lib/qml";
   };
   dconf.settings = {
     "org/gnome/desktop/interface" = {
