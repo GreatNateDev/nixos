@@ -5,6 +5,7 @@
   programs.hyprland.enable = true;
   programs.light.enable = true;
   programs.zsh.enable = true;
+  programs.firejail.enable = true;
   programs.wireshark = {
     enable = true;
     dumpcap.enable = true;
