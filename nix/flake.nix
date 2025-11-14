@@ -20,6 +20,7 @@
     #niri-flake.url = "github:sodiboo/niri-flake";
     awww.url = "git+https://codeberg.org/LGFae/awww";
     winegdk.url = "github:fmbearmf/winegdk-nix";
+    nur.url = "github:nix-community/NUR";
   };
   outputs =
     {
@@ -28,6 +29,7 @@
       nixpkgs-stable,
       home-manager,
       winegdk,
+      nur,
       #astal,
       #niri-flake,
       ...
@@ -65,7 +67,7 @@
                 ${env.username} = import ./Home.nix;
               };
             home-manager.extraSpecialArgs = {
-              inherit inputs pkgs-stable;
+              inherit inputs pkgs-stable nur;
             };
           }
           {

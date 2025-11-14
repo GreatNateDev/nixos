@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, nur, ... }:
 let
   actualUser = builtins.getEnv "SUDO_USER";
   user = if actualUser != "" then actualUser else builtins.getEnv "USER";
@@ -233,6 +233,20 @@ in
     enable = true;
     profiles.default = {
       id = 0;
+      extensions = {
+        force = true;
+        packages =
+          let
+            nurPkgs = import nur { inherit pkgs; };
+          in
+          with nurPkgs.repos.rycee.firefox-addons;
+          [
+            violentmonkey
+            darkreader
+            return-youtube-dislikes
+            sponsorblock
+          ];
+      };
       bookmarks = {
         force = true;
         settings = [
@@ -241,19 +255,31 @@ in
             toolbar = true;
             bookmarks = [
               {
-                name = "Github Profile";
+                name = "Profile";
                 url = "https://github.com/GreatNateDev";
               }
               {
-                name = "Nix Packages";
-                url = "https://search.nixos.org/packages?channel=unstable";
+                name = "Scan";
+                url = "https://www.virustotal.com/";
               }
               {
-                name = "Ip Address";
+                name = "UrlCk";
+                url = "https://www.urlvoid.com/";
+              }
+              {
+                name = "FMHY";
+                url = "http://localhost:4173";
+              }
+              {
+                name = "Notes";
+                url = "http://localhost:5230";
+              }
+              {
+                name = "Address";
                 url = "https://whatismyipaddress.com/";
               }
               {
-                name = "Download GitHub Folders";
+                name = "FolderDL";
                 url = "https://download-directory.github.io/";
               }
               {
@@ -261,7 +287,7 @@ in
                 url = "https://chatgpt.com/";
               }
               {
-                name = "Ai-Strong";
+                name = "AI-Strong";
                 url = "https://claude.ai/";
               }
               {
@@ -281,11 +307,11 @@ in
                 url = "https://osu.ppy.sh/";
               }
               {
-                name = "Home-Manager Options";
+                name = "Home-Options";
                 url = "https://nix-community.github.io/home-manager/options.xhtml";
               }
               {
-                name = "HyprLand Docs";
+                name = "HyprLand";
                 url = "https://wiki.hypr.land/";
               }
             ];

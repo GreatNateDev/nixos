@@ -24,6 +24,7 @@
     localsend
     ungoogled-chromium
     tor-browser
+    opensnitch-ui
     #CLI
     hyprshot
     alacritty

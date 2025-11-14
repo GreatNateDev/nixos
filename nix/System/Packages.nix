@@ -7,6 +7,9 @@
 {
   environment.systemPackages = with pkgs; [
     #Commands
+    wev
+    arp-scan
+    pfetch
     playerctl
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
     cava

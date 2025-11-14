@@ -62,7 +62,8 @@ in
       exec-once = [
         "waybar"
         "awww-daemon"
-        "spaper"
+        #"spaper"
+        "opensnitch-ui"
       ];
 
       input = {

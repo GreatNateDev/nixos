@@ -23,6 +23,9 @@ in
       alsa.support32Bit = true;
       pulse.enable = true;
     };
+    opensnitch = {
+      enable = true;
+    };
     openssh = {
       enable = true;
       settings = {
