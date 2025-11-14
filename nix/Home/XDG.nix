@@ -5,6 +5,16 @@ let
   env = import /home/${user}/.config/nixos/nix/env.nix;
 in
 {
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "text/html" = [ "librewolf.desktop" ];
+      "x-scheme-handler/http" = [ "librewolf.desktop" ];
+      "x-scheme-handler/https" = [ "librewolf.desktop" ];
+      "x-scheme-handler/about" = [ "librewolf.desktop" ];
+      "x-scheme-handler/unknown" = [ "librewolf.desktop" ];
+    };
+  };
   xdg.userDirs.createDirectories = false;
   xdg.userDirs = {
     desktop = /home/${env.username};
