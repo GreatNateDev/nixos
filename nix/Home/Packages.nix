@@ -25,6 +25,7 @@
     ungoogled-chromium
     tor-browser
     #CLI
+    hyprshot
     alacritty
     gh
     fastfetch

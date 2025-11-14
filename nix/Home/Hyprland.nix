@@ -72,6 +72,7 @@ in
       "$mod" = "SUPER";
 
       bind = [
+        ", Print, exec, hyprshot -m region"
         "$mod, W, exec, zsh ~/.config/nixos/scripts/switchwall.zsh"
         "$mod, period, layoutmsg, swapnext"
         "$mod, comma, layoutmsg, swapprev"
