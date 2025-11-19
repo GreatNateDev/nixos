@@ -51,11 +51,12 @@ in
       ];
       # Window rules - opacity
       windowrulev2 = [
-        "opacity 0.75 0.75, focus:0" # Inactive windows
+        "opacity 0.70 0.70, focus:0" # Inactive windows
         "opacity 0.90 0.90, focus:1" # Active windows (default)
 
         # Alacritty
         "opacity 0.95 0.95, class:^(Alacritty)$"
+        "opacity 0.70 0.70, focus:0, class:^(Alacritty)$"
         "maximize, class:^(Alacritty)$"
       ];
 
