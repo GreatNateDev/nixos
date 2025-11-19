@@ -1,5 +1,6 @@
 # Configuration
-WALLPAPER_DIR="$HOME/.config/nixos/data/vbg/"  # Change this to your wallpaper folder
+folder=$(nix eval --raw -f $HOME/.config/nixos/nix/env.nix folder)
+WALLPAPER_DIR="$HOME/.config/nixos/data/$folder"  # Change this to your wallpaper folder
 STATE_FILE="/tmp/awww_current_index"
 
 # Get all image and video files, sorted

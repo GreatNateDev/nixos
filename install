@@ -47,6 +47,7 @@ cat >~/.config/nixos/nix/env.nix <<EOF
   fullname = "$TARGET_FULLNAME";
   gituser = "$TARGET_GITUSER";
   gitemail = "$TARGET_GITEMAIL";
+  folder = "vbg";
 }
 EOF
 echo "{ ... }: {}" >~/.config/nixos/nix/custom.nix
