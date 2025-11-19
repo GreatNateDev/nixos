@@ -33,6 +33,12 @@ in
       icon = "github-desktop";
       categories = [ "Development" ];
     };
+    jelly = {
+      name = "Jelly";
+      exec = "librewolf http://localhost:8096";
+      icon = "jellyfin";
+      categories = [ "AudioVideo" ];
+    };
     yazi = {
       name = "yazi";
       exec = "alacritty -e yazi";
