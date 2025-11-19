@@ -4,7 +4,7 @@ WALLPAPER_DIR="$HOME/.config/nixos/data/$folder"  # Change this to your wallpape
 STATE_FILE="/tmp/awww_current_index"
 
 # Get all image and video files, sorted
-files=("${(@f)$(find "$WALLPAPER_DIR" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.gif" -o -iname "*.mp4" -o -iname "*.webm" -o -iname "*.mkv" \) | sort)}")
+files=("${(@f)$(find "$WALLPAPER_DIR" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.gif" -o -iname "*.mp4" -o -iname "*.webm" -o -iname "*.mkv" -o -iname "*.webp" \) | sort)}")
 
 # Check if we found any files
 if [ ${#files[@]} -eq 0 ]; then
