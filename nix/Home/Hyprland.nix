@@ -25,11 +25,15 @@ in
 
       decoration = {
         rounding = 10;
-
+        fullscreen_opacity = 0.8;
         blur = {
           enabled = true;
           size = 3;
           passes = 3;
+          # These settings help blur work better with layers like waybar
+          # new_optimizations = true;
+          # xray = false;
+          #ignore_opacity = false;
         };
 
         shadow = {
@@ -49,6 +53,15 @@ in
         #"border, 1, 10, default"
         #"borderangle, 1, 8, linear, loop"
       ];
+
+      # Layer rules for waybar blur
+      layerrule = [
+        "blur, waybar"
+        "ignorezero, waybar"
+        # Optional: add slight opacity to waybar
+        # "opacity 0.95, waybar"
+      ];
+
       # Window rules - opacity
       windowrulev2 = [
         "opacity 0.70 0.70, focus:0" # Inactive windows
@@ -75,6 +88,7 @@ in
 
       bind = [
         ", Print, exec, hyprshot -m region"
+        "$mod ALT, F, exec, zsh ~/.config/nixos/data/hyprland/fullscreen_trans.zsh"
         "$mod, W, exec, zsh ~/.config/nixos/scripts/switchwall.zsh"
         "$mod, period, layoutmsg, swapnext"
         "$mod, comma, layoutmsg, swapprev"
