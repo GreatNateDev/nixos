@@ -64,6 +64,8 @@ in
 
       # Window rules - opacity
       windowrulev2 = [
+        "noblur, class:^(osu!)$"
+
         "opacity 0.70 0.70, focus:0" # Inactive windows
         "opacity 0.90 0.90, focus:1" # Active windows (default)
 
