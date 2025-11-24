@@ -1,0 +1,133 @@
+# mprisence configuration for Supersonic only
+
+# ------------------
+# Basic Settings
+# ------------------
+clear_on_pause = true
+interval = 2000
+
+# ------------------
+# Display Template
+# ------------------
+[template]
+detail = "{{{title}}}"
+state = "{{{artist_display}}}"
+large_text = "{{#if album}}{{{album}}}{{#if year}} ({{{year}}}){{/if}}{{#if album_artist_display}} by {{{album_artist_display}}}{{/if}}{{/if}}"
+small_text = "{{#if player}}Playing on {{{player}}}{{else}}MPRIS{{/if}}"
+# ------------------
+# Activity Type
+# ------------------
+[activity_type]
+use_content_type = false
+default = "listening"
+
+# ------------------
+# Time Settings
+# ------------------
+[time]
+show = true
+as_elapsed = false
+
+# ------------------
+# Cover Art Settings
+# ------------------
+[cover]
+file_names = ["cover", "folder", "front", "album", "art"]
+local_search_depth = 2
+
+[cover.provider]
+# Upload the local file from Supersonic to ImgBB
+provider = ["imgbb"]
+
+[cover.provider.imgbb]
+# No im not that dumb
+api_key = "@imgbb_api_key@"
+expiration = 0  # Never expire
+
+# ------------------
+# Player Settings
+# ------------------
+[player]
+# Default for all players
+default = { ignore = false, app_id = "1121632048155742288", icon = "https://raw.githubusercontent.com/lazykern/mprisence/main/assets/icon.png", show_icon = false, allow_streaming = false }
+
+# Only enable Supersonic
+[player.supersonic]
+ignore = false
+app_id = "1121632048155742288"
+icon = "https://github.com/dweymouth/supersonic/blob/main/res/appicon-256.png?raw=true"
+show_icon = true
+allow_streaming = true
+
+# Explicitly ignore all other known players
+[player.brave]
+ignore = true
+
+[player.chrome]
+ignore = true
+
+[player.mozilla_firefox]
+ignore = true
+
+[player.mozilla_zen]
+ignore = true
+
+[player.microsoft_edge]
+ignore = true
+
+[player.spotify]
+ignore = true
+
+[player.vlc_media_player]
+ignore = true
+
+[player.mpv]
+ignore = true
+
+[player.mpd]
+ignore = true
+
+[player.music_player_daemon]
+ignore = true
+
+[player.strawberry]
+ignore = true
+
+[player.rhythmbox]
+ignore = true
+
+[player.clementine]
+ignore = true
+
+[player.amberol]
+ignore = true
+
+[player.fooyin]
+ignore = true
+
+[player.youtube_music]
+ignore = true
+
+[player.musikcube]
+ignore = true
+
+[player.lollypop]
+ignore = true
+
+[player.elisa]
+ignore = true
+
+[player.cmus]
+ignore = true
+
+[player.feishin]
+ignore = true
+
+[player.audacious]
+ignore = true
+
+[player.kew]
+ignore = true
+
+[player.smplayer]
+ignore = true

@@ -70,5 +70,23 @@
         WantedBy = [ "graphical-session.target" ];
       };
     };
+    mprisence = {
+      Unit = {
+        Description = "Discord Rich Presence for MPRIS media players";
+        After = [ "graphical-session.target" ];
+        PartOf = [ "graphical-session.target" ];
+      };
+
+      Service = {
+        Type = "simple";
+        ExecStart = "${pkgs.mprisence}/bin/mprisence";
+        Restart = "on-failure";
+        RestartSec = 5;
+      };
+
+      Install = {
+        WantedBy = [ "graphical-session.target" ];
+      };
+    };
   };
 }
