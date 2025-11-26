@@ -58,15 +58,15 @@ app_id = "1121632048155742288"
 icon = "https://github.com/dweymouth/supersonic/blob/main/res/appicon-256.png?raw=true"
 show_icon = true
 allow_streaming = true
+#Enable librewolf
+[player.mozilla_firefox]
+ignore = false
 
 # Explicitly ignore all other known players
 [player.brave]
 ignore = true
 
 [player.chrome]
-ignore = true
-
-[player.mozilla_firefox]
 ignore = true
 
 [player.mozilla_zen]
