@@ -71,7 +71,6 @@
     fuzzel
     gnome-keyring
     polkit_gnome
-    winboat
     wine-gdk
   ];
 }
