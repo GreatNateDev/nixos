@@ -80,6 +80,7 @@ in
         "awww-daemon"
         #"spaper"
         "opensnitch-ui"
+        "mprisence"
       ];
 
       input = {
