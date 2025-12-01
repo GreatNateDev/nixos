@@ -1,5 +1,3 @@
-# mprisence configuration for Supersonic only
-
 # ------------------
 # Basic Settings
 # ------------------
@@ -59,75 +57,9 @@ icon = "https://github.com/dweymouth/supersonic/blob/main/res/appicon-256.png?ra
 show_icon = true
 allow_streaming = true
 #Enable librewolf
+[player.firefox]
+ignore = false
+allow_streaming = true;
 [player.mozilla_firefox]
 ignore = false
-
-# Explicitly ignore all other known players
-[player.brave]
-ignore = true
-
-[player.chrome]
-ignore = true
-
-[player.mozilla_zen]
-ignore = true
-
-[player.microsoft_edge]
-ignore = true
-
-[player.spotify]
-ignore = true
-
-[player.vlc_media_player]
-ignore = true
-
-[player.mpv]
-ignore = true
-
-[player.mpd]
-ignore = true
-
-[player.music_player_daemon]
-ignore = true
-
-[player.strawberry]
-ignore = true
-
-[player.rhythmbox]
-ignore = true
-
-[player.clementine]
-ignore = true
-
-[player.amberol]
-ignore = true
-
-[player.fooyin]
-ignore = true
-
-[player.youtube_music]
-ignore = true
-
-[player.musikcube]
-ignore = true
-
-[player.lollypop]
-ignore = true
-
-[player.elisa]
-ignore = true
-
-[player.cmus]
-ignore = true
-
-[player.feishin]
-ignore = true
-
-[player.audacious]
-ignore = true
-
-[player.kew]
-ignore = true
-
-[player.smplayer]
-ignore = true
+allow_streaming = true;
