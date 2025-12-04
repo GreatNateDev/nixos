@@ -60,45 +60,21 @@ echo "Removing old config..."
 sudo rm -rf /etc/nixos/
 echo "Options..."
 # Initialize variables with defaults
-ENABLE_FIREFOX=""
-ENABLE_LIBVIRTD="false"
-ENABLE_OPENSNITCH="false"
+GAMING="false"
 
 read -p "Set Extra Options? (y/N): " confirmop
 if [[ "$confirmop" == "y" ]]; then
-  read -p "Backup Firefox browser (in case Librewolf breaks) (y/N): " yesfirefox
-  if [[ "$yesfirefox" == "y" ]]; then
-    ENABLE_FIREFOX="firefox"
+  read -p "Gaming (y/N): " gamingr
+  if [[ "$gamingr" == "y" ]]; then
+    GAMING="true"
   fi
-
-  read -p "Enable virtualization (libvirtd/KVM) (y/N): " yesvirt
-  if [[ "$yesvirt" == "y" ]]; then
-    ENABLE_LIBVIRTD="true"
-  fi
-
-  read -p "Enable OpenSnitch firewall (y/N): " yessnitch
-  if [[ "$yessnitch" == "y" ]]; then
-    ENABLE_OPENSNITCH="true"
-  fi
-fi
 
 cat >~/.config/nixos/nix/options.nix <<EOF
-{ pkgs, ... }:
+{ config, lib, ... }:
+
 {
-  environment.systemPackages = with pkgs; [
-    ${ENABLE_FIREFOX}
-  ];
-
-  virtualisation.libvirtd = {
-    enable = ${ENABLE_LIBVIRTD};
-    qemu = {
-      package = pkgs.qemu_kvm;
-    };
-  };
-
-  services.opensnitch = {
-    enable = ${ENABLE_OPENSNITCH};
-  };
+  config.hello.enable = false;
+  config.gaming.enable = ${GAMING};
 }
 EOF
 echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet --cores=$(nproc) --max-jobs=$(nproc) && echo Done!
