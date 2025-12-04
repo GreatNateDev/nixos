@@ -13,7 +13,6 @@
     #Network
     localsend
     ungoogled-chromium
-    tor-browser
     opensnitch-ui
     #CLI
     hyprshot
@@ -32,12 +31,6 @@
     quickshell
     kdePackages.qtdeclarative
     #Other
-    (cutter.withPlugins (
-      ps: with ps; [
-        jsdec
-        rz-ghidra
-      ]
-    ))
     gnome-clocks
     networkmanagerapplet
     protonvpn-gui

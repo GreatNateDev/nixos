@@ -8,7 +8,7 @@
     #Commands
     chafa
     wev
-    arp-scan
+
     pfetch
     playerctl
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
@@ -16,15 +16,15 @@
     hollywood
     rustfmt
     yazi
-    radare2
-    binutils
+
+
     p7zip
     ffmpeg
-    exiftool
+
     fzf
-    httpie
+
     file
-    macchanger
+
     tldr
     caligula
     duf
@@ -32,22 +32,22 @@
     eza
     gitui
     cruise
-    ltrace
+
     lolcat
-    gdb
-    cyme
+
+
     killall
     docker
     docker-compose
     tree
-    nmap
+
     unzip
     wget
     jq
-    util-linux
+
     #Programming
     zsh
-    wireshark
+
     #Fonts & Themes
     adwaita-qt
     adwaita-qt6

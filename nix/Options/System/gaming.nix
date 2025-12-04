@@ -1,5 +1,11 @@
 # nix/modules/gaming.nix
-{ config, lib, pkgs, winegdk, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  winegdk,
+  ...
+}:
 
 let
   actualUser = builtins.getEnv "SUDO_USER";

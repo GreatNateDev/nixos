@@ -1,11 +1,16 @@
 # nix/modules/hello.nix
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   actualUser = builtins.getEnv "SUDO_USER";
   user = if actualUser != "" then actualUser else builtins.getEnv "USER";
   env = import /home/${user}/.config/nixos/nix/env.nix;
-  username = env.username;  # e.g. "nate"
+  username = env.username; # e.g. "nate"
 in
 {
   options.hello.enable = lib.mkOption {

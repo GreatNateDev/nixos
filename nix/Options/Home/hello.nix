@@ -1,5 +1,10 @@
 # nix/home-modules/hello.nix
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 let
   actualUser = builtins.getEnv "SUDO_USER";

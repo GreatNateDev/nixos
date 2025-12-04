@@ -61,13 +61,17 @@ sudo rm -rf /etc/nixos/
 echo "Options..."
 # Initialize variables with defaults
 GAMING="false"
-
+HACKING="false"
 read -p "Set Extra Options? (y/N): " confirmop
 if [[ "$confirmop" == "y" ]]; then
   read -p "Gaming (y/N): " gamingr
   if [[ "$gamingr" == "y" ]]; then
     GAMING="true"
   fi
+    read -p "Hacking (y/N): " hackingr
+    if [[ "$hackingr" == "y" ]]; then
+    HACKING="true"
+    fi
 
 cat >~/.config/nixos/nix/options.nix <<EOF
 { config, lib, ... }:
@@ -75,6 +79,7 @@ cat >~/.config/nixos/nix/options.nix <<EOF
 {
   config.hello.enable = false;
   config.gaming.enable = ${GAMING};
+  config.hacking.enable = ${HACKING};
 }
 EOF
 echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet --cores=$(nproc) --max-jobs=$(nproc) && echo Done!
