@@ -114,6 +114,7 @@ in
       "catppuccin-icons"
       "gdscript"
       "basher"
+      "discord-presence"
     ];
     userSettings = {
       buffer_font_family = "Minecraftia";
@@ -161,7 +162,59 @@ in
         light = "Catppuccin Mocha";
       };
       icon_theme = "Catppuccin Mocha";
+
       lsp = {
+        discord_presence = {
+          initialization_options = {
+            # Application ID for the rich presence (don't touch it unless you know what you're doing)
+            application_id = "1263505205522337886";
+
+
+            state = "Working on {filename}";
+            details = "In {workspace}";
+
+            # URL for the large image
+            large_image = "https://raw.githubusercontent.com/xhyrom/zed-discord-presence/main/assets/icons/{language:lo}.png"; # :lo lowercase the language name
+            large_text = "{language:u}"; # :u capitalizes the first letter
+
+            # URL for the small image
+            small_image = "https://raw.githubusercontent.com/xhyrom/zed-discord-presence/main/assets/icons/zed.png";
+            small_text = "Zed";
+
+            # Idle settings - when you're inactive
+            idle = {
+              timeout = 300; # Idle timeout in seconds (300 seconds = 5 minutes)
+
+              # Action to take when idle
+              # `change_activity` - changes the activity to idle with the following details
+              # `clear_activity` - clears the activity (hides it)
+              action = "change_activity";
+
+              state = "Idling";
+              details = "In Zed";
+              large_image = "https://raw.githubusercontent.com/xhyrom/zed-discord-presence/main/assets/icons/zed.png";
+              large_text = "Zed";
+              small_image = "https://raw.githubusercontent.com/xhyrom/zed-discord-presence/main/assets/icons/idle.png";
+              small_text = "Idle";
+            };
+
+            # Rules to disable presence in specific workspaces
+            rules = {
+              mode = "blacklist"; # Can also be "whitelist"
+              paths = [ "absolute path" ];
+            };
+
+            git_integration = true;
+
+            # Per-language overrides
+            languages = {
+              rust = {
+                state = "Hacking on {filename}";
+                details = "Rustacean at work";
+              };
+            };
+          };
+        };
         nixd = {
           settings = {
             nixpkgs.expr = "import <nixpkgs> { }";
