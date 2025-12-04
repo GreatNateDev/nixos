@@ -32,6 +32,7 @@ in
       nmap
       util-linux
       wireshark
+      hollywood
     ];
     programs.firejail.enable = true;
     programs.wireshark = {

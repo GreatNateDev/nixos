@@ -27,12 +27,6 @@ in
     videos = /home/${env.username};
   };
   xdg.desktopEntries = {
-    github = {
-      name = "Storage";
-      exec = "chromium --app=https://github.com/";
-      icon = "github-desktop";
-      categories = [ "Development" ];
-    };
     jelly = {
       name = "Jelly";
       exec = "librewolf http://localhost:8096";
@@ -45,18 +39,6 @@ in
       noDisplay = true;
       categories = [ "Utility" ];
     };
-    neovim = {
-      name = "neovim";
-      exec = "alacritty -e nvim";
-      noDisplay = true;
-      categories = [ "Development" ];
-    };
-    xterm = {
-      name = "xterm";
-      exec = "xterm";
-      noDisplay = true;
-      categories = [ "System" ];
-    };
     chromium-browser = {
       name = "Chromium";
       exec = "chromium";
@@ -68,12 +50,6 @@ in
       exec = "nixos-help";
       noDisplay = true;
       categories = [ "System" ];
-    };
-    nvim = {
-      name = "nvim Wrapper";
-      exec = "alacritty -e nvim";
-      noDisplay = true;
-      categories = [ "Development" ];
     };
     htop = {
       name = "htop";
@@ -106,11 +82,6 @@ in
       exec = "supersonic";
       categories = [ "AudioVideo" ];
     };
-
-
-
-
-
     "librewolf" = {
       name = "Browser";
       icon = "librewolf";
@@ -135,18 +106,11 @@ in
       exec = "protonvpn-app";
       categories = [ "Network" ];
     };
-
     "org.gnome.clocks" = {
       name = "Time";
       icon = "preferences-system-time";
       exec = "gnome-clocks";
       categories = [ "Utility" ];
-    };
-    "org.godotengine.Godot4.4" = {
-      name = "GameDev";
-      icon = "godot";
-      exec = "godot";
-      categories = [ "Development" ];
     };
     "LocalSend" = {
       name = "AirDrop";
@@ -161,38 +125,11 @@ in
       exec = "mpv";
       categories = [ "AudioVideo" ];
     };
-
-    "torbrowser" = {
-      name = "DarkWeb";
-      icon = "torbrowser";
-      exec = "tor-browser";
-      categories = [ "Network" ];
-    };
     "org.pulseaudio.pavucontrol" = {
       name = "Audio";
       icon = "yast-sound";
       exec = "pavucontrol";
       categories = [ "AudioVideo" ];
-    };
-    "org.wireshark.Wireshark" = {
-      name = "Network";
-      icon = "wireshark";
-      exec = "wireshark";
-      categories = [ "Network" ];
-    };
-    "re.rizin.cutter" = {
-      name = "Decompile";
-      icon = "cutter";
-      exec = "cutter";
-      categories = [ "Development" ];
-    };
-
-
-    "winboat" = {
-      name = "WinBloat";
-      icon = "winboat";
-      exec = "winboat %U";
-      categories = [ "Utility" ];
     };
   };
 }

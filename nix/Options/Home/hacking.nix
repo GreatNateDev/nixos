@@ -38,5 +38,25 @@ in
         ]
       ))
     ];
+    xdg.desktopEntries = {
+      "torbrowser" = {
+        name = "DarkWeb";
+        icon = "torbrowser";
+        exec = "tor-browser";
+        categories = [ "Network" ];
+      };
+    "org.wireshark.Wireshark" = {
+      name = "Network";
+      icon = "wireshark";
+      exec = "wireshark";
+      categories = [ "Network" ];
+    };
+    "re.rizin.cutter" = {
+      name = "Decompile";
+      icon = "cutter";
+      exec = "cutter";
+      categories = [ "Development" ];
+    };
+  };
   };
 }

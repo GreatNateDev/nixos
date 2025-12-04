@@ -8,42 +8,38 @@
     #Commands
     chafa
     wev
-
     pfetch
     playerctl
     inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
     cava
-    hollywood
-    rustfmt
+
+
     yazi
 
 
     p7zip
     ffmpeg
 
-    fzf
 
-    file
 
-    tldr
+
+
+
     caligula
     duf
     dust
     eza
-    gitui
-    cruise
+
 
     lolcat
 
 
     killall
-    docker
-    docker-compose
-    tree
+
 
     unzip
     wget
-    jq
+
 
     #Programming
     zsh

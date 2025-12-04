@@ -24,6 +24,7 @@ in
     ./Options/System/hello.nix
     ./Options/System/gaming.nix
     ./Options/System/hacking.nix
+    ./Options/System/development.nix
     ./System/Locale.nix
     ./System/Packages.nix
     ./System/Programs.nix
@@ -32,7 +33,6 @@ in
     ./System/Security.nix
     ./System/Services.nix
     ./System/User.nix
-    ./System/Virtualisation.nix
     ./System/Font.nix
   ];
 
@@ -72,8 +72,8 @@ in
         ./Options/Home/hello.nix
         ./Options/Home/gaming.nix
         ./Options/Home/hacking.nix
+        ./Options/Home/development.nix
         ./Home/Packages.nix
-        ./Home/Activations.nix
         ./Home/External.nix
         ./Home/Programs.nix
         ./Home/Theme.nix

@@ -6,10 +6,10 @@
     mpv
     obs-studio
     supersonic
-    yt-dlp
-    id3v2
+
+
     #Emulators and Games
-    pkgs-stable.godot
+
     #Network
     localsend
     ungoogled-chromium
@@ -17,7 +17,7 @@
     #CLI
     hyprshot
     alacritty
-    gh
+
     fastfetch
     htop
     zsh-powerlevel10k
