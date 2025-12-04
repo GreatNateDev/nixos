@@ -7,6 +7,7 @@
 {
   environment.systemPackages = with pkgs; [
     #Commands
+    chafa
     wev
     arp-scan
     pfetch

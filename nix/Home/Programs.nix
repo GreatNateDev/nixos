@@ -38,6 +38,7 @@ in
       dcuf = "docker-compose up";
       nca = "nix-env -e '.*'";
       spaper = "zsh $HOME/.config/nixos/scripts/switchwall.zsh";
+      img = "chafa";
     };
     initContent = ''
       rm -dfr ~/Downloads
