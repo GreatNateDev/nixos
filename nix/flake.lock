@@ -667,7 +667,7 @@
         "nixpkgs": "nixpkgs_4",
         "nixpkgs-stable": "nixpkgs-stable",
         "nur": "nur",
-        "winegdk": "winegdk"
+        "wine-gdk": "wine-gdk"
       }
     },
     "rust-overlay": {
@@ -721,11 +721,11 @@
         "type": "github"
       }
     },
-    "winegdk": {
+    "wine-gdk": {
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs_6",
-        "winegdk": "winegdk_2"
+        "winegdk": "winegdk"
       },
       "locked": {
         "lastModified": 1762497139,
@@ -741,7 +741,7 @@
         "type": "github"
       }
     },
-    "winegdk_2": {
+    "winegdk": {
       "flake": false,
       "locked": {
         "lastModified": 1762457615,

@@ -9,16 +9,6 @@
     yt-dlp
     id3v2
     #Emulators and Games
-    lutris
-    osu-lazer-bin
-    prismlauncher
-    adwsteamgtk
-    mindustry-wayland
-    pkgs-stable.azahar
-    pkgs-stable.melonDS
-    pkgs-stable.ryubing
-    pkgs-stable.cemu
-    pkgs-stable.mgba
     pkgs-stable.godot
     #Network
     localsend

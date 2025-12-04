@@ -1,7 +1,6 @@
 {
   pkgs,
   inputs,
-  wine-gdk,
   ...
 }:
 {
@@ -72,6 +71,5 @@
     fuzzel
     gnome-keyring
     polkit_gnome
-    wine-gdk
   ];
 }
