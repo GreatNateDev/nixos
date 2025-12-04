@@ -29,20 +29,6 @@
       };
     };
 
-    supersonic = {
-      Unit = {
-        Description = "Supersonic";
-        After = [ "graphical-session.target" ];
-      };
-      Service = {
-        ExecStart = "${pkgs.supersonic}/bin/supersonic -start-minimized";
-        Restart = "on-failure";
-      };
-      Install = {
-        WantedBy = [ "graphical-session.target" ];
-      };
-    };
-
     localsend = {
       Unit = {
         Description = "LocalSend Application";

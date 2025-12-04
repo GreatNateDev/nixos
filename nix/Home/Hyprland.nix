@@ -76,6 +76,7 @@ in
       ];
 
       exec-once = [
+        "supersonic -start-minimized"
         "waybar"
         "awww-daemon"
         #"spaper"
