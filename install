@@ -63,6 +63,7 @@ echo "Options..."
 GAMING="false"
 HACKING="false"
 DEV="false"
+VPN="false"
 read -p "Set Extra Options? (y/N): " confirmop
 if [[ "$confirmop" == "y" ]]; then
   read -p "Gaming (y/N): " gamingr
@@ -77,6 +78,10 @@ if [[ "$confirmop" == "y" ]]; then
     if [[ "$devr" == "y" ]]; then
     DEV="true"
     fi
+    read -p "VPN (y/N): " vpnr
+    if [[ "$vpnr" == "y" ]]; then
+    VPN="true"
+    fi
 
 cat >~/.config/nixos/nix/options.nix <<EOF
 { config, lib, ... }:
@@ -86,6 +91,7 @@ cat >~/.config/nixos/nix/options.nix <<EOF
   config.gaming.enable = ${GAMING};
   config.hacking.enable = ${HACKING};
   config.development.enable = ${DEV};
+  config.vpn.enable = $(VPN);
 }
 EOF
 echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet --cores=$(nproc) --max-jobs=$(nproc) && echo Done!

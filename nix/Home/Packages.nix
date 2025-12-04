@@ -7,7 +7,6 @@
     obs-studio
     supersonic
 
-
     #Emulators and Games
 
     #Network
@@ -33,7 +32,6 @@
     #Other
     gnome-clocks
     networkmanagerapplet
-    protonvpn-gui
     virt-manager
     nautilus
   ];

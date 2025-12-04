@@ -100,12 +100,6 @@ in
       exec = "obs";
       categories = [ "AudioVideo" ];
     };
-    "protonvpn-app" = {
-      name = "Mask";
-      icon = "protonvpn-gui";
-      exec = "protonvpn-app";
-      categories = [ "Network" ];
-    };
     "org.gnome.clocks" = {
       name = "Time";
       icon = "preferences-system-time";

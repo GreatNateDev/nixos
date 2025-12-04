@@ -43,20 +43,6 @@
       };
     };
 
-    protonvpn = {
-      Unit = {
-        Description = "ProtonVPN Application";
-        After = [ "graphical-session.target" ];
-      };
-      Service = {
-        ExecStart = "${pkgs.protonvpn-gui}/bin/protonvpn-app --start-minimized";
-        Restart = "on-failure";
-      };
-      Install = {
-        WantedBy = [ "graphical-session.target" ];
-      };
-    };
-
     localsend = {
       Unit = {
         Description = "LocalSend Application";
