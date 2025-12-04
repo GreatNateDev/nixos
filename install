@@ -32,7 +32,6 @@ EOF
 read -p "Git User: " TARGET_GITUSER
 read -p "Git Email: " TARGET_GITEMAIL
 sudo nixos-generate-config 2>/dev/null
-nix-env -e git 2>/dev/null
 nix-env -e lolcat 2>/dev/null
 # INSTALLING BLOCK
 echo "Installing..."
@@ -104,8 +103,9 @@ cat >~/.config/nixos/nix/options.nix <<EOF
 EOF
 echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet --cores=$(nproc) --max-jobs=$(nproc) 2>/dev/null && echo Done!
 chmod -R +x $HOME/.config/nixos/scripts/
-cd $HOME/.config/nixos/scripts/
-./post-install.zsh
+echo "Cleaning up..."
+nix-env -e git 2>/dev/null
+clear
 echo "Script complete. Reboot? (y/N)"
 read rebootcon
 if [ "$rebootcon" = "y" ]; then
