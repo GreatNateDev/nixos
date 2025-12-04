@@ -51,5 +51,5 @@ in
     ];
 
   # Don't change this number
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 }
