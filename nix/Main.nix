@@ -26,6 +26,7 @@ in
     ./Options/System/hacking.nix
     ./Options/System/development.nix
     ./Options/System/vpn.nix
+    ./Options/System/opensnitch.nix
     ./System/Locale.nix
     ./System/Packages.nix
     ./System/Programs.nix
@@ -75,6 +76,7 @@ in
         ./Options/Home/hacking.nix
         ./Options/Home/development.nix
         ./Options/Home/vpn.nix
+        ./Options/Home/opensnitch.nix
         ./Home/Packages.nix
         ./Home/External.nix
         ./Home/Programs.nix

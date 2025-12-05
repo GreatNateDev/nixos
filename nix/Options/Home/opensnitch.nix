@@ -12,17 +12,23 @@ let
   env = import /home/${user}/.config/nixos/nix/env.nix;
   username = env.username;
 
-  cfg = config.hello;
+  cfg = config.opensnitch;
 in
 {
-  options.hello = {
+  options.opensnitch = {
     enable = lib.mkOption {
       type = lib.types.bool;
       default = false;
-      description = "Hello World";
+      description = "Opensnitch packet firewall";
     };
   };
 
   config = lib.mkIf cfg.enable {
+    home.packages = with pkgs; [
+      opensnitch-ui
+    ];
+    wayland.windowManager.hyprland.settings.exec-once = lib.mkAfter [
+      "opensnitch-ui"
+    ];
   };
 }

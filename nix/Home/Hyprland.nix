@@ -61,7 +61,6 @@ in
         # Optional: add slight opacity to waybar
         # "opacity 0.95, waybar"
       ];
-
       # Window rules - opacity
       windowrulev2 = [
         "noblur, class:^(osu!)$"
@@ -79,8 +78,6 @@ in
         "supersonic -start-minimized"
         "waybar"
         "awww-daemon"
-        #"spaper"
-        "opensnitch-ui"
         "mprisence"
       ];
 

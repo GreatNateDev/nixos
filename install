@@ -64,6 +64,7 @@ GAMING="false"
 HACKING="false"
 DEV="false"
 VPN="false"
+SNITCH="false"
 read -p "Set Extra Options? (y/N): " confirmop
 if [[ "$confirmop" == "y" ]]; then
   read -p "Gaming (y/N): " gamingr
@@ -82,6 +83,10 @@ if [[ "$confirmop" == "y" ]]; then
     if [[ "$vpnr" == "y" ]]; then
     VPN="true"
     fi
+    read -p "OpenSnitch (y/N): " snitchr
+    if [[ "$snitchr" == "y" ]]; then
+    SNITCH="true"
+    fi
 
 cat >~/.config/nixos/nix/options.nix <<EOF
 { config, lib, ... }:
@@ -92,6 +97,7 @@ cat >~/.config/nixos/nix/options.nix <<EOF
   config.hacking.enable = ${HACKING};
   config.development.enable = ${DEV};
   config.vpn.enable = $(VPN);
+  config.opensnitch.enable = $(SNITCH);
 }
 EOF
 echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet --cores=$(nproc) --max-jobs=$(nproc) && echo Done!
