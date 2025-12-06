@@ -57,13 +57,7 @@ in
       noDisplay = true;
       categories = [ "System" ];
     };
-    nm-connection-editor = {
-      name = "Network";
-      noDisplay = true;
-      icon = "cs-network";
-      exec = "nm-connection-editor";
-      categories = [ "Settings" ];
-    };
+
     supersonic = {
       name = "Music";
       icon = "juk";
@@ -82,30 +76,12 @@ in
       exec = "zeditor";
       categories = [ "Development" ];
     };
-    "org.gnome.clocks" = {
-      name = "Time";
-      icon = "preferences-system-time";
-      exec = "gnome-clocks";
-      categories = [ "Utility" ];
-    };
     "LocalSend" = {
       name = "AirDrop";
       icon = "localsend";
       exec = "localsend_app";
       categories = [ "Network" ];
     };
-    "mpv" = {
-      name = "Player";
-      noDisplay = true;
-      icon = "mpv";
-      exec = "mpv";
-      categories = [ "AudioVideo" ];
-    };
-    "org.pulseaudio.pavucontrol" = {
-      name = "Audio";
-      icon = "yast-sound";
-      exec = "pavucontrol";
-      categories = [ "AudioVideo" ];
-    };
+
   };
 }

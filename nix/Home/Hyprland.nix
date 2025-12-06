@@ -79,6 +79,9 @@ in
         "waybar"
         "awww-daemon"
         "mprisence"
+        "localsend_app --hidden"
+        "polkit-gnome-authentication-agent-1"
+        "mako"
       ];
 
       input = {
@@ -99,7 +102,6 @@ in
         "$mod SHIFT, down, movewindow, d"
         "$mod, T, exec, alacritty"
         "$mod, D, exec, fuzzel"
-        "$mod, E, exec, nautilus"
         "$mod, Z, exec, zeditor"
         "$mod, B, exec, librewolf"
         "$mod, S, exec, supersonic"

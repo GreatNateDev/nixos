@@ -69,6 +69,7 @@ SSH="false"
 QEMU="false"
 FONT="false"
 STREAMING="false"
+GUI="false"
 read -p "Set Extra Options? (y/N): " confirmop
 if [[ "$confirmop" == "y" ]]; then
   read -p "Gaming (y/N): " gamingr
@@ -107,6 +108,10 @@ if [[ "$confirmop" == "y" ]]; then
     if [[ "$streamingr" == "y" ]]; then
     STREAMING="true"
     fi
+    read -p "Extra GUI apps (y/N): " guir
+    if [[ "$guir" == "y" ]]; then
+    GUI="true"
+    fi
 
 cat >~/.config/nixos/nix/options.nix <<EOF
 { config, lib, ... }:
@@ -122,6 +127,7 @@ cat >~/.config/nixos/nix/options.nix <<EOF
   config.qemu.enable = $(QEMU);
   config.font.enable = $(FONT);
   config.streaming.enable = $(STREAMING);
+  config.gui.enable = ${GUI};
 }
 EOF
 echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet --cores=$(nproc) --max-jobs=$(nproc) && echo Done!
