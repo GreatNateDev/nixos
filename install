@@ -67,6 +67,7 @@ VPN="false"
 SNITCH="false"
 SSH="false"
 QEMU="false"
+FONT="false"
 read -p "Set Extra Options? (y/N): " confirmop
 if [[ "$confirmop" == "y" ]]; then
   read -p "Gaming (y/N): " gamingr
@@ -97,6 +98,10 @@ if [[ "$confirmop" == "y" ]]; then
     if [[ "$qemur" == "y" ]]; then
     QEMU="true"
     fi
+    read -p "Minecraft Font (y/N): " fontr
+    if [[ "$fontr" == "y" ]]; then
+    FONT="true"
+    fi
 
 cat >~/.config/nixos/nix/options.nix <<EOF
 { config, lib, ... }:
@@ -110,6 +115,7 @@ cat >~/.config/nixos/nix/options.nix <<EOF
   config.opensnitch.enable = $(SNITCH);
   config.ssh.enable = $(SSH);
   config.qemu.enable = $(QEMU);
+  config.font.enable = $(FONT);
 }
 EOF
 echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet --cores=$(nproc) --max-jobs=$(nproc) && echo Done!

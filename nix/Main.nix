@@ -29,6 +29,7 @@ in
     ./Options/System/ssh.nix
     ./Options/System/opensnitch.nix
     ./Options/System/qemu.nix
+    ./Options/System/font.nix
     ./System/Locale.nix
     ./System/Packages.nix
     ./System/Programs.nix
@@ -37,7 +38,6 @@ in
     ./System/Security.nix
     ./System/Services.nix
     ./System/User.nix
-    ./System/Font.nix
   ];
 
   networking.hostName = hostname;
