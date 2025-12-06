@@ -78,7 +78,6 @@ in
         "supersonic -start-minimized"
         "waybar"
         "awww-daemon"
-        "mprisence"
         "polkit-gnome-authentication-agent-1"
         "mako"
       ];
