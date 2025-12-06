@@ -7,14 +7,7 @@ in
 {
   networking.hostName = "${env.hostname}";
   networking.networkmanager.enable = true;
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [
-      22
-      53317
-    ];
-    allowedUDPPorts = [ 53317 ];
-  };
+  networking.firewall.enable = true;
   networking.nameservers = [
     "1.1.1.1"
     "1.0.0.1"

@@ -65,6 +65,7 @@ HACKING="false"
 DEV="false"
 VPN="false"
 SNITCH="false"
+SSH="false"
 read -p "Set Extra Options? (y/N): " confirmop
 if [[ "$confirmop" == "y" ]]; then
   read -p "Gaming (y/N): " gamingr
@@ -87,6 +88,10 @@ if [[ "$confirmop" == "y" ]]; then
     if [[ "$snitchr" == "y" ]]; then
     SNITCH="true"
     fi
+    read -p "SSH (y/N): " sshr
+    if [[ "$sshr" == "y" ]]; then
+    SSH="true"
+    fi
 
 cat >~/.config/nixos/nix/options.nix <<EOF
 { config, lib, ... }:
@@ -98,6 +103,7 @@ cat >~/.config/nixos/nix/options.nix <<EOF
   config.development.enable = ${DEV};
   config.vpn.enable = $(VPN);
   config.opensnitch.enable = $(SNITCH);
+  config.ssh.enable = $(SSH);
 }
 EOF
 echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet --cores=$(nproc) --max-jobs=$(nproc) && echo Done!

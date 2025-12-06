@@ -26,6 +26,7 @@ in
     ./Options/System/hacking.nix
     ./Options/System/development.nix
     ./Options/System/vpn.nix
+    ./Options/System/ssh.nix
     ./Options/System/opensnitch.nix
     ./System/Locale.nix
     ./System/Packages.nix

@@ -19,6 +19,8 @@ in
 
   config = lib.mkIf config.opensnitch.enable {
     services.opensnitch.enable = true;
+    networking.firewall.allowedTCPPorts = lib.mkAfter [ 53317 ];
+    networking.firewall.allowedUDPPorts = lib.mkAfter [ 53317 ];
     home-manager.users.${username}.opensnitch.enable = true;
   };
 }
