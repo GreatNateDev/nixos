@@ -28,6 +28,7 @@ in
     ./Options/System/vpn.nix
     ./Options/System/ssh.nix
     ./Options/System/opensnitch.nix
+    ./Options/System/qemu.nix
     ./System/Locale.nix
     ./System/Packages.nix
     ./System/Programs.nix

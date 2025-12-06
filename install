@@ -66,6 +66,7 @@ DEV="false"
 VPN="false"
 SNITCH="false"
 SSH="false"
+QEMU="false"
 read -p "Set Extra Options? (y/N): " confirmop
 if [[ "$confirmop" == "y" ]]; then
   read -p "Gaming (y/N): " gamingr
@@ -92,6 +93,10 @@ if [[ "$confirmop" == "y" ]]; then
     if [[ "$sshr" == "y" ]]; then
     SSH="true"
     fi
+    read -p "QEMU (y/N): " qemur
+    if [[ "$qemur" == "y" ]]; then
+    QEMU="true"
+    fi
 
 cat >~/.config/nixos/nix/options.nix <<EOF
 { config, lib, ... }:
@@ -104,6 +109,7 @@ cat >~/.config/nixos/nix/options.nix <<EOF
   config.vpn.enable = $(VPN);
   config.opensnitch.enable = $(SNITCH);
   config.ssh.enable = $(SSH);
+  config.qemu.enable = $(QEMU);
 }
 EOF
 echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet --cores=$(nproc) --max-jobs=$(nproc) && echo Done!
