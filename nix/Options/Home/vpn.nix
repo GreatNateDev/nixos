@@ -25,7 +25,7 @@ in
 
   config = lib.mkIf cfg.enable {
     xdg.desktopEntries = {
-      "protonvpn-app" = {
+      "proton.vpn.app.gtk" = {
         name = "Mask";
         icon = "protonvpn-gui";
         exec = "protonvpn-app";
