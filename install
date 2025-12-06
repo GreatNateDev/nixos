@@ -38,6 +38,7 @@ echo "Installing..."
 mkdir -p ~/.config/nixos
 mv ~/nixos/.git ~/.config/nixos/
 mv ~/nixos/.gitignore ~/.config/nixos/
+mv ~/nixos/.gitattributes ~/.config/nixos/
 mv ~/nixos/* ~/.config/nixos/
 cat >~/.config/nixos/nix/env.nix <<EOF
 {
