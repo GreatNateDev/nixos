@@ -76,12 +76,6 @@ in
       exec = "zeditor";
       categories = [ "Development" ];
     };
-    "LocalSend" = {
-      name = "AirDrop";
-      icon = "localsend";
-      exec = "localsend_app";
-      categories = [ "Network" ];
-    };
 
   };
 }

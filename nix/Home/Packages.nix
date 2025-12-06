@@ -2,7 +2,6 @@
 {
   home.packages = with pkgs; [
     supersonic
-    localsend
     ungoogled-chromium
     hyprshot
     alacritty

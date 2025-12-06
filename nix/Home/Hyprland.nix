@@ -79,7 +79,6 @@ in
         "waybar"
         "awww-daemon"
         "mprisence"
-        "localsend_app --hidden"
         "polkit-gnome-authentication-agent-1"
         "mako"
       ];

@@ -70,6 +70,7 @@ QEMU="false"
 FONT="false"
 STREAMING="false"
 GUI="false"
+AIRDROP="false"
 read -p "Set Extra Options? (y/N): " confirmop
 if [[ "$confirmop" == "y" ]]; then
   read -p "Gaming (y/N): " gamingr
@@ -112,6 +113,10 @@ if [[ "$confirmop" == "y" ]]; then
     if [[ "$guir" == "y" ]]; then
     GUI="true"
     fi
+    read -p "AirDrop (y/N): " airdropr
+    if [[ "$airdropr" == "y" ]]; then
+    AIRDROP="true"
+    fi
 
 cat >~/.config/nixos/nix/options.nix <<EOF
 { config, lib, ... }:
@@ -128,6 +133,7 @@ cat >~/.config/nixos/nix/options.nix <<EOF
   config.font.enable = $(FONT);
   config.streaming.enable = $(STREAMING);
   config.gui.enable = ${GUI};
+  config.airdrop.enable = $(AIRDROP);
 }
 EOF
 echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet --cores=$(nproc) --max-jobs=$(nproc) && echo Done!
