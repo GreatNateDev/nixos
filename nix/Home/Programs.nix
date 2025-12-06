@@ -120,9 +120,9 @@ in
       buffer_font_family = "Minecraftia";
       ui_font_family = "Minecraftia";
       disable_ai = true;
-      #terminal = {
-      #  font_family = "Minecraftia";
-      #};
+      terminal = {
+        font_family = "JetBrainsMonoNL Nerd Font Propo";
+      };
       title_bar = {
         show_user_picture = true;
         show_onboarding_banner = true;
@@ -168,7 +168,6 @@ in
           initialization_options = {
             # Application ID for the rich presence (don't touch it unless you know what you're doing)
             application_id = "1263505205522337886";
-
 
             state = "Working on {filename}";
             details = "In {workspace}";
@@ -349,14 +348,6 @@ in
                 url = "https://www.youtube.com/";
               }
               {
-                name = "Kick";
-                url = "https://kick.com/";
-              }
-              {
-                name = "Twitch";
-                url = "https://www.twitch.tv/";
-              }
-              {
                 name = "OSU!";
                 url = "https://osu.ppy.sh/";
               }
@@ -397,6 +388,8 @@ in
         "browser.search.selectedEngine" = "StartPage";
         "browser.urlbar.placeholderName" = "StartPage";
         "browser.toolbars.bookmarks.visibility" = "always";
+        "browser.warnOnQuit" = false;
+        "browser.warnOnQuitShortcut" = false;
       };
     };
     policies = {
@@ -419,6 +412,7 @@ in
       DownloadDirectory = "/home/${env.username}";
       PromptForDownloadLocation = false;
       DefaultDownloadDirectory = "/home/${env.username}";
+      DisableFormHistory = true;
     };
   };
   programs.waybar = {
