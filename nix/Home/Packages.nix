@@ -23,7 +23,6 @@
     #Other
     gnome-clocks
     networkmanagerapplet
-    virt-manager
     nautilus
   ];
 }

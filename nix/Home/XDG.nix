@@ -64,12 +64,6 @@ in
       exec = "nm-connection-editor";
       categories = [ "Settings" ];
     };
-    virt-manager = {
-      name = "Virtual";
-      icon = "virt-manager";
-      exec = "virt-manager";
-      categories = [ "System" ];
-    };
     supersonic = {
       name = "Music";
       icon = "juk";

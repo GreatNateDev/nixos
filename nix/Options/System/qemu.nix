@@ -19,6 +19,7 @@ in
   };
 
   config = lib.mkIf config.qemu.enable {
+    home-manager.users.${username}.qemu.enable = true;
     virtualisation.libvirtd = {
       enable = true;
       qemu = {
