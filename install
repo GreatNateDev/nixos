@@ -122,7 +122,7 @@ if [[ "$confirmop" == "y" ]]; then
     if [[ "$mprisr" == "y" ]]; then
     MPRIS="true"
     fi
-
+fi
 cat >~/.config/nixos/nix/options.nix <<EOF
 { config, lib, ... }:
 
@@ -131,15 +131,15 @@ cat >~/.config/nixos/nix/options.nix <<EOF
   config.gaming.enable = ${GAMING};
   config.hacking.enable = ${HACKING};
   config.development.enable = ${DEV};
-  config.vpn.enable = $(VPN);
-  config.opensnitch.enable = $(SNITCH);
-  config.ssh.enable = $(SSH);
-  config.qemu.enable = $(QEMU);
-  config.font.enable = $(FONT);
-  config.streaming.enable = $(STREAMING);
+  config.vpn.enable = ${VPN};
+  config.opensnitch.enable = ${SNITCH};
+  config.ssh.enable = ${SSH};
+  config.qemu.enable = ${QEMU};
+  config.font.enable = ${FONT};
+  config.streaming.enable = ${STREAMING};
   config.gui.enable = ${GUI};
-  config.airdrop.enable = $(AIRDROP);
-  config.mpris.enable = $(MPRIS);
+  config.airdrop.enable = ${AIRDROP};
+  config.mpris.enable = ${MPRIS};
 }
 EOF
 echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet --cores=$(nproc) --max-jobs=$(nproc) && echo Done!
