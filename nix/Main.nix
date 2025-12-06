@@ -21,23 +21,8 @@ in
     (import /home/${username}/.config/nixos/nix/hardware.nix)
     (import /home/${username}/.config/nixos/nix/custom.nix)
     /home/${username}/.config/nixos/nix/options.nix # ← This enables hello.enable, etc.
-    ./Options/System/hello.nix
-    ./Options/System/gaming.nix
-    ./Options/System/hacking.nix
-    ./Options/System/development.nix
-    ./Options/System/vpn.nix
-    ./Options/System/ssh.nix
-    ./Options/System/opensnitch.nix
-    ./Options/System/qemu.nix
-    ./Options/System/font.nix
-    ./System/Locale.nix
-    ./System/Packages.nix
-    ./System/Programs.nix
-    ./System/Boot.nix
-    ./System/Network.nix
-    ./System/Security.nix
-    ./System/Services.nix
-    ./System/User.nix
+    ./Options/System
+    ./System
   ];
 
   networking.hostName = hostname;
@@ -73,19 +58,8 @@ in
     {
       imports = [
         (import /home/${username}/.config/nixos/nix/custom-home.nix)
-        ./Options/Home/hello.nix
-        ./Options/Home/gaming.nix
-        ./Options/Home/hacking.nix
-        ./Options/Home/development.nix
-        ./Options/Home/vpn.nix
-        ./Options/Home/opensnitch.nix
-        ./Home/Packages.nix
-        ./Home/External.nix
-        ./Home/Programs.nix
-        ./Home/Theme.nix
-        ./Home/XDG.nix
-        ./Home/Hyprland.nix
-        ./Home/Systemd.nix
+        ./Options/Home
+        ./Home
       ];
       home.username = username;
       home.homeDirectory = "/home/${username}";

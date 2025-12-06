@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
     pavucontrol
     mpv
-    obs-studio
     supersonic
     localsend
     ungoogled-chromium

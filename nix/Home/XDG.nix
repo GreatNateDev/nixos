@@ -88,12 +88,6 @@ in
       exec = "zeditor";
       categories = [ "Development" ];
     };
-    "com.obsproject.Studio" = {
-      name = "Record";
-      icon = "obs";
-      exec = "obs";
-      categories = [ "AudioVideo" ];
-    };
     "org.gnome.clocks" = {
       name = "Time";
       icon = "preferences-system-time";
