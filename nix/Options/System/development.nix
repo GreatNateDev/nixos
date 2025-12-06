@@ -18,7 +18,7 @@ in
     description = "Enable Development.";
   };
 
-  config = lib.mkIf config.gaming.enable {
+  config = lib.mkIf config.development.enable {
     environment.systemPackages = with pkgs; [
       rustfmt
       fzf

@@ -19,7 +19,7 @@ in
 
   config = lib.mkIf config.ssh.enable {
     networking.firewall.allowedTCPPorts = lib.mkAfter [ 22 ];
-    openssh = {
+    services.openssh = {
       enable = true;
       settings = {
         PermitRootLogin = "no";
