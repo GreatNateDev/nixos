@@ -5,77 +5,79 @@ let
   env = import /home/${user}/.config/nixos/nix/env.nix;
 in
 {
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications = {
-      "text/html" = [ "librewolf.desktop" ];
-      "x-scheme-handler/http" = [ "librewolf.desktop" ];
-      "x-scheme-handler/https" = [ "librewolf.desktop" ];
-      "x-scheme-handler/about" = [ "librewolf.desktop" ];
-      "x-scheme-handler/unknown" = [ "librewolf.desktop" ];
+  xdg = {
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "text/html" = [ "librewolf.desktop" ];
+        "x-scheme-handler/http" = [ "librewolf.desktop" ];
+        "x-scheme-handler/https" = [ "librewolf.desktop" ];
+        "x-scheme-handler/about" = [ "librewolf.desktop" ];
+        "x-scheme-handler/unknown" = [ "librewolf.desktop" ];
+      };
     };
-  };
-  xdg.userDirs.createDirectories = false;
-  xdg.userDirs = {
-    desktop = /home/${env.username};
-    download = /home/${env.username};
-    templates = /home/${env.username};
-    publicShare = /home/${env.username};
-    documents = /home/${env.username};
-    music = /home/${env.username};
-    pictures = /home/${env.username};
-    videos = /home/${env.username};
-  };
-  xdg.desktopEntries = {
-    yazi = {
-      name = "yazi";
-      exec = "alacritty -e yazi";
-      noDisplay = true;
-      categories = [ "Utility" ];
+    userDirs = {
+      createDirectories = false;
+      desktop = /home/${env.username};
+      download = /home/${env.username};
+      templates = /home/${env.username};
+      publicShare = /home/${env.username};
+      documents = /home/${env.username};
+      music = /home/${env.username};
+      pictures = /home/${env.username};
+      videos = /home/${env.username};
     };
-    chromium-browser = {
-      name = "Chromium";
-      exec = "chromium";
-      noDisplay = true;
-      categories = [ "Network" ];
-    };
-    nixos-manual = {
-      name = "Nixos Manual";
-      exec = "nixos-help";
-      noDisplay = true;
-      categories = [ "System" ];
-    };
-    htop = {
-      name = "htop";
-      exec = "alacritty -e htop";
-      noDisplay = true;
-      categories = [ "System" ];
-    };
-    Alacritty = {
-      name = "alacritty";
-      exec = "alacritty";
-      noDisplay = true;
-      categories = [ "System" ];
-    };
+    desktopEntries = {
+      yazi = {
+        name = "yazi";
+        exec = "alacritty -e yazi";
+        noDisplay = true;
+        categories = [ "Utility" ];
+      };
+      chromium-browser = {
+        name = "Chromium";
+        exec = "chromium";
+        noDisplay = true;
+        categories = [ "Network" ];
+      };
+      nixos-manual = {
+        name = "Nixos Manual";
+        exec = "nixos-help";
+        noDisplay = true;
+        categories = [ "System" ];
+      };
+      htop = {
+        name = "htop";
+        exec = "alacritty -e htop";
+        noDisplay = true;
+        categories = [ "System" ];
+      };
+      Alacritty = {
+        name = "alacritty";
+        exec = "alacritty";
+        noDisplay = true;
+        categories = [ "System" ];
+      };
 
-    supersonic = {
-      name = "Music";
-      icon = "juk";
-      exec = "supersonic";
-      categories = [ "AudioVideo" ];
-    };
-    "librewolf" = {
-      name = "Browser";
-      icon = "librewolf";
-      exec = "librewolf";
-      categories = [ "Network" ];
-    };
-    "dev.zed.Zed" = {
-      name = "Editor";
-      icon = "zed";
-      exec = "zeditor";
-      categories = [ "Development" ];
-    };
+      supersonic = {
+        name = "Music";
+        icon = "juk";
+        exec = "supersonic";
+        categories = [ "AudioVideo" ];
+      };
+      "librewolf" = {
+        name = "Browser";
+        icon = "librewolf";
+        exec = "librewolf";
+        categories = [ "Network" ];
+      };
+      "dev.zed.Zed" = {
+        name = "Editor";
+        icon = "zed";
+        exec = "zeditor";
+        categories = [ "Development" ];
+      };
 
+    };
   };
 }

@@ -11,24 +11,25 @@ let
   };
 in
 {
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  boot.plymouth = {
-    enable = true;
-    theme = "nixos-spinner";
-    themePackages = [ nixosSpinnerTheme ];
+  boot = {
+    consoleLogLevel = 0;
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+    };
+    plymouth = {
+      enable = true;
+      theme = "nixos-spinner";
+      themePackages = [ nixosSpinnerTheme ];
+    };
+    initrd = {
+      systemd.enable = true;
+      verbose = false;
+    };
+    kernelParams = [
+      "quiet"
+      "splash"
+      "vt.global_cursor_default=0"
+    ];
   };
-
-  # Enable systemd in initrd for early Plymouth
-  boot.initrd.systemd.enable = true;
-
-  boot.kernelParams = [
-    "quiet"
-    "splash"
-    "vt.global_cursor_default=0"
-  ];
-
-  boot.consoleLogLevel = 0;
-  boot.initrd.verbose = false;
 }

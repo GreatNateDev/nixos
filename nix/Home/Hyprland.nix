@@ -7,9 +7,6 @@ in
 {
   wayland.windowManager.hyprland = {
     enable = true;
-    #plugins = [
-    #  inputs.hyprland-plugins.packages.${pkgs.system}.hyprscrolling
-    #];
     settings = {
       monitor = ", preferred, auto, 1";
       bezier = "springy, 0.13, 0.99, 0.29, 1.1";
@@ -22,7 +19,6 @@ in
           "rgba(ff0000ff) rgba(ffff00ff) rgba(00ff00ff) rgba(00ffffff) rgba(0000ffff) rgba(ff00ffff) 45deg";
         "col.inactive_border" = "rgba(595959aa)";
       };
-
       decoration = {
         rounding = 10;
         fullscreen_opacity = 0.8;
@@ -30,10 +26,6 @@ in
           enabled = true;
           size = 3;
           passes = 3;
-          # These settings help blur work better with layers like waybar
-          # new_optimizations = true;
-          # xray = false;
-          #ignore_opacity = false;
         };
 
         shadow = {
@@ -43,37 +35,25 @@ in
           color = "rgba(1a1a1aee)";
         };
       };
-
       animation = [
         "windowsIn, 1, 7, springy, popin 90%"
         "windowsOut, 1, 7, springy, popin 90%"
         "windowsMove, 1, 7, springy, slide"
         "workspaces, 1, 7, springy, slidevert"
         "fade, 1, 7, springy"
-        #"border, 1, 10, default"
-        #"borderangle, 1, 8, linear, loop"
       ];
-
-      # Layer rules for waybar blur
       layerrule = [
         "blur, waybar"
         "ignorezero, waybar"
-        # Optional: add slight opacity to waybar
-        # "opacity 0.95, waybar"
       ];
-      # Window rules - opacity
       windowrulev2 = [
         "noblur, class:^(osu!)$"
-
-        "opacity 0.70 0.70, focus:0" # Inactive windows
-        "opacity 0.90 0.90, focus:1" # Active windows (default)
-
-        # Alacritty
+        "opacity 0.70 0.70, focus:0"
+        "opacity 0.90 0.90, focus:1"
         "opacity 0.95 0.95, class:^(Alacritty)$"
         "opacity 0.70 0.70, focus:0, class:^(Alacritty)$"
         "maximize, class:^(Alacritty)$"
       ];
-
       exec-once = [
         "supersonic -start-minimized"
         "waybar"
@@ -81,13 +61,10 @@ in
         "polkit-gnome-authentication-agent-1"
         "mako"
       ];
-
       input = {
         natural_scroll = false;
       };
-
       "$mod" = "SUPER";
-
       bind = [
         ", Print, exec, hyprshot -m region"
         "$mod ALT, F, exec, zsh ~/.config/nixos/data/hyprland/fullscreen_trans.zsh"
@@ -128,12 +105,10 @@ in
         "$mod SHIFT, 8, movetoworkspace, 8"
         "$mod SHIFT, 9, movetoworkspace, 9"
       ];
-
       binde = [
         "$mod, up, exec, zsh /home/${env.username}/.config/nixos/data/hyprland/workspaces.zsh --input=up"
         "$mod, down, exec, zsh /home/${env.username}/.config/nixos/data/hyprland/workspaces.zsh --input=down"
       ];
-
       bindle = [
         "Ctrl, XF86AudioPlay, exec, playerctl previous"
         "Shift, XF86AudioPlay, exec, playerctl next"

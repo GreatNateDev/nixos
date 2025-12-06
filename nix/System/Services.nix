@@ -1,9 +1,4 @@
-{ config, ... }:
-let
-  actualUser = builtins.getEnv "SUDO_USER";
-  user = if actualUser != "" then actualUser else builtins.getEnv "USER";
-  env = import /home/${user}/.config/nixos/nix/env.nix;
-in
+{ ... }:
 {
   hardware.bluetooth.enable = true;
   services = {
@@ -23,6 +18,5 @@ in
       alsa.support32Bit = true;
       pulse.enable = true;
     };
-
   };
 }

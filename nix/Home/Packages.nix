@@ -1,4 +1,4 @@
-{ pkgs, pkgs-stable, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     supersonic
@@ -13,9 +13,6 @@
     zsh-completions
     zsh-history-substring-search
     zsh-fzf-tab
-    #Themeing
     nerd-fonts.jetbrains-mono
-    quickshell
-    kdePackages.qtdeclarative
   ];
 }
