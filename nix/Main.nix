@@ -3,6 +3,7 @@
   lib,
   inputs,
   pkgs-stable,
+  pkgs-master,
   nur,
   winegdk,
   ...
@@ -46,6 +47,7 @@ in
       pkgs-stable
       nur
       winegdk
+      pkgs-master
       ;
   };
   home-manager.users.${username} =

@@ -3,6 +3,7 @@
   lib,
   pkgs,
   pkgs-stable,
+  pkgs-master,
   ...
 }:
 
@@ -30,7 +31,7 @@ in
     '';
     home.packages = with pkgs; [
       lutris
-      osu-lazer-bin
+      pkgs-master.osu-lazer-bin
       prismlauncher
       adwsteamgtk
       mindustry-wayland

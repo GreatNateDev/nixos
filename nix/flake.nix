@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    master.url = "github:NixOS/nixpkgs/master";
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
@@ -19,7 +20,17 @@
     nur.url = "github:nix-community/NUR";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-stable, home-manager, wine-gdk, nur, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-stable,
+      home-manager,
+      wine-gdk,
+      nur,
+      master,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
       actualUser = builtins.getEnv "SUDO_USER";
@@ -29,12 +40,22 @@
         inherit system;
         config.allowUnfree = true;
       };
+      pkgs-master = import master {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in
     {
       nixosConfigurations.${env.hostname} = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit inputs pkgs-stable nur wine-gdk;
+          inherit
+            inputs
+            pkgs-stable
+            pkgs-master
+            nur
+            wine-gdk
+            ;
           winegdk = wine-gdk.packages.${system}.default;
         };
         modules = [
