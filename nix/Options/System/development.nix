@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  pkgs-stable,
   ...
 }:
 
@@ -20,7 +21,7 @@ in
 
   config = lib.mkIf config.development.enable {
     environment.systemPackages = with pkgs; [
-      rustfmt
+      pkgs-stable.rustfmt
       fzf
       file
       tldr
