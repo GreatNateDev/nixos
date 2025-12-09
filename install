@@ -73,6 +73,7 @@ STREAMING="false"
 GUI="false"
 AIRDROP="false"
 MPRIS="false"
+ENT="false"
 read -p "Set Extra Options? (y/N): " confirmop
 if [[ "$confirmop" == "y" ]]; then
   read -p "Gaming (y/N): " gamingr
@@ -123,6 +124,10 @@ if [[ "$confirmop" == "y" ]]; then
     if [[ "$mprisr" == "y" ]]; then
     MPRIS="true"
     fi
+    read -p "Entertainment (y/N): " entr
+    if [[ "$entr" == "y" ]]; then
+    ENT="true"
+    fi
 fi
 cat >~/.config/nixos/nix/options.nix <<EOF
 { config, lib, ... }:
@@ -141,6 +146,7 @@ cat >~/.config/nixos/nix/options.nix <<EOF
   config.gui.enable = ${GUI};
   config.airdrop.enable = ${AIRDROP};
   config.mpris.enable = ${MPRIS};
+  config.entertainment.enable = ${ENT};
 }
 EOF
 echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet --cores=$(nproc) --max-jobs=$(nproc) && echo Done!
