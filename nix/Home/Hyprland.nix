@@ -65,6 +65,14 @@ in
         natural_scroll = false;
       };
       "$mod" = "SUPER";
+      binds = {
+        drag_threshold = 10;
+      };
+      bindm = [
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizewindow"
+      ];
+
       bind = [
         ", Print, exec, hyprshot -m region"
         "$mod ALT, F, exec, zsh ~/.config/nixos/data/hyprland/fullscreen_trans.zsh"
@@ -86,6 +94,7 @@ in
         "$mod CTRL, Q, forcekillactive"
         "$mod, F, fullscreenstate, 1"
         "$mod SHIFT, F, fullscreenstate, 2"
+        "$mod, V, togglefloating"
         "$mod, 1, workspace, 1"
         "$mod, 2, workspace, 2"
         "$mod, 3, workspace, 3"

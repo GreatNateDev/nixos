@@ -1,4 +1,9 @@
-{ pkgs, nur, ... }:
+{
+  pkgs,
+  nur,
+  pkgs-stable,
+  ...
+}:
 let
   actualUser = builtins.getEnv "SUDO_USER";
   user = if actualUser != "" then actualUser else builtins.getEnv "USER";
@@ -98,13 +103,13 @@ in
     zed-editor = {
       enable = true;
       extraPackages = [
-        pkgs.nixd
-        pkgs.ruff
-        pkgs.ty
-        pkgs.nixfmt-rfc-style
-        pkgs.shellcheck
-        pkgs.shfmt
-        pkgs.minecraftia
+        pkgs-stable.nixd
+        pkgs-stable.ruff
+        pkgs-stable.ty
+        pkgs-stable.nixfmt-rfc-style
+        pkgs-stable.shellcheck
+        pkgs-stable.shfmt
+        pkgs-stable.rustfmt
       ];
       extensions = [
         "nix"
@@ -117,8 +122,8 @@ in
         "discord-presence"
       ];
       userSettings = {
-        buffer_font_family = "Minecraftia";
-        ui_font_family = "Minecraftia";
+        buffer_font_family = "JetBrainsMonoNL Nerd Font Propo";
+        ui_font_family = "JetBrainsMonoNL Nerd Font Propo";
         disable_ai = true;
         terminal = {
           font_family = "JetBrainsMonoNL Nerd Font Propo";
@@ -164,45 +169,6 @@ in
         icon_theme = "Catppuccin Mocha";
 
         lsp = {
-          discord_presence = {
-            initialization_options = {
-              application_id = "1263505205522337886";
-
-              state = "Working on {filename}";
-              details = "In {workspace}";
-
-              large_image = "https://raw.githubusercontent.com/xhyrom/zed-discord-presence/main/assets/icons/{language:lo}.png";
-              large_text = "{language:u}";
-
-              small_image = "https://raw.githubusercontent.com/xhyrom/zed-discord-presence/main/assets/icons/zed.png";
-              small_text = "Zed";
-              idle = {
-                timeout = 300;
-                action = "change_activity";
-
-                state = "Idling";
-                details = "In Zed";
-                large_image = "https://raw.githubusercontent.com/xhyrom/zed-discord-presence/main/assets/icons/zed.png";
-                large_text = "Zed";
-                small_image = "https://raw.githubusercontent.com/xhyrom/zed-discord-presence/main/assets/icons/idle.png";
-                small_text = "Idle";
-              };
-
-              rules = {
-                mode = "blacklist";
-                paths = [ "absolute path" ];
-              };
-
-              git_integration = true;
-
-              languages = {
-                rust = {
-                  state = "Hacking on {filename}";
-                  details = "Rustacean at work";
-                };
-              };
-            };
-          };
           nixd = {
             settings = {
               nixpkgs.expr = "import <nixpkgs> { }";
