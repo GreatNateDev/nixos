@@ -262,58 +262,6 @@ in
               name = "Nate's Pages";
               toolbar = true;
               bookmarks = [
-                {
-                  name = "Profile";
-                  url = "https://github.com/GreatNateDev";
-                }
-                {
-                  name = "Scan";
-                  url = "https://www.virustotal.com/";
-                }
-                {
-                  name = "UrlCk";
-                  url = "https://www.urlvoid.com/";
-                }
-                {
-                  name = "FMHY";
-                  url = "http://localhost:4173";
-                }
-                {
-                  name = "Notes";
-                  url = "http://localhost:5230";
-                }
-                {
-                  name = "Address";
-                  url = "https://whatismyipaddress.com/";
-                }
-                {
-                  name = "FolderDL";
-                  url = "https://download-directory.github.io/";
-                }
-                {
-                  name = "AI-Weak";
-                  url = "https://chatgpt.com/";
-                }
-                {
-                  name = "AI-Strong";
-                  url = "https://claude.ai/";
-                }
-                {
-                  name = "YouTube";
-                  url = "https://www.youtube.com/";
-                }
-                {
-                  name = "OSU!";
-                  url = "https://osu.ppy.sh/";
-                }
-                {
-                  name = "Home-Options";
-                  url = "https://nix-community.github.io/home-manager/options.xhtml";
-                }
-                {
-                  name = "HyprLand";
-                  url = "https://wiki.hypr.land/";
-                }
               ];
             }
           ];
@@ -345,6 +293,8 @@ in
           "browser.toolbars.bookmarks.visibility" = "always";
           "browser.warnOnQuit" = false;
           "browser.warnOnQuitShortcut" = false;
+          "browser.fixup.dns_first_for_single_words" = true;
+          "dom.security.https_only_mode" = false;
         };
       };
       policies = {

@@ -11,7 +11,7 @@ let
   user = if actualUser != "" then actualUser else builtins.getEnv "USER";
   env = import /home/${user}/.config/nixos/nix/env.nix;
   username = env.username;
-  template = builtins.readFile ../../data/mprisence/config.toml;
+  template = builtins.readFile ../../../data/mprisence/config.toml;
   filled = builtins.replaceStrings [ "@imgbb_api_key@" ] [ env.imgbb ] template;
   mprisenceConfig = pkgs.writeTextFile {
     name = "mprisence-config.toml";
@@ -31,7 +31,7 @@ in
   config = lib.mkIf cfg.enable {
     wayland.windowManager.hyprland.settings.exec-once = lib.mkAfter [ "mprisence" ];
     home.file.".config/mprisence/config.toml".source = mprisenceConfig;
-    programs.zed-editor.userSettings.lsp = lib.mkAfter "discord_presence" {
+    programs.zed-editor.userSettings.lsp.discord_presence = {
       initialization_options = {
         application_id = "1263505205522337886";
 
