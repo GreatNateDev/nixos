@@ -31,6 +31,11 @@ lolcat <<"EOF"
 EOF
 read -p "Git User: " TARGET_GITUSER
 read -p "Git Email: " TARGET_GITEMAIL
+read -p "SSID: " TARGET_SSID
+read -p "Network Passkey: " TARGET_NETKEY
+read -p "Static IP (Leave blank to use DHCP): " TARGET_ADDRESS
+read -p "Gateway (the routers ip): " TARGET_GATEWAY
+read -p "Server Address (Can be empty but you will lose some features): " TARGET_SERVER
 sudo nixos-generate-config 2>/dev/null
 nix-env -e lolcat 2>/dev/null
 # INSTALLING BLOCK
@@ -47,6 +52,11 @@ cat >~/.config/nixos/nix/env.nix <<EOF
   fullname = "$TARGET_FULLNAME";
   gituser = "$TARGET_GITUSER";
   gitemail = "$TARGET_GITEMAIL";
+  ssid = "$TARGET_SSID";
+  netkey = "$TARGET_NETKEY";
+  gateway = $TARGET_GATEWAY;
+  address = "$TARGET_ADDRESS";
+  server = "$TARGET_SERVER";
   folder = "vbg";
   imgbb = "";
 }

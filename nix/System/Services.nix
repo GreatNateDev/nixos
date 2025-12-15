@@ -1,4 +1,9 @@
 { ... }:
+let
+  actualUser = builtins.getEnv "SUDO_USER";
+  user = if actualUser != "" then actualUser else builtins.getEnv "USER";
+  env = import /home/${user}/.config/nixos/nix/env.nix;
+in
 {
   hardware.bluetooth.enable = true;
   services = {
@@ -6,16 +11,16 @@
       enable = true;
       virtualHosts = {
         "http://jelly".extraConfig = ''
-          reverse_proxy http://localhost:8096
+          reverse_proxy http://${env.server}:8096
         '';
         "http://notify".extraConfig = ''
-          reverse_proxy http://localhost:5000
+          reverse_proxy http://${env.server}:5000
         '';
         "http://notes".extraConfig = ''
-          reverse_proxy http://localhost:5230
+          reverse_proxy http://${env.server}:5230
         '';
         "http://memos".extraConfig = ''
-          reverse_proxy http://localhost:5230
+          reverse_proxy http://${env.server}:5230
         '';
         "http://gpt".extraConfig = ''
           redir https://chatgpt.com permanent
