@@ -19,6 +19,7 @@ in
   };
 
   config = lib.mkIf config.mpris.enable {
+    environment.systemPackages = [ pkgs.mprisence ];
     home-manager.users.${username}.mpris.enable = true;
 
   };
