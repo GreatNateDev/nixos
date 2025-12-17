@@ -246,6 +246,11 @@ in
           packages =
             let
               nurPkgs = import nur { inherit pkgs; };
+              tempmail = pkgs.fetchFirefoxAddon {
+                name = "tempmail";
+                url = "https://addons.mozilla.org/firefox/downloads/file/3990577/temp_mail-0.0.34.xpi";
+                sha256 = "VM++yOpKesXpsZ/t9cwYOdJ+eAH2rLACgVgFmT21hhU=";
+              };
             in
             with nurPkgs.repos.rycee.firefox-addons;
             [
@@ -253,6 +258,7 @@ in
               darkreader
               return-youtube-dislikes
               sponsorblock
+              tempmail
             ];
         };
         bookmarks = {
