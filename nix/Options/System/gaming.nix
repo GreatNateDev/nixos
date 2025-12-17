@@ -25,6 +25,8 @@ in
       winegdk
     ];
     programs.steam.enable = true;
+    hardware.graphics.enable32Bit = true;
+    hardware.graphics.enable = true;
     home-manager.users.${username}.gaming.enable = true;
   };
 }
