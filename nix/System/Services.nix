@@ -19,29 +19,20 @@ in
         "http://notes".extraConfig = ''
           reverse_proxy http://${env.server}:5230
         '';
-        "http://memos".extraConfig = ''
-          reverse_proxy http://${env.server}:5230
-        '';
         "http://gpt".extraConfig = ''
-          redir https://chatgpt.com permanent
-        '';
-        "http://weak".extraConfig = ''
           redir https://chatgpt.com permanent
         '';
         "http://fmhy".extraConfig = ''
           redir https://fmhy.xyz permanent
-        '';
-        "http://account".extraConfig = ''
-          redir https://github.com/GreatNateDev permanent
-        '';
-        "http://profile".extraConfig = ''
-          redir https://github.com/GreatNateDev permanent
         '';
         "http://git".extraConfig = ''
           redir https://github.com/GreatNateDev permanent
         '';
         "http://osu".extraConfig = ''
           redir https://osu.ppy.sh permanent
+        '';
+        "http://q".extraConfig = ''
+          redir https://chat.qwen.ai/auth permanent
         '';
       };
     };

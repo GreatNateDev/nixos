@@ -20,14 +20,11 @@ in
         "jelly"
         "notify"
         "notes"
-        "memos"
         "gpt"
-        "weak"
         "fmhy"
-        "account"
-        "profile"
         "git"
         "osu"
+        "q"
       ];
     };
     networkmanager.ensureProfiles.profiles = {
