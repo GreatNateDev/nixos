@@ -30,7 +30,6 @@ in
       pkgs.mpv
       pkgs.gnome-clocks
       pkgs.networkmanagerapplet
-      pkgs.nautilus
     ];
     xdg.desktopEntries = {
       nm-connection-editor = {
@@ -55,6 +54,7 @@ in
       };
       "org.pulseaudio.pavucontrol" = {
         name = "Audio";
+        noDisplay = true;
         icon = "yast-sound";
         exec = "pavucontrol";
         categories = [ "AudioVideo" ];
