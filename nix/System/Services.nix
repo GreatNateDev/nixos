@@ -34,6 +34,12 @@ in
         "http://q".extraConfig = ''
           redir https://chat.qwen.ai/auth permanent
         '';
+        "http://disc".extraConfig = ''
+          redir https://discord.com/login permanent
+        '';
+        "http://yt".extraConfig = ''
+          redir https://youtube.com permanent
+        '';
       };
     };
     pulseaudio.enable = false;

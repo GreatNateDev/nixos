@@ -25,6 +25,8 @@ in
         "git"
         "osu"
         "q"
+        "yt"
+        "disc"
       ];
     };
     networkmanager.ensureProfiles.profiles = {
