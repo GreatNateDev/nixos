@@ -14,10 +14,11 @@ in
     git = {
       enable = true;
       settings = {
-        user = {
-          name = "${env.gituser}";
-          email = "${env.gitemail}";
-        };
+        # Deprecated in favor of gh auth login
+        #user = {
+         # name = "${env.gituser}";
+        #  email = "${env.gitemail}";
+       # };
         core.editor = "zeditor";
         pull.rebase = true;
       };
