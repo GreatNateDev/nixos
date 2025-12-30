@@ -28,6 +28,7 @@ in
       xwayland-satellite
       fuzzel
       gnome-keyring
+      wl-clipboard
       (catppuccin-sddm.override {
         flavor = "mocha";
         accent = "red";

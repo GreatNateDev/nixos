@@ -57,6 +57,44 @@ in
         source ${pkgs.fzf}/share/fzf/key-bindings.zsh
         source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
         source $HOME/.config/nixos/data/zsh/p10k.zsh
+        chpwd() {
+          clear
+          ls
+          if [[ -f shell.nix ]] && [[ -z "$IN_NIX_SHELL" ]]; then
+            nix-shell
+          fi
+        }
+        bindkey ' ' magic-space
+        autoload -Uz edit-command-line
+        zle -N edit-command-line
+        bindkey '^X^E' edit-command-line
+        alias -s json=lolcat
+        alias -s md=lolcat
+        alias -s go=zeditor
+        alias -s rs=zeditor
+        alias -s txt=lolcat
+        alias -s log=lolcat
+        alias -s py=zeditor
+        alias -s js=zeditor
+        alias -s ts=zeditor
+        alias -s html=xdg-open
+        autoload -Uz zmv
+        hash -d nx=~/.config/nixos/nix
+        function clear-screen-and-scrollback() {
+          echoti civis >"$TTY"
+          printf '%b' '\e[H\e[2J\e[3J' >"$TTY"
+          echoti cnorm >"$TTY"
+          zle redisplay
+        }
+        zle -N clear-screen-and-scrollback
+        bindkey '^X^L' clear-screen-and-scrollback
+        function copy-buffer-to-clipboard() {
+          echo -n "$BUFFER" | wl-copy
+          zle -M "Copied to clipboard"
+        }
+        zle -N copy-buffer-to-clipboard
+        bindkey '^X^C' copy-buffer-to-clipboard
+
       '';
       oh-my-zsh = {
         enable = true;
