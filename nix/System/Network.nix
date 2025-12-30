@@ -27,7 +27,9 @@ in
         "q"
         "yt"
         "disc"
-	"server"
+        "mail"
+        "gmail"
+        "server"
       ];
     };
     networkmanager.ensureProfiles.profiles = lib.mkIf config.managenet.enable {

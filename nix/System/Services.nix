@@ -42,9 +42,15 @@ in
         "http://yt".extraConfig = ''
           redir https://youtube.com permanent
         '';
+        "http://mail".extraConfig = ''
+          redir https://account.proton.me/mail permanent
+        '';
+        "http://gmail".extraConfig = ''
+          redir https://gmail.com permanent
+        '';
         "http://server".extraConfig = ''
-          	  reverse_proxy http://${env.server}
-          	'';
+          reverse_proxy http://${env.server}
+        '';
       };
     };
     pulseaudio = lib.mkIf config.windowmanager.enable { enable = false; };
