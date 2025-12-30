@@ -27,6 +27,7 @@ in
         "q"
         "yt"
         "disc"
+	"server"
       ];
     };
     networkmanager.ensureProfiles.profiles = lib.mkIf config.managenet.enable {

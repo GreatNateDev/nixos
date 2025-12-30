@@ -42,6 +42,9 @@ in
         "http://yt".extraConfig = ''
           redir https://youtube.com permanent
         '';
+	"http://server".extraConfig = ''
+	  reverse_proxy http://${env.server}
+	''
       };
     };
     pulseaudio = lib.mkIf config.windowmanager.enable { enable = false; };
