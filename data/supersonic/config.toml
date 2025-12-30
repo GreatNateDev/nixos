@@ -1,0 +1,113 @@
+[Application]
+EnableSystemTray = true
+CloseToSystemTray = false
+StartupPage = 'Playlists'
+SettingsTab = 'Playback'
+AllowMultiInstance = false
+MaxImageCacheSizeMB = 50
+SavePlayQueue = true
+SaveQueueToServer = false
+AddToPlaylistSkipDuplicates = false
+ShowTrackChangeNotification = false
+EnableLrcLib = true
+CustomLrcLibUrl = ''
+EnablePasswordStorage = false
+SkipSSLVerify = false
+EnqueueBatchSize = 100
+Language = 'auto'
+DisableDPIDetection = false
+EnableAutoUpdateChecker = true
+RequestTimeoutSeconds = 15
+EnableOSMediaPlayerAPIs = true
+ShowSidebar = false
+SidebarWidthFraction = 0.8
+FontNormalTTF = ''
+FontBoldTTF = ''
+UIScaleSize = 'Normal'
+
+[AlbumPage]
+TracklistColumns = ['Artist', 'Time', 'Plays', 'Favorite', 'Rating']
+
+[AlbumsPage]
+SortOrder = 'Recently Added'
+ShowYears = false
+ShuffleMode = 'Tracks'
+PlayInOrder = false
+
+[ArtistPage]
+InitialView = 'Discography'
+DiscographySort = ''
+TracklistColumns = ['Album', 'Time', 'Plays', 'Favorite', 'Rating']
+
+[ArtistsPage]
+SortOrder = 'Name (A-Z)'
+
+[FavoritesPage]
+InitialView = 'Albums'
+TracklistColumns = ['Album', 'Time', 'Plays']
+ShowAlbumYears = false
+
+[GridView]
+CardSize = 200.0
+
+[PlaylistPage]
+TracklistColumns = ['Album', 'Time', 'Plays']
+
+[PlaylistsPage]
+InitialView = 'List'
+
+[TracksPage]
+TracklistColumns = ['Album', 'Time', 'Plays']
+
+[NowPlayingConfig]
+InitialView = 'Play Queue'
+
+[Playback]
+Autoplay = false
+RepeatMode = 'All'
+SkipOneStarWhenShuffling = false
+SkipKeywordWhenShuffling = ''
+UseWaveformSeekbar = true
+
+[LocalPlayback]
+AudioDeviceName = 'auto'
+AudioExclusive = false
+InMemoryCacheSizeMB = 30
+Volume = 100
+EqualizerEnabled = false
+EqualizerPreamp = 0.0
+GraphicEqualizerBands = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+
+[Scrobbling]
+Enabled = true
+ThresholdTimeSeconds = 240
+ThresholdPercent = 50
+
+[ReplayGain]
+Mode = 'no'
+PreampGainDB = 0.0
+PreventClipping = true
+
+[Transcoding]
+ForceRawFile = false
+RequestTranscode = false
+Codec = 'opus'
+MaxBitRateKBPS = 160
+
+[Theme]
+ThemeFile = 'theme.toml'
+Appearance = 'Dark'
+
+
+
+
+[[Servers]]
+ServerType = 'Jellyfin'
+Hostname = 'http://@SERVER_IP@:8096'
+AltHostname = ''
+Username = '@USERNAME@'
+LegacyAuth = false
+ID = ''
+Nickname = "Server"
+Default = true
+SelectedLibrary = ''

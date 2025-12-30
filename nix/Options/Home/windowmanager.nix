@@ -11,7 +11,15 @@ let
   user = if actualUser != "" then actualUser else builtins.getEnv "USER";
   env = import /home/${user}/.config/nixos/nix/env.nix;
   username = env.username;
-
+  template = builtins.readFile ../../../data/supersonic/config.toml;
+  replacements = {
+    "@USERNAME@" = env.username;
+    "@SERVER_IP@" = env.server;
+  };
+  filled =
+    pkgs.lib.replaceStrings (builtins.attrNames replacements) (builtins.attrValues replacements)
+      template;
+  Config = pkgs.writeText "supersonic_config.toml" filled;
   cfg = config.windowmanager;
 in
 {
@@ -35,6 +43,12 @@ in
       ".config/waybar" = {
         source = ../../../data/waybar;
         recursive = true;
+      };
+      ".config/supersonic/themes/theme.toml" = {
+        source = ../../../data/supersonic/theme.toml;
+      };
+      ".config/supersonic/config.toml" = {
+        source = Config;
       };
     };
   };
