@@ -90,7 +90,7 @@ in
         };
       };
     };
-    alacritty = {
+    alacritty = lib.mkIf config.windowmanager.enable {
       enable = true;
       settings = {
         window = {
