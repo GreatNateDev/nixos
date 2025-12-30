@@ -69,107 +69,32 @@ echo "Getting hardware config..."
 sudo mv /etc/nixos/hardware-configuration.nix ~/.config/nixos/nix/hardware.nix
 echo "Removing old config..."
 sudo rm -rf /etc/nixos/
-echo "Options..."
-# Initialize variables with defaults
-GAMING="false"
-HACKING="false"
-DEV="false"
-VPN="false"
-SNITCH="false"
-SSH="false"
-QEMU="false"
-FONT="false"
-STREAMING="false"
-GUI="false"
-AIRDROP="false"
-MPRIS="false"
-ENT="false"
-DRAW="false"
-read -p "Set Extra Options? (y/N): " confirmop
-if [[ "$confirmop" == "y" ]]; then
-  read -p "Gaming (y/N): " gamingr
-  if [[ "$gamingr" == "y" ]]; then
-    GAMING="true"
-  fi
-    read -p "Hacking (y/N): " hackingr
-    if [[ "$hackingr" == "y" ]]; then
-    HACKING="true"
-    fi
-    read -p "Development (y/N): " devr
-    if [[ "$devr" == "y" ]]; then
-    DEV="true"
-    fi
-    read -p "VPN (y/N): " vpnr
-    if [[ "$vpnr" == "y" ]]; then
-    VPN="true"
-    fi
-    read -p "OpenSnitch (y/N): " snitchr
-    if [[ "$snitchr" == "y" ]]; then
-    SNITCH="true"
-    fi
-    read -p "SSH (y/N): " sshr
-    if [[ "$sshr" == "y" ]]; then
-    SSH="true"
-    fi
-    read -p "QEMU (y/N): " qemur
-    if [[ "$qemur" == "y" ]]; then
-    QEMU="true"
-    fi
-    read -p "Minecraft Font (y/N): " fontr
-    if [[ "$fontr" == "y" ]]; then
-    FONT="true"
-    fi
-    read -p "Streaming (y/N): " streamingr
-    if [[ "$streamingr" == "y" ]]; then
-    STREAMING="true"
-    fi
-    read -p "Extra GUI apps (y/N): " guir
-    if [[ "$guir" == "y" ]]; then
-    GUI="true"
-    fi
-    read -p "AirDrop (y/N): " airdropr
-    if [[ "$airdropr" == "y" ]]; then
-    AIRDROP="true"
-    fi
-    read -p "MPRISRPC (y/N): " mprisr
-    if [[ "$mprisr" == "y" ]]; then
-    MPRIS="true"
-    fi
-    read -p "Entertainment (y/N): " entr
-    if [[ "$entr" == "y" ]]; then
-    ENT="true"
-    fi
-    read -p "Drawing (y/N): " drawr
-    if [[ "$drawr" == "y" ]]; then
-    DRAW="true"
-    fi
-fi
 cat >~/.config/nixos/nix/options.nix <<EOF
 { ... }:
 
 {
 config = {
-hello.enable = false;
 windowmanager.enable = true;
-gaming.enable = ${GAMING};
-hacking.enable = ${HACKING};
-development.enable = ${DEV};
-vpn.enable = ${VPN};
-opensnitch.enable = ${SNITCH};
-ssh.enable = ${SSH};
-qemu.enable = ${QEMU};
-font.enable = ${FONT};
-streaming.enable = ${STREAMING};
-gui.enable = ${GUI};
-airdrop.enable = ${AIRDROP};
-mpris.enable = ${MPRIS};
-entertainment.enable = ${ENT};
-drawing.enable = ${DRAW};
+gaming.enable = false;
+hacking.enable = false;
+development.enable = false;
+vpn.enable = false;
+opensnitch.enable = false;
+ssh.enable = false;
+qemu.enable = false;
+font.enable = false;
+streaming.enable = false;
+gui.enable = false;
+airdrop.enable = false;
+mpris.enable = false;
+entertainment.enable = false;
+drawing.enable = false;
 };
 }
 EOF
-echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet --cores=$(nproc) --max-jobs=$(nproc) && echo Done!
 chmod -R +x $HOME/.config/nixos/scripts/
+nano $HOME/.config/nixos/nix/options.nix
+echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet --cores=$(nproc) --max-jobs=$(nproc) && echo Done!
 echo "Cleaning up..."
 nix-env -e git 2>/dev/null
 clear

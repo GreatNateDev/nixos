@@ -20,5 +20,7 @@
     unzip
     wget
     zsh
+    fzf
+    file
   ];
 }
