@@ -48,6 +48,7 @@ in
         nca = "nix-env -e '.*'";
         spaper = "zsh $HOME/.config/nixos/scripts/switchwall.zsh";
         img = "chafa";
+        server = "ssh ${env.username}@${env.server}";
       };
       initContent = ''
         rm -dfr ~/Downloads
