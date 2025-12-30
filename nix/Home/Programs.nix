@@ -2,6 +2,8 @@
   pkgs,
   nur,
   pkgs-stable,
+  config,
+  lib,
   ...
 }:
 let
@@ -16,10 +18,10 @@ in
       settings = {
         # Deprecated in favor of gh auth login
         #user = {
-         # name = "${env.gituser}";
+        # name = "${env.gituser}";
         #  email = "${env.gitemail}";
-       # };
-        core.editor = "zeditor";
+        # };
+        core.editor = "nano";
         pull.rebase = true;
       };
     };
@@ -67,7 +69,7 @@ in
         ];
       };
     };
-    fuzzel = {
+    fuzzel = lib.mkIf config.windowmanager.enable {
       enable = true;
       settings = {
         main = {
@@ -101,7 +103,7 @@ in
         };
       };
     };
-    zed-editor = {
+    zed-editor = lib.mkIf config.windowmanager.enable {
       enable = true;
       extraPackages = [
         pkgs-stable.nixd
@@ -238,7 +240,7 @@ in
         };
       };
     };
-    librewolf = {
+    librewolf = lib.mkIf config.windowmanager.enable {
       enable = true;
       profiles.default = {
         id = 0;
@@ -327,7 +329,7 @@ in
         DisableFormHistory = true;
       };
     };
-    waybar = {
+    waybar = lib.mkIf config.windowmanager.enable {
       enable = true;
     };
   };

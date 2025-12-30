@@ -1,11 +1,13 @@
-{ ... }:
+{ lib, config, ... }:
 let
   actualUser = builtins.getEnv "SUDO_USER";
   user = if actualUser != "" then actualUser else builtins.getEnv "USER";
   env = import /home/${user}/.config/nixos/nix/env.nix;
 in
 {
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth = lib.mkIf config.windowmanager.enable {
+    enable = true;
+  };
   services = {
     caddy = {
       enable = true;
@@ -42,9 +44,9 @@ in
         '';
       };
     };
-    pulseaudio.enable = false;
-    gnome.gnome-keyring.enable = true;
-    displayManager = {
+    pulseaudio = lib.mkIf config.windowmanager.enable { enable = false; };
+    gnome.gnome-keyring = lib.mkIf config.windowmanager.enable { enable = true; };
+    displayManager = lib.mkIf config.windowmanager.enable {
       sddm = {
         enable = true;
         wayland.enable = true;
@@ -52,7 +54,7 @@ in
       };
       defaultSession = "hyprland";
     };
-    pipewire = {
+    pipewire = lib.mkIf config.windowmanager.enable {
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;

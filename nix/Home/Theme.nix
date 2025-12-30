@@ -1,13 +1,18 @@
-{ pkgs, ... }:
 {
-  home.pointerCursor = {
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+{
+  home.pointerCursor = lib.mkIf config.windowmanager.enable {
     package = pkgs.catppuccin-cursors.mochaRed;
     name = "catppuccin-mocha-red-cursors";
     size = 24;
     gtk.enable = true;
     x11.enable = true;
   };
-  gtk = {
+  gtk = lib.mkIf config.windowmanager.enable {
     enable = true;
     theme = {
       name = "catppuccin-mocha-red-standard";
@@ -16,18 +21,18 @@
         variant = "mocha";
       };
     };
-    iconTheme = {
+    iconTheme = lib.mkIf config.windowmanager.enable {
       name = "candy-icons";
       package = pkgs.candy-icons;
     };
-    gtk3.extraConfig = {
+    gtk3.extraConfig = lib.mkIf config.windowmanager.enable {
       gtk-application-prefer-dark-theme = 1;
     };
-    gtk4.extraConfig = {
+    gtk4.extraConfig = lib.mkIf config.windowmanager.enable {
       gtk-application-prefer-dark-theme = 1;
     };
   };
-  home.sessionVariables = {
+  home.sessionVariables = lib.mkIf config.windowmanager.enable {
     XCURSOR_SIZE = "24";
     GTK_THEME = "catppuccin-mocha-red-standard";
     _JAVA_AWT_WM_NONREPARENTING = "1";
@@ -35,7 +40,7 @@
     QML_IMPORT_PATH = "${pkgs.quickshell}/lib/qml";
     QML2_IMPORT_PATH = "${pkgs.quickshell}/lib/qml";
   };
-  dconf.settings = {
+  dconf.settings = lib.mkIf config.windowmanager.enable {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
       gtk-theme = "catppuccin-mocha-red-standard";

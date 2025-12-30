@@ -145,24 +145,27 @@ if [[ "$confirmop" == "y" ]]; then
     fi
 fi
 cat >~/.config/nixos/nix/options.nix <<EOF
-{ config, lib, ... }:
+{ ... }:
 
 {
-  config.hello.enable = false;
-  config.gaming.enable = ${GAMING};
-  config.hacking.enable = ${HACKING};
-  config.development.enable = ${DEV};
-  config.vpn.enable = ${VPN};
-  config.opensnitch.enable = ${SNITCH};
-  config.ssh.enable = ${SSH};
-  config.qemu.enable = ${QEMU};
-  config.font.enable = ${FONT};
-  config.streaming.enable = ${STREAMING};
-  config.gui.enable = ${GUI};
-  config.airdrop.enable = ${AIRDROP};
-  config.mpris.enable = ${MPRIS};
-  config.entertainment.enable = ${ENT};
-  config.drawing.enable = ${DRAW};
+config = {
+hello.enable = false;
+windowmanager.enable = true;
+gaming.enable = ${GAMING};
+hacking.enable = ${HACKING};
+development.enable = ${DEV};
+vpn.enable = ${VPN};
+opensnitch.enable = ${SNITCH};
+ssh.enable = ${SSH};
+qemu.enable = ${QEMU};
+font.enable = ${FONT};
+streaming.enable = ${STREAMING};
+gui.enable = ${GUI};
+airdrop.enable = ${AIRDROP};
+mpris.enable = ${MPRIS};
+entertainment.enable = ${ENT};
+drawing.enable = ${DRAW};
+};
 }
 EOF
 echo 'Rebuilding NixOS...' && sudo nixos-rebuild switch --flake $HOME/.config/nixos/nix --impure --quiet --cores=$(nproc) --max-jobs=$(nproc) && echo Done!

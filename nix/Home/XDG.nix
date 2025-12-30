@@ -1,11 +1,11 @@
-{ ... }:
+{ lib, config, ... }:
 let
   actualUser = builtins.getEnv "SUDO_USER";
   user = if actualUser != "" then actualUser else builtins.getEnv "USER";
   env = import /home/${user}/.config/nixos/nix/env.nix;
 in
 {
-  xdg = {
+  xdg = lib.mkIf config.windowmanager.enable {
     mimeApps = {
       enable = true;
       defaultApplications = {
@@ -27,7 +27,7 @@ in
       pictures = /home/${env.username};
       videos = /home/${env.username};
     };
-    desktopEntries = {
+    desktopEntries = lib.mkIf config.windowmanager.enable {
       yazi = {
         name = "yazi";
         exec = "alacritty -e yazi";
