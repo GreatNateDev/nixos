@@ -3,18 +3,14 @@ clear
 echo "Starting Installer..."
 TARGET_USER="$USER"
 TARGET_HOSTNAME="$(hostname)"
-TARGET_FULLNAME=$(getent passwd "$TARGET_USER" | cut -d: -f5 | cut -d, -f1)
-if [ -z "$TARGET_FULLNAME" ]; then
-  TARGET_FULLNAME="$TARGET_USER"
-fi
 echo "Detected configuration:"
 echo "  Username: $TARGET_USER"
-echo "  Fullname: $TARGET_FULLNAME"
 echo "  Hostname: $TARGET_HOSTNAME"
 read -p "Continue with this configuration? (y/N): " confirm
 if [ "$confirm" != "y" ]; then
-  echo "Installation cancelled."
-  exit 1
+  sudo nano /etc/nixos/configuration.nix
+  sudo nixos-rebuild switch
+  sudo reboot
 fi
 nix-env -iA nixos.lolcat
 clear
@@ -26,16 +22,7 @@ lolcat <<"EOF"
 ██  ██ ██ ██   ██    ██    ██           ██     ██  ██ ██ ██  ██ ██  ██    ██      ██     ██ ██  ██ ██      ██    ██    ██   ██ ██      ██      ██      ██   ██
 ██   ████ ██   ██    ██    ███████ ███████     ██   ████ ██ ██   ██  ██████  ███████     ██ ██   ████ ███████    ██    ██   ██ ███████ ███████ ███████ ██   ██
 
-
-
 EOF
-read -p "Git User: " TARGET_GITUSER
-read -p "Git Email: " TARGET_GITEMAIL
-read -p "SSID: " TARGET_SSID
-read -p "Network Passkey: " TARGET_NETKEY
-read -p "Static IP (Leave blank to use DHCP): " TARGET_ADDRESS
-read -p "Gateway (the routers ip): " TARGET_GATEWAY
-read -p "Server Address (Can be empty but you will lose some features): " TARGET_SERVER
 sudo nixos-generate-config 2>/dev/null
 nix-env -e lolcat 2>/dev/null
 # INSTALLING BLOCK
@@ -47,18 +34,16 @@ mv ~/nixos/.gitattributes ~/.config/nixos/
 mv ~/nixos/* ~/.config/nixos/
 cat >~/.config/nixos/nix/env.nix <<EOF
 {
-  username = "$TARGET_USER";
-  hostname = "$TARGET_HOSTNAME";
-  fullname = "$TARGET_FULLNAME";
-  gituser = "$TARGET_GITUSER";
-  gitemail = "$TARGET_GITEMAIL";
-  ssid = "$TARGET_SSID";
-  netkey = "$TARGET_NETKEY";
-  gateway = $TARGET_GATEWAY;
-  address = "$TARGET_ADDRESS";
-  server = "$TARGET_SERVER";
-  folder = "vbg";
-  imgbb = "";
+  username = "$USER";
+  hostname = "$(hostname)";
+  fullname = "FullName";
+  ssid = "Network SSID";
+  netkey = "Network password";
+  gateway = "Network Gateway";
+  address = "Static Local IP";
+  server = "Server IP";
+  folder = "use abg or vbg or bg";
+  imgbb = "imgbb api key";
 }
 EOF
 echo "{ ... }: {}" >~/.config/nixos/nix/custom.nix
