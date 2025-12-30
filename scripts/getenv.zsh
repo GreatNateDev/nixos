@@ -1,5 +1,0 @@
-username=$(nix eval --raw -f $HOME/.config/nixos/nix/env.nix username)
-hostname=$(nix eval --raw -f $HOME/.config/nixos/nix/env.nix hostname)
-fullname=$(nix eval --raw -f $HOME/.config/nixos/nix/env.nix fullname)
-gituser=$(nix eval --raw -f $HOME/.config/nixos/nix/env.nix gituser)
-gitemail=$(nix eval --raw -f $HOME/.config/nixos/nix/env.nix gitemail)
