@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, config, ... }:
 
 let
   actualUser = builtins.getEnv "SUDO_USER";
@@ -29,12 +29,12 @@ in
         "disc"
       ];
     };
-    networkmanager.ensureProfiles.profiles = {
+    networkmanager.ensureProfiles.profiles = lib.mkIf config.managenet.enable {
       "main-ethernet" = {
         connection = {
           id = "main-ethernet";
           type = "ethernet";
-          interface-name = "*";
+          interface-name = "${env.ethinterface}";
           autoconnect = "true";
           autoconnect-priority = "10";
         };
