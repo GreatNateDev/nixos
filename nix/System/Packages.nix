@@ -24,5 +24,6 @@
     file
     jq
     ripgrep
+    fd
   ];
 }

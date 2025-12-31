@@ -34,6 +34,12 @@ in
         noDisplay = true;
         categories = [ "Utility" ];
       };
+      nvim = {
+          name = "nvim";
+          exec = "alacritty -e nvim";
+          noDisplay = true;
+          categories = [ "Utility" ];
+      };
       chromium-browser = {
         name = "Chromium";
         exec = "chromium";
