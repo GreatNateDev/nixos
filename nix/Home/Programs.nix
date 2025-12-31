@@ -146,7 +146,7 @@ in
         };
         font = {
           normal.family = "JetBrainsMono Nerd Font";
-          size = 24.5;
+          size = 15.0; # 24.5 used to be gold but its bad on my new stuff
         };
       };
     };
