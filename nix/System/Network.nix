@@ -18,8 +18,6 @@ in
     hosts = {
       "127.0.0.1" = [
         "jelly"
-        "notify"
-        "notes"
         "gpt"
         "fmhy"
         "git"
@@ -28,7 +26,7 @@ in
         "yt"
         "disc"
         "mail"
-        "gmail"
+        "gm"
         "server"
       ];
     };

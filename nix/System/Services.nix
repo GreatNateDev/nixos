@@ -15,12 +15,6 @@ in
         "http://jelly".extraConfig = ''
           reverse_proxy http://${env.server}:8096
         '';
-        "http://notify".extraConfig = ''
-          reverse_proxy http://${env.server}:5000
-        '';
-        "http://notes".extraConfig = ''
-          reverse_proxy http://${env.server}:5230
-        '';
         "http://gpt".extraConfig = ''
           redir https://chatgpt.com permanent
         '';
@@ -45,7 +39,7 @@ in
         "http://mail".extraConfig = ''
           redir https://account.proton.me/mail permanent
         '';
-        "http://gmail".extraConfig = ''
+        "http://gm".extraConfig = ''
           redir https://gmail.com permanent
         '';
         "http://server".extraConfig = ''
