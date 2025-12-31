@@ -22,5 +22,7 @@
     zsh
     fzf
     file
+    jq
+    ripgrep
   ];
 }

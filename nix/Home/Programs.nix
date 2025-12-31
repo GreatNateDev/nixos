@@ -12,7 +12,14 @@ let
   env = import /home/${user}/.config/nixos/nix/env.nix;
 in
 {
+  home.file.".config/nvim" = {
+    source = ../../data/nvim;
+    recursive = true;
+  };
   programs = {
+    neovim = {
+      enable = true;
+    };
     git = {
       enable = true;
       settings = {
@@ -21,7 +28,7 @@ in
         # name = "${env.gituser}";
         #  email = "${env.gitemail}";
         # };
-        core.editor = "nano";
+        core.editor = "nvim";
         pull.rebase = true;
       };
     };
@@ -51,51 +58,51 @@ in
         server = "ssh ${env.username}@${env.server}";
       };
       initContent = ''
-        rm -dfr ~/Downloads
-        pfetch
-	source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-        source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-        source ${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-        source ${pkgs.fzf}/share/fzf/key-bindings.zsh
-        source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
-        source $HOME/.config/nixos/data/zsh/p10k.zsh
-        chpwd() {
-          clear
-          ls
-          if [[ -f shell.nix ]] && [[ -z "$IN_NIX_SHELL" ]]; then
-            nix-shell
-          fi
-        }
-        bindkey ' ' magic-space
-        autoload -Uz edit-command-line
-        zle -N edit-command-line
-        bindkey '^X^E' edit-command-line
-        alias -s json=lolcat
-        alias -s md=lolcat
-        alias -s go=zeditor
-        alias -s rs=zeditor
-        alias -s txt=lolcat
-        alias -s log=lolcat
-        alias -s py=zeditor
-        alias -s js=zeditor
-        alias -s ts=zeditor
-        alias -s html=xdg-open
-        autoload -Uz zmv
-        hash -d nx=~/.config/nixos/nix
-        function clear-screen-and-scrollback() {
-          echoti civis >"$TTY"
-          printf '%b' '\e[H\e[2J\e[3J' >"$TTY"
-          echoti cnorm >"$TTY"
-          zle redisplay
-        }
-        zle -N clear-screen-and-scrollback
-        bindkey '^X^L' clear-screen-and-scrollback
-        function copy-buffer-to-clipboard() {
-          echo -n "$BUFFER" | wl-copy
-          zle -M "Copied to clipboard"
-        }
-        zle -N copy-buffer-to-clipboard
-        bindkey '^X^C' copy-buffer-to-clipboard
+                rm -dfr ~/Downloads
+                pfetch
+        	source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+                source ${pkgs.zsh-syntax-highlighting}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+                source ${pkgs.zsh-history-substring-search}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+                source ${pkgs.fzf}/share/fzf/key-bindings.zsh
+                source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
+                source $HOME/.config/nixos/data/zsh/p10k.zsh
+                chpwd() {
+                  clear
+                  ls
+                  if [[ -f shell.nix ]] && [[ -z "$IN_NIX_SHELL" ]]; then
+                    nix-shell
+                  fi
+                }
+                bindkey ' ' magic-space
+                autoload -Uz edit-command-line
+                zle -N edit-command-line
+                bindkey '^X^E' edit-command-line
+                alias -s json=lolcat
+                alias -s md=lolcat
+                alias -s go=nvim
+                alias -s rs=nvim
+                alias -s txt=lolcat
+                alias -s log=lolcat
+                alias -s py=nvim
+                alias -s js=nvim
+                alias -s ts=nvim
+                alias -s html=xdg-open
+                autoload -Uz zmv
+                hash -d nx=~/.config/nixos/nix
+                function clear-screen-and-scrollback() {
+                  echoti civis >"$TTY"
+                  printf '%b' '\e[H\e[2J\e[3J' >"$TTY"
+                  echoti cnorm >"$TTY"
+                  zle redisplay
+                }
+                zle -N clear-screen-and-scrollback
+                bindkey '^X^L' clear-screen-and-scrollback
+                function copy-buffer-to-clipboard() {
+                  echo -n "$BUFFER" | wl-copy
+                  zle -M "Copied to clipboard"
+                }
+                zle -N copy-buffer-to-clipboard
+                bindkey '^X^C' copy-buffer-to-clipboard
 
       '';
       oh-my-zsh = {

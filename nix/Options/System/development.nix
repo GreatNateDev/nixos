@@ -28,8 +28,8 @@ in
       docker
       docker-compose
       tree
-      jq
       termscp
+      gcc
     ];
     virtualisation.docker.enable = true;
     home-manager.users.${username}.development.enable = true;

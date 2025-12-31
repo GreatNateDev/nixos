@@ -39,6 +39,7 @@
     QT_STYLE_OVERRIDE = "adwaita-dark";
     QML_IMPORT_PATH = "${pkgs.quickshell}/lib/qml";
     QML2_IMPORT_PATH = "${pkgs.quickshell}/lib/qml";
+    EDITOR = "nvim";
   };
   dconf.settings = lib.mkIf config.windowmanager.enable {
     "org/gnome/desktop/interface" = {
