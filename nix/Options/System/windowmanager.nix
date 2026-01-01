@@ -45,6 +45,7 @@ in
       font-awesome
       material-design-icons
       polkit_gnome
+      zenity
     ];
     home-manager.users.${username}.windowmanager.enable = true;
   };

@@ -1,34 +1,80 @@
-# Configuration
-folder=$(nix eval --raw -f $HOME/.config/nixos/nix/env.nix folder)
-WALLPAPER_DIR="$HOME/.config/nixos/data/$folder"  # Change this to your wallpaper folder
+#!/usr/bin/env zsh
+
+# -----------------------
+# Load config from env.nix
+# -----------------------
+ENV_NIX="$HOME/.config/nixos/nix/env.nix"
+
+folder=$(nix eval --raw -f "$ENV_NIX" folder)
+wallpass=$(nix eval --raw -f "$ENV_NIX" wallpass)
+
+WALLPAPER_DIR="$HOME/.config/nixos/data/$folder"
 STATE_FILE="/tmp/awww_current_index"
+UNLOCK_FILE="/tmp/awww_wallpaper_unlocked_until"
 
-# Get all image and video files, sorted
-files=("${(@f)$(find "$WALLPAPER_DIR" -type f \( -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.gif" -o -iname "*.mp4" -o -iname "*.webm" -o -iname "*.mkv" -o -iname "*.webp" \) | sort)}")
+# -----------------------
+# Optional password gate
+# -----------------------
+if [[ -n "$wallpass" ]]; then
+  now=$(date +%s)
 
-# Check if we found any files
-if [ ${#files[@]} -eq 0 ]; then
-    echo "No wallpapers found in $WALLPAPER_DIR"
-    exit 1
+  if [[ -f "$UNLOCK_FILE" ]]; then
+    unlock_until=$(<"$UNLOCK_FILE")
+  else
+    unlock_until=0
+  fi
+
+  if (( now >= unlock_until )); then
+    entered=$(zenity \
+      --entry \
+      --title="Wallpaper Switching Locked" \
+      --text="Enter password to unlock (30 seconds)" \
+      --hide-text)
+
+    # Cancel pressed
+    [[ -z "$entered" ]] && exit 0
+
+    if [[ "$entered" != "$wallpass" ]]; then
+      zenity --error \
+        --title="Access Denied" \
+        --text="Incorrect password."
+      exit 1
+    fi
+
+    # Unlock for 30 seconds
+    echo $(( now + 30 )) > "$UNLOCK_FILE"
+
+    zenity --info \
+      --title="Unlocked" \
+      --text="Wallpaper switching unlocked for 30 seconds."
+  fi
 fi
 
-# Read current index, default to 0 if file doesn't exist
-if [ -f "$STATE_FILE" ]; then
-    current_index=$(cat "$STATE_FILE")
+# -----------------------
+# Wallpaper logic
+# -----------------------
+files=("${(@f)$(find "$WALLPAPER_DIR" -type f \( \
+  -iname "*.png" -o -iname "*.jpg" -o -iname "*.jpeg" -o \
+  -iname "*.gif" -o -iname "*.mp4" -o -iname "*.webm" -o \
+  -iname "*.mkv" -o -iname "*.webp" \
+\) | sort)}")
+
+if (( ${#files[@]} == 0 )); then
+  zenity --error \
+    --title="No Wallpapers" \
+    --text="No wallpapers found in $WALLPAPER_DIR"
+  exit 1
+fi
+
+if [[ -f "$STATE_FILE" ]]; then
+  current_index=$(<"$STATE_FILE")
 else
-    current_index=0
+  current_index=0
 fi
 
-# Get the current wallpaper
-current_wallpaper="${files[$current_index+1]}"  # zsh arrays are 1-indexed
+current_wallpaper="${files[$current_index+1]}"
 
-# Set the wallpaper
 awww img "$current_wallpaper"
 
-echo "Set wallpaper: $(basename "$current_wallpaper")"
-
-# Increment index and wrap around if necessary
 next_index=$(( (current_index + 1) % ${#files[@]} ))
-
-# Save the next index for next run
 echo "$next_index" > "$STATE_FILE"

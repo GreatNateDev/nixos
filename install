@@ -46,6 +46,7 @@ cat >~/.config/nixos/nix/env.nix <<EOF
   folder = "use abg or vbg or bg";
   imgbb = "imgbb api key";
   lockimg = "bg/water.jpg";
+  wallpass = "";
 }
 EOF
 nano ~/.config/nixos/nix/env.nix
