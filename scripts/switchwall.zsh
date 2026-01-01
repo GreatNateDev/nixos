@@ -74,7 +74,7 @@ fi
 
 current_wallpaper="${files[$current_index+1]}"
 
-awww img "$current_wallpaper"
+awww img --transition-pos top-right --transition-duration 1 --transition-type grow --transition-fps 60 "$current_wallpaper"
 
 next_index=$(( (current_index + 1) % ${#files[@]} ))
 echo "$next_index" > "$STATE_FILE"
