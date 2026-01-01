@@ -40,6 +40,7 @@
     QML_IMPORT_PATH = "${pkgs.quickshell}/lib/qml";
     QML2_IMPORT_PATH = "${pkgs.quickshell}/lib/qml";
     EDITOR = "nvim";
+    GTK_USE_PORTAL = "1";
   };
   dconf.settings = lib.mkIf config.windowmanager.enable {
     "org/gnome/desktop/interface" = {

@@ -122,6 +122,7 @@ in
       alacritty
       nerd-fonts.jetbrains-mono
       bemoji
+      hicolor-icon-theme
     ];
     home.file = {
       ".config/waybar" = {

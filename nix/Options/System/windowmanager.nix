@@ -47,6 +47,16 @@ in
       polkit_gnome
       zenity
     ];
+    services.dbus.packages = with pkgs; [
+      libappindicator-gtk3
+    ];
+    xdg.portal = {
+      enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal-hyprland
+      ];
+    };
+    services.dbus.enable = true;
     home-manager.users.${username}.windowmanager.enable = true;
   };
 }
