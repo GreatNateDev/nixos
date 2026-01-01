@@ -34,6 +34,10 @@ in
   };
 
   config = lib.mkIf cfg.enable {
+    programs.hyprshot = {
+      enable = true;
+      package = pkgs.hyprshot;
+    };
     programs.hyprlock = {
       enable = true;
       package = pkgs.hyprlock;
@@ -114,7 +118,7 @@ in
     home.packages = with pkgs; [
       supersonic
       ungoogled-chromium
-      hyprshot
+      hyprpicker
       alacritty
       nerd-fonts.jetbrains-mono
     ];

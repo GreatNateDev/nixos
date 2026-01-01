@@ -75,6 +75,8 @@ in
 
       bind = [
         ", Print, exec, hyprshot -m region"
+        "ALT, Print, exec, hyprshot -m window"
+        "$mod, Print, exec, hyprshot -m output"
         "$mod ALT, F, exec, zsh ~/.config/nixos/data/hyprland/fullscreen_trans.zsh"
         "$mod, W, exec, zsh ~/.config/nixos/scripts/switchwall.zsh"
         "$mod, period, layoutmsg, swapnext"
@@ -83,6 +85,7 @@ in
         "$mod SHIFT, comma, movewindow, l"
         "$mod SHIFT, up, movewindow, u"
         "$mod SHIFT, down, movewindow, d"
+        "$mod, PERIOD, exec, hyprpicker | wl-copy"
         "$mod, T, exec, alacritty"
         "$mod, D, exec, fuzzel"
         "$mod, Z, exec, zeditor"
