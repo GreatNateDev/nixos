@@ -45,6 +45,7 @@ cat >~/.config/nixos/nix/env.nix <<EOF
   server = "Server IP";
   folder = "use abg or vbg or bg";
   imgbb = "imgbb api key";
+  lockimg = "bg/water.jpg";
 }
 EOF
 nano ~/.config/nixos/nix/env.nix

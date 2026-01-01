@@ -36,7 +36,6 @@ in
         fontSize = "9";
         loginBackground = false;
       })
-      swaylock
       mako
       libnotify
       adwaita-qt

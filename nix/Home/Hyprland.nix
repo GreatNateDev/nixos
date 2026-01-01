@@ -21,7 +21,7 @@ in
       };
       decoration = {
         rounding = 10;
-        fullscreen_opacity = 0.8;
+        fullscreen_opacity = 1;
         blur = {
           enabled = true;
           size = 3;
@@ -88,7 +88,7 @@ in
         "$mod, Z, exec, zeditor"
         "$mod, B, exec, librewolf"
         "$mod, S, exec, supersonic"
-        "$mod ALT, L, exec, swaylock -i ~/.config/nixos/data/bg/wall.jpg"
+        "$mod ALT, L, exec, hyprlock"
         "$mod ALT, E, exit"
         "$mod, Q, killactive"
         "$mod CTRL, Q, forcekillactive"
