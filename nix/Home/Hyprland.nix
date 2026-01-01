@@ -86,6 +86,7 @@ in
         "$mod SHIFT, up, movewindow, u"
         "$mod SHIFT, down, movewindow, d"
         "$mod, PERIOD, exec, hyprpicker | wl-copy"
+        "$mod, SPACE, exec, bemoji"
         "$mod, T, exec, alacritty"
         "$mod, D, exec, fuzzel"
         "$mod, Z, exec, zeditor"

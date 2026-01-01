@@ -121,6 +121,7 @@ in
       hyprpicker
       alacritty
       nerd-fonts.jetbrains-mono
+      bemoji
     ];
     home.file = {
       ".config/waybar" = {
