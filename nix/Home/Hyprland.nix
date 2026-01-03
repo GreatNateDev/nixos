@@ -43,16 +43,16 @@ in
         "fade, 1, 7, springy"
       ];
       layerrule = [
-        "blur, waybar"
-        "ignorezero, waybar"
+        "blur on, match:namespace waybar"
+        "ignore_alpha 0, match:namespace waybar"
       ];
-      windowrulev2 = [
-        "noblur, class:^(osu!)$"
-        "opacity 0.70 0.70, focus:0"
-        "opacity 0.90 0.90, focus:1"
-        "opacity 0.95 0.95, class:^(Alacritty)$"
-        "opacity 0.70 0.70, focus:0, class:^(Alacritty)$"
-        "maximize, class:^(Alacritty)$"
+      windowrule = [
+        "no_blur on, match:class ^(osu!)$"
+        "opacity 0.70 0.70, match:focus 0"
+        "opacity 0.90 0.90, match:focus 1"
+        "opacity 0.95 0.95, match:class ^(Alacritty)$"
+        "opacity 0.70 0.70, match:class ^(Alacritty)$, match:focus 0"
+        "maximize on, match:class ^(Alacritty)$"
       ];
       exec-once = [
         "supersonic -start-minimized"
