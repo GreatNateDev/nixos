@@ -43,9 +43,9 @@ cat >~/.config/nixos/nix/env.nix <<EOF
   address = "Static Local IP";
   ethinterface = "Interface for ethernet"
   server = "Server IP";
-  folder = "use abg or vbg or bg";
+  folder = "bg";
   imgbb = "imgbb api key";
-  lockimg = "bg/water.jpg";
+  lockimg = "bg/yhole.jpeg";
   wallpass = "";
 }
 EOF
