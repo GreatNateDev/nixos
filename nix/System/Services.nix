@@ -45,6 +45,9 @@ in
         "http://server".extraConfig = ''
           reverse_proxy http://${env.server}
         '';
+        "http://tr".extraConfig = ''
+          redir https://translate.google.com/?sl=ja&tl=en permanent
+        '';
       };
     };
     pulseaudio = lib.mkIf config.windowmanager.enable { enable = false; };
