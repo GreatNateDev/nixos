@@ -117,6 +117,7 @@ in
         "$mod SHIFT, 7, movetoworkspace, 7"
         "$mod SHIFT, 8, movetoworkspace, 8"
         "$mod SHIFT, 9, movetoworkspace, 9"
+        "$mod, R, submap, resize"
       ];
       binde = [
         "$mod, up, exec, zsh /home/${env.username}/.config/nixos/data/hyprland/workspaces.zsh --input=up"
@@ -146,5 +147,19 @@ in
         { "disable_hyprland_logo" = true; }
       ];
     };
+    extraConfig = ''
+      submap = resize
+      binde = , right, resizeactive, 10 0
+      binde = , left, resizeactive, -10 0
+      binde = , up, resizeactive, 0 -10
+      binde = , down, resizeactive, 0 10
+      binde = SHIFT, right, resizeactive, 50 0
+      binde = SHIFT, left, resizeactive, -50 0
+      binde = SHIFT, up, resizeactive, 0 -50
+      binde = SHIFT, down, resizeactive, 0 50
+      bind = , escape, submap, reset
+      bind = , Return, submap, reset
+      submap = reset
+    '';
   };
 }
