@@ -156,7 +156,7 @@ in
         pkgs-stable.nixd
         pkgs-stable.ruff
         pkgs-stable.ty
-        pkgs-stable.nixfmt
+        pkgs.nixfmt
         pkgs-stable.shellcheck
         pkgs-stable.shfmt
         pkgs-stable.rustfmt
@@ -222,7 +222,7 @@ in
           nixd = {
             settings = {
               nixpkgs.expr = "import <nixpkgs> { }";
-              formatting.command = [ "${pkgs.nixfmt-rfc-style}/bin/nixfmt" ];
+              formatting.command = [ "${pkgs.nixfmt}/bin/nixfmt" ];
               options = {
                 nixos.expr = "(builtins.getFlake (builtins.toString /home/${env.username}/.config/nixos/nix)).nixosConfigurations.${env.hostname}.options";
                 home_manager.expr = "(builtins.getFlake (builtins.toString /home/${env.username}/.config/nixos/nix)).nixosConfigurations.${env.hostname}.options.home-manager.users.type.getSubOptions []";
