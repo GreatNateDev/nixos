@@ -156,7 +156,7 @@ in
         pkgs-stable.nixd
         pkgs-stable.ruff
         pkgs-stable.ty
-        pkgs-stable.nixfmt-rfc-style
+        pkgs-stable.nixfmt
         pkgs-stable.shellcheck
         pkgs-stable.shfmt
         pkgs-stable.rustfmt
