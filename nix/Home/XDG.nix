@@ -35,16 +35,10 @@ in
         categories = [ "Utility" ];
       };
       nvim = {
-          name = "nvim";
-          exec = "alacritty -e nvim";
-          noDisplay = true;
-          categories = [ "Utility" ];
-      };
-      chromium-browser = {
-        name = "Chromium";
-        exec = "chromium";
+        name = "nvim";
+        exec = "alacritty -e nvim";
         noDisplay = true;
-        categories = [ "Network" ];
+        categories = [ "Utility" ];
       };
       nixos-manual = {
         name = "Nixos Manual";

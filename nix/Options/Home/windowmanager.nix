@@ -117,13 +117,13 @@ in
     };
     home.packages = with pkgs; [
       supersonic
-      ungoogled-chromium
       hyprpicker
       alacritty
       nerd-fonts.jetbrains-mono
       bemoji
       hicolor-icon-theme
     ];
+    };
     home.file = {
       ".config/cava/config".text = ''
         [color]
