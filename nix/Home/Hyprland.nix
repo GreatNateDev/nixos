@@ -60,6 +60,9 @@ in
         "awww-daemon"
         "polkit-gnome-authentication-agent-1"
         "mako"
+      ]
+      ++ lib.optionals config.japanese.enable [
+        "fcitx5"
       ];
       input = {
         natural_scroll = false;

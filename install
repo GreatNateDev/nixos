@@ -81,6 +81,7 @@ mpris.enable = false;
 entertainment.enable = false;
 drawing.enable = false;
 chat.enable = false;
+japanese.enable = false;
 };
 }
 EOF
