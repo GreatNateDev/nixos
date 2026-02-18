@@ -169,7 +169,6 @@ in
         "catppuccin-icons"
         "gdscript"
         "basher"
-        "discord-presence"
       ];
       userSettings = {
         buffer_font_family = "JetBrainsMonoNL Nerd Font Propo";
