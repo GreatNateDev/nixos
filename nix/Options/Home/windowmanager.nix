@@ -123,7 +123,6 @@ in
       bemoji
       hicolor-icon-theme
     ];
-    };
     home.file = {
       ".config/cava/config".text = ''
         [color]
