@@ -13,15 +13,6 @@ let
   username = env.username;
   Username =
     (lib.toUpper (lib.substring 0 1 username)) + (lib.substring 1 (lib.stringLength username) username);
-  template = builtins.readFile ../../../data/supersonic/config.toml;
-  replacements = {
-    "@USERNAME@" = env.username;
-    "@SERVER_IP@" = env.server;
-  };
-  filled =
-    pkgs.lib.replaceStrings (builtins.attrNames replacements) (builtins.attrValues replacements)
-      template;
-  Config = pkgs.writeText "supersonic_config.toml" filled;
   cfg = config.windowmanager;
 in
 {
@@ -116,7 +107,6 @@ in
       };
     };
     home.packages = with pkgs; [
-      supersonic
       hyprpicker
       alacritty
       nerd-fonts.jetbrains-mono
@@ -142,12 +132,6 @@ in
       ".config/waybar" = {
         source = ../../../data/waybar;
         recursive = true;
-      };
-      ".config/supersonic/themes/theme.toml" = {
-        source = ../../../data/supersonic/theme.toml;
-      };
-      ".config/supersonic/config.toml" = {
-        source = Config;
       };
     };
   };

@@ -58,13 +58,6 @@ in
         noDisplay = true;
         categories = [ "System" ];
       };
-
-      supersonic = {
-        name = "Music";
-        icon = "juk";
-        exec = "supersonic";
-        categories = [ "AudioVideo" ];
-      };
       "librewolf" = {
         name = "Browser";
         icon = "librewolf";

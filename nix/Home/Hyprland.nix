@@ -55,7 +55,6 @@ in
         "maximize on, match:class ^(Alacritty)$"
       ];
       exec-once = [
-        "supersonic -start-minimized"
         "waybar"
         "awww-daemon"
         "polkit-gnome-authentication-agent-1"
@@ -63,6 +62,9 @@ in
       ]
       ++ lib.optionals config.japanese.enable [
         "fcitx5"
+      ]
+      ++ lib.optionals config.supersonic.enable [
+        "supersonic -start-minimized"
       ];
       input = {
         natural_scroll = false;
