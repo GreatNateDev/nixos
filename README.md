@@ -1,3 +1,4 @@
+# こんにちは!
 ## Installing
 Install NixOS from the ISO then run this command:
 ```bash
