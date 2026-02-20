@@ -14,9 +14,9 @@ let
   Username =
     (lib.toUpper (lib.substring 0 1 username)) + (lib.substring 1 (lib.stringLength username) username);
   cfg = config.windowmanager;
+  # ᓚᘏᗢ
   displayName = if config.japanese.enable && Username == "Nate" then "ネイト" else Username;
-  greeting =
-    if config.japanese.enable then "こんにちは ${displayName} ᓚᘏᗢ" else "Hello ${displayName} ᓚᘏᗢ";
+  greeting = if config.japanese.enable then "こんにちは${displayName}さん" else "Hello ${displayName}";
 in
 {
   options.windowmanager = {
