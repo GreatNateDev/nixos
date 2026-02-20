@@ -14,6 +14,9 @@ let
   Username =
     (lib.toUpper (lib.substring 0 1 username)) + (lib.substring 1 (lib.stringLength username) username);
   cfg = config.windowmanager;
+  displayName = if config.japanese.enable && Username == "Nate" then "ネイト" else Username;
+  greeting =
+    if config.japanese.enable then "こんにちは ${displayName} ᓚᘏᗢ" else "Hello ${displayName} ᓚᘏᗢ";
 in
 {
   options.windowmanager = {
@@ -56,7 +59,7 @@ in
             valign = "center";
           }
           {
-            text = "Hello ${Username} ᓚᘏᗢ";
+            text = greeting;
             font_size = 35;
             font_family = "$font";
             position = "0, 20";
