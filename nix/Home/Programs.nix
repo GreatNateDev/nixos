@@ -300,6 +300,11 @@ in
                 url = "https://addons.mozilla.org/firefox/downloads/file/3990577/temp_mail-0.0.34.xpi";
                 sha256 = "VM++yOpKesXpsZ/t9cwYOdJ+eAH2rLACgVgFmT21hhU=";
               };
+              duolingo = pkgs.fetchFirefoxAddon {
+                name = "duolingo-unlimited-hearts";
+                url = "https://addons.mozilla.org/firefox/downloads/file/4625755/duolingo_unlimited_hearts-3.4.1.xpi";
+                sha256 = "JaAYfGYFVl8OfWRI62f72x6e/EPKFPlhwcARSCy4pjQ=";
+              };
             in
             with nurPkgs.repos.rycee.firefox-addons;
             [
@@ -308,6 +313,10 @@ in
               return-youtube-dislikes
               sponsorblock
               tempmail
+              proton-vpn
+              bitwarden
+              mal-sync
+              duolingo
             ];
         };
         bookmarks = {
