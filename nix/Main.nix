@@ -34,6 +34,8 @@ in
       "steam"
       "steam-unwrapped"
       "osu-lazer-bin"
+      "slack"
+      "obsidian"
     ];
 
   system.stateVersion = "25.11";

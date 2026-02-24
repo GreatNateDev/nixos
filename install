@@ -84,6 +84,7 @@ chat.enable = false;
 japanese.enable = false;
 supersonic.enable = false;
 ytmusic.enable = false;
+work.enable = false;
 };
 }
 EOF
