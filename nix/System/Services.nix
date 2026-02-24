@@ -51,6 +51,9 @@ in
         "http://rss".extraConfig = ''
           reverse_proxy http://${env.server}:8082
         '';
+        "http://torrent".extraConfig = ''
+          reverse_proxy http://${env.server}:8080
+        '';
       };
     };
     pulseaudio = lib.mkIf config.windowmanager.enable { enable = false; };

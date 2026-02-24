@@ -29,6 +29,7 @@ in
         "gm"
         "server"
         "rss"
+        "torrent"
       ];
     };
     networkmanager.ensureProfiles.profiles = lib.mkIf config.managenet.enable {
