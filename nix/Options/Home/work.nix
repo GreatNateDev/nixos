@@ -42,7 +42,7 @@ in
         icon = "obsidian";
       };
       "chromium-browser" = {
-        name = "Browser";
+        name = "ExBrowser";
         exec = "chromium";
         icon = "chromium";
       };
