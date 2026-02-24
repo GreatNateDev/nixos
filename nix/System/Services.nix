@@ -48,6 +48,9 @@ in
         "http://tr".extraConfig = ''
           redir https://translate.google.com/?sl=ja&tl=en permanent
         '';
+        "http://rss".extraConfig = ''
+          reverse_proxy http://${env.server}:8082
+        '';
       };
     };
     pulseaudio = lib.mkIf config.windowmanager.enable { enable = false; };

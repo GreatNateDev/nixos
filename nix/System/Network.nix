@@ -28,6 +28,7 @@ in
         "mail"
         "gm"
         "server"
+        "rss"
       ];
     };
     networkmanager.ensureProfiles.profiles = lib.mkIf config.managenet.enable {
