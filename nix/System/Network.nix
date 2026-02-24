@@ -30,6 +30,7 @@ in
         "server"
         "rss"
         "torrent"
+        "password"
       ];
     };
     networkmanager.ensureProfiles.profiles = lib.mkIf config.managenet.enable {

@@ -54,6 +54,10 @@ in
         "http://torrent".extraConfig = ''
           reverse_proxy http://${env.server}:8080
         '';
+        "password".extraConfig = ''
+          tls internal
+          reverse_proxy http://${env.server}:8000
+        '';
       };
     };
     pulseaudio = lib.mkIf config.windowmanager.enable { enable = false; };
