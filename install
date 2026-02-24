@@ -48,6 +48,7 @@ cat >~/.config/nixos/nix/env.nix <<EOF
   lockimg = "bg/yhole.jpeg";
   wallpass = "";
   chatpass = "";
+  musicpass = "";
 }
 EOF
 nano ~/.config/nixos/nix/env.nix

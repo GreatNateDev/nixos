@@ -34,7 +34,7 @@ in
     xdg.desktopEntries = {
       "com.github.th_ch.youtube_music" = {
         name = "YTMusic";
-        exec = "pear-desktop";
+        exec = "zsh /home/${username}/.config/nixos/data/ytmusic/musiclock.zsh";
         icon = "youtube-music";
         categories = [ "Network" ];
       };
