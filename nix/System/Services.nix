@@ -45,9 +45,6 @@ in
         "http://server".extraConfig = ''
           reverse_proxy http://${env.server}
         '';
-        "http://tr".extraConfig = ''
-          redir https://translate.google.com/?sl=ja&tl=en permanent
-        '';
         "http://rss".extraConfig = ''
           reverse_proxy http://${env.server}:8082
         '';
@@ -57,6 +54,15 @@ in
         "password".extraConfig = ''
           tls internal
           reverse_proxy http://${env.server}:8000
+        '';
+        "http://tr".extraConfig = ''
+          reverse_proxy http://${env.server}:5000/?source=auto&target=en
+        '';
+        "http://tre".extraConfig = ''
+          reverse_proxy http://${env.server}:5000/?source=ja&target=en
+        '';
+        "http://trj".extraConfig = ''
+          reverse_proxy http://${env.server}:5000/?source=en&target=ja
         '';
       };
     };
