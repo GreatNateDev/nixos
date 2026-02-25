@@ -58,7 +58,9 @@ in
         "http://tr".extraConfig = ''
           reverse_proxy http://${env.server}:5000
         '';
-
+        "http://code".extraConfig = ''
+          reverse_proxy http://${env.server}:3000
+        '';
       };
     };
     pulseaudio = lib.mkIf config.windowmanager.enable { enable = false; };
