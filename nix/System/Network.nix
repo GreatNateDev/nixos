@@ -32,8 +32,6 @@ in
         "torrent"
         "password"
         "tr"
-        "trj"
-        "tre"
       ];
     };
     networkmanager.ensureProfiles.profiles = lib.mkIf config.managenet.enable {

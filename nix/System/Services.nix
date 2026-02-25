@@ -56,14 +56,9 @@ in
           reverse_proxy http://${env.server}:8000
         '';
         "http://tr".extraConfig = ''
-          reverse_proxy http://${env.server}:5000/?source=auto&target=en
+          reverse_proxy http://${env.server}:5000
         '';
-        "http://tre".extraConfig = ''
-          reverse_proxy http://${env.server}:5000/?source=ja&target=en
-        '';
-        "http://trj".extraConfig = ''
-          reverse_proxy http://${env.server}:5000/?source=en&target=ja
-        '';
+
       };
     };
     pulseaudio = lib.mkIf config.windowmanager.enable { enable = false; };
