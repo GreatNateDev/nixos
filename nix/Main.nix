@@ -74,6 +74,14 @@ in
   nix.extraOptions = ''
     warn-dirty = false
   '';
+  nix.gc = {
+    automatic = true;
+    dates = "daily"; # or "weekly"
+    options = "--delete-older-than 0d";
+  };
+
+  # Also clean old boot entries
+  boot.loader.systemd-boot.configurationLimit = 1;
   nix.settings = {
     experimental-features = [
       "nix-command"
