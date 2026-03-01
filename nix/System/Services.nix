@@ -48,7 +48,7 @@ in
         "http://torrent".extraConfig = ''
           redir https://torrent.${env.domain} permanent
         '';
-        "password".extraConfig = ''
+        "http://password".extraConfig = ''
           redir https://vault.${env.domain} permanent
         '';
         "http://tr".extraConfig = ''
