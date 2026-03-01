@@ -14,7 +14,7 @@ in
 
       settings = {
         address = [
-          "/pelmel.net/192.168.1.224"
+          "/${env.domain}/${env.server}"
         ];
       };
     };
