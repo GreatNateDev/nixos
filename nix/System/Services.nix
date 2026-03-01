@@ -55,7 +55,7 @@ in
           redir https://translate.${env.domain} permanent
         '';
         "http://code".extraConfig = ''
-          https://git.${env.domain} permanent
+          redir https://git.${env.domain} permanent
         '';
       };
     };
