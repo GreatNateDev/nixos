@@ -13,7 +13,7 @@ in
       enable = true;
       virtualHosts = {
         "http://jelly".extraConfig = ''
-          reverse_proxy http://${env.server}:8096
+          redir https://jelly.${env.domain} permanent
         '';
         "http://gpt".extraConfig = ''
           redir https://chatgpt.com permanent
@@ -22,7 +22,7 @@ in
           redir https://fmhy.xyz permanent
         '';
         "http://git".extraConfig = ''
-          redir https://github.com/GreatNateDev permanent
+          redir https://github.com/${env.gituser} permanent
         '';
         "http://osu".extraConfig = ''
           redir https://osu.ppy.sh permanent
@@ -42,24 +42,20 @@ in
         "http://gm".extraConfig = ''
           redir https://gmail.com permanent
         '';
-        "http://server".extraConfig = ''
-          reverse_proxy http://${env.server}
-        '';
         "http://rss".extraConfig = ''
-          reverse_proxy http://${env.server}:8082
+          redir https://rss.${env.domain} permanent
         '';
         "http://torrent".extraConfig = ''
-          reverse_proxy http://${env.server}:8080
+          redir https://torrent.${env.domain} permanent
         '';
         "password".extraConfig = ''
-          tls internal
-          reverse_proxy http://${env.server}:8000
+          redir https://vault.${env.domain} permanent
         '';
         "http://tr".extraConfig = ''
-          reverse_proxy http://${env.server}:5000
+          redir https://translate.${env.domain} permanent
         '';
         "http://code".extraConfig = ''
-          reverse_proxy http://${env.server}:3000
+          https://git.${env.domain} permanent
         '';
       };
     };
