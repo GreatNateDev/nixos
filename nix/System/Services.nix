@@ -9,6 +9,15 @@ in
     enable = true;
   };
   services = {
+    dnsmasq = {
+      enable = true;
+
+      settings = {
+        address = [
+          "/pelmel.net/192.168.1.224"
+        ];
+      };
+    };
     caddy = {
       enable = true;
       virtualHosts = {
