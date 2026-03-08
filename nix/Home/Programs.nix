@@ -370,6 +370,12 @@ in
               Alias = "nix";
               Icon = "https://search.nixos.org/favicon-96x96.png";
             }
+            {
+              Name = "SearXNG";
+              URLTemplate = "https://search.${env.domain}/search?q={searchTerms}";
+              Alias = "sear";
+              Icon = "https://docs.searxng.org/_static/searxng-wordmark.svg";
+            }
           ];
 
           Default = "StartPage";
