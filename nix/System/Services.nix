@@ -9,7 +9,7 @@ in
     enable = true;
   };
   services = {
-    dnsmasq = {
+    dnsmasq = lib.mkIf config.windowmanager.enable {
       enable = true;
 
       settings = {
