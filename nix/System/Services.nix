@@ -9,15 +9,6 @@ in
     enable = true;
   };
   services = {
-    dnsmasq = lib.mkIf config.windowmanager.enable {
-      enable = true;
-
-      settings = {
-        address = [
-          "/${env.domain}/${env.server}"
-        ];
-      };
-    };
     caddy = {
       enable = true;
       virtualHosts = {

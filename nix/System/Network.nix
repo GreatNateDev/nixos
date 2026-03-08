@@ -12,10 +12,10 @@ in
     firewall.enable = true;
     useDHCP = false;
     nameservers = [
-      "1.1.1.1"
-      "1.0.0.1"
-    ]
-    ++ lib.optional config.windowmanager.enable "127.0.0.1";
+      "192.168.1.135"
+    ];
+    # TO FIX allow for users to NOT have a pihole server
+    #++ lib.optional config.windowmanager.enable "127.0.0.1";
     hosts = {
       "127.0.0.1" = [
         "jelly"
@@ -51,12 +51,12 @@ in
               method = "manual";
               address1 = "${env.address}/24";
               gateway = "${env.gateway}";
-              dns = "1.1.1.1;1.0.0.1;";
+              dns = "192.168.1.135";
             }
           else
             {
               method = "auto";
-              dns = "1.1.1.1;1.0.0.1;";
+              dns = "192.168.1.135";
             };
         ipv6 = {
           method = "ignore";
@@ -83,12 +83,12 @@ in
               method = "manual";
               address1 = "${env.address}/24";
               gateway = "${env.gateway}";
-              dns = "1.1.1.1;1.0.0.1;";
+              dns = "192.168.1.135";
             }
           else
             {
               method = "auto";
-              dns = "1.1.1.1;1.0.0.1;";
+              dns = "192.168.1.135";
             };
         ipv6 = {
           method = "ignore";
