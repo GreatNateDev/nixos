@@ -15,9 +15,7 @@ in
       "1.1.1.1"
       "1.0.0.1"
     ]
-    ++ lib.mkIf config.windowmanager.enable [
-      "127.0.0.1"
-    ];
+    ++ lib.optional config.windowmanager.enable "127.0.0.1";
     hosts = {
       "127.0.0.1" = [
         "jelly"
