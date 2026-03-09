@@ -43,6 +43,7 @@ cat >~/.config/nixos/nix/env.nix <<EOF
   address = "Static Local IP";
   ethinterface = "Interface for ethernet"
   server = "Server IP";
+  dns = "DNS server";
   domain = "Server Domain"
   gitkey = "";
   folder = "bg";
