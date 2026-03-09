@@ -332,7 +332,7 @@ in
         };
         settings = {
           "browser.display.use_document_fonts" = 0;
-          "privacy.resistFingerprinting" = false;
+          "privacy.resistFingerprinting" = true;
           "browser.policies.runOncePerModification.setDefaultSearchEngine" = "StartPage";
           "browser.search.separatePrivateDefault" = false;
           "privacy.clearHistory.formdata" = true;
@@ -359,6 +359,7 @@ in
           "browser.warnOnQuitShortcut" = false;
           "browser.fixup.dns_first_for_single_words" = true;
           "dom.security.https_only_mode" = false;
+          "media.peerconnection.ice.default_address_only" = true;
         };
       };
       policies = {
