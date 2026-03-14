@@ -305,9 +305,15 @@ in
                 url = "https://addons.mozilla.org/firefox/downloads/file/4625755/duolingo_unlimited_hearts-3.4.1.xpi";
                 sha256 = "JaAYfGYFVl8OfWRI62f72x6e/EPKFPlhwcARSCy4pjQ=";
               };
+              theme = pkgs.fetchFirefoxAddon {
+                name = "theme";
+                url = "https://addons.mozilla.org/firefox/downloads/file/4160061/catppuccin_indigo-1.0.xpi";
+                sha256 = "zdSt2w7ROoWLjZRZdLoJMXlHnjz5t7i0uxSIwQlNq/w=";
+              };
             in
             with nurPkgs.repos.rycee.firefox-addons;
             [
+              theme
               violentmonkey
               darkreader
               return-youtube-dislikes
@@ -317,7 +323,7 @@ in
               bitwarden
               mal-sync
               duolingo
-              firefox-color
+
             ];
         };
         bookmarks = {
