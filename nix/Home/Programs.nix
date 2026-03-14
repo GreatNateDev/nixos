@@ -317,6 +317,7 @@ in
               bitwarden
               mal-sync
               duolingo
+              firefox-color
             ];
         };
         bookmarks = {
@@ -331,6 +332,8 @@ in
           ];
         };
         settings = {
+          "privacy.fingerprintingProtection.overrides" =
+            "+AllTargets,-CSSPrefersColorScheme,-CSSPrefersReducedTransparency";
           "browser.display.use_document_fonts" = 0;
           "privacy.resistFingerprinting" = true;
           "browser.policies.runOncePerModification.setDefaultSearchEngine" = "StartPage";
@@ -360,6 +363,7 @@ in
           "browser.fixup.dns_first_for_single_words" = true;
           "dom.security.https_only_mode" = false;
           "media.peerconnection.ice.default_address_only" = true;
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
         };
       };
       policies = {
